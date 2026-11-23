@@ -1,0 +1,496 @@
+media:
+  input: public/assets
+  output: /assets
+
+content:
+  - name: projects
+    label: Case studies
+    type: collection
+    path: content/projects
+    format: yaml-frontmatter
+    filename: "{fields.title}.md"
+    view:
+      fields: [title, year, order]
+    fields:
+      - { name: title, label: "Title", type: string }
+      - { name: order, label: Order, type: number }
+      - { name: year, label: "Year", type: string }
+      - { name: cover, label: "Cover", type: image }
+      - { name: video, label: "Video", type: string }
+      - { name: meta, label: "Meta", type: string }
+      - { name: tags, label: "Tags", type: string, list: true }
+      - { name: summary, label: "Summary", type: string }
+      - { name: role, label: "Role", type: string }
+      - { name: work, label: "Work", type: string, list: true }
+      - { name: link, label: "Link", type: string }
+      - { name: intro_white, label: "Intro white", type: text }
+      - { name: intro_muted, label: "Intro muted", type: string }
+      - { name: problem, label: "Problem", type: text }
+      - { name: stat_1, label: "Stat 1", type: string }
+      - { name: stat_1_label, label: "Stat 1 label", type: string }
+      - { name: stat_2, label: "Stat 2", type: string }
+      - { name: stat_2_label, label: "Stat 2 label", type: string }
+      - { name: results_white, label: "Results white", type: string }
+      - { name: results_muted, label: "Results muted", type: text }
+      - { name: hero_image, label: "Hero image", type: image }
+      - { name: image_wide, label: "Image wide", type: image }
+      - { name: image_a, label: "Image a", type: image }
+      - { name: image_b, label: "Image b", type: image }
+      - { name: gallery, label: "Gallery", type: image, list: true }
+  - name: blog
+    label: Blog posts
+    type: collection
+    path: content/blog
+    format: yaml-frontmatter
+    filename: "{fields.title}.md"
+    view:
+      fields: [title, date]
+    fields:
+      - { name: title, label: "Title", type: string }
+      - { name: category, label: "Category", type: string }
+      - { name: date, label: Date, type: date }
+      - { name: read, label: Read, type: number }
+      - { name: cover, label: "Cover", type: image }
+      - { name: excerpt, label: "Excerpt", type: text }
+      - { name: lead, label: "Lead", type: text }
+      - { name: lead_muted, label: "Lead muted", type: text }
+      - { name: detail, label: "Detail", type: text }
+      - { name: image, label: "Image", type: image }
+      - { name: body, label: Article, type: rich-text }
+  - name: settings
+    label: "Studio details (email, socials, footer)"
+    type: file
+    path: content/settings.json
+    format: json
+    fields:
+      - { name: studio_name, label: "Studio name", type: string }
+      - { name: wordmark, label: "Wordmark", type: string }
+      - { name: tagline, label: "Tagline", type: string }
+      - { name: founder_name, label: "Founder name", type: string }
+      - { name: founder_role, label: "Founder role", type: string }
+      - { name: founder_initial, label: "Founder initial", type: string }
+      - { name: email, label: "Email", type: string }
+      - { name: location, label: "Location", type: string }
+      - { name: timezone, label: "Timezone", type: string }
+      - { name: since, label: "Since", type: string }
+      - { name: booking_line, label: "Booking line", type: string }
+      - { name: slots_line, label: "Slots line", type: string }
+      - { name: slots_sub, label: "Slots sub", type: string }
+      - name: socials
+        label: "Socials"
+        type: object
+        list: true
+        fields:
+          - { name: name, label: "Name", type: string }
+          - { name: url, label: "Url", type: string }
+      - { name: copyright, label: "Copyright", type: string }
+      - { name: footer_credit, label: "Footer credit", type: string }
+      - { name: seo_description, label: "Seo description", type: text }
+  - name: home
+    label: "Home page"
+    type: file
+    path: content/home.json
+    format: json
+    fields:
+      - name: hero
+        label: "Hero"
+        type: object
+        fields:
+          - { name: video, label: "Video", type: image }
+          - { name: poster, label: "Poster", type: image }
+          - { name: eyebrow, label: "Eyebrow", type: string }
+          - { name: title_before, label: "Title before", type: string }
+          - { name: rotating_words, label: "Rotating words", type: string, list: true }
+          - { name: title_after, label: "Title after", type: string }
+          - { name: text, label: "Text", type: text }
+          - { name: button, label: "Button", type: string }
+          - { name: demo_lead, label: "Demo lead", type: string }
+          - { name: demo_strong, label: "Demo strong", type: string }
+          - { name: card_text, label: "Card text", type: text }
+          - { name: card_name, label: "Card name", type: string }
+          - { name: status, label: "Status", type: string }
+      - name: numbers
+        label: "Numbers"
+        type: object
+        fields:
+          - { name: label, label: "Label", type: string }
+          - { name: title, label: "Title", type: string }
+          - { name: value, label: "Value", type: string }
+          - { name: value_label, label: "Value label", type: string }
+          - { name: meter, label: Meter, type: number }
+          - { name: clients, label: "Clients", type: string, list: true }
+      - name: statement
+        label: "Statement"
+        type: object
+        fields:
+          - { name: title, label: "Title", type: string }
+          - { name: text, label: "Text", type: text }
+      - name: stages
+        label: "Stages"
+        type: object
+        fields:
+          - { name: image, label: "Image", type: image }
+          - { name: labels, label: "Labels", type: string, list: true }
+          - { name: text, label: "Text", type: text }
+      - name: about
+        label: "About"
+        type: object
+        fields:
+          - { name: title_a, label: "Title a", type: string }
+          - { name: title_hl, label: "Title hl", type: string }
+          - { name: title_b, label: "Title b", type: string }
+          - { name: stat_1, label: "Stat 1", type: string }
+          - { name: stat_1_label, label: "Stat 1 label", type: string }
+          - { name: stat_2, label: "Stat 2", type: string }
+          - { name: stat_2_suffix, label: "Stat 2 suffix", type: string }
+          - { name: stat_2_label, label: "Stat 2 label", type: string }
+          - { name: text_a, label: "Text a", type: text }
+          - { name: text_b, label: "Text b", type: text }
+          - { name: link, label: "Link", type: string }
+      - name: cases
+        label: "Cases"
+        type: object
+        fields:
+          - { name: title, label: "Title", type: string }
+          - { name: text_a, label: "Text a", type: string }
+          - { name: text_b, label: "Text b", type: string }
+      - name: services
+        label: "Services"
+        type: object
+        fields:
+          - { name: title, label: "Title", type: string }
+          - { name: text, label: "Text", type: text }
+          - { name: button, label: "Button", type: string }
+          - name: items
+            label: "Items"
+            type: object
+            list: true
+            fields:
+              - { name: title, label: "Title", type: string }
+              - { name: text, label: "Text", type: text }
+              - { name: image, label: "Image", type: image }
+              - { name: tags, label: "Tags", type: string, list: true }
+      - name: how
+        label: "How"
+        type: object
+        fields:
+          - { name: label, label: "Label", type: string }
+          - { name: title_a, label: "Title a", type: string }
+          - { name: title_b, label: "Title b", type: string }
+          - { name: title_hl, label: "Title hl", type: string }
+          - name: steps
+            label: "Steps"
+            type: object
+            list: true
+            fields:
+              - { name: title, label: "Title", type: string }
+              - { name: text, label: "Text", type: text }
+      - name: feature
+        label: "Feature"
+        type: object
+        fields:
+          - { name: project, label: "Project", type: string }
+          - { name: meta, label: "Meta", type: string }
+          - { name: challenge_white, label: "Challenge white", type: string }
+          - { name: challenge_muted, label: "Challenge muted", type: text }
+          - { name: value, label: "Value", type: string }
+          - { name: value_text, label: "Value text", type: string }
+          - { name: status, label: "Status", type: string }
+          - { name: status_text, label: "Status text", type: string }
+          - { name: stack_title, label: "Stack title", type: string }
+          - { name: stack_text, label: "Stack text", type: string }
+          - { name: stack, label: "Stack", type: string, list: true }
+          - { name: brief_white, label: "Brief white", type: string }
+          - { name: brief_muted, label: "Brief muted", type: string }
+          - { name: brief_by, label: "Brief by", type: string }
+          - { name: brief_role, label: "Brief role", type: string }
+      - name: results
+        label: "Results"
+        type: object
+        fields:
+          - { name: label, label: "Label", type: string }
+          - { name: title_a, label: "Title a", type: string }
+          - { name: title_hl, label: "Title hl", type: string }
+          - { name: text, label: "Text", type: text }
+          - { name: stat_1, label: "Stat 1", type: string }
+          - { name: stat_1_label, label: "Stat 1 label", type: string }
+          - { name: stat_2, label: "Stat 2", type: string }
+          - { name: stat_2_label, label: "Stat 2 label", type: string }
+          - { name: image, label: "Image", type: image }
+          - name: items
+            label: "Items"
+            type: object
+            list: true
+            fields:
+              - { name: name, label: "Name", type: string }
+              - { name: year, label: "Year", type: string }
+              - { name: text_white, label: "Text white", type: string }
+              - { name: text_muted, label: "Text muted", type: text }
+              - { name: role, label: "Role", type: string }
+      - name: demo
+        label: "Demo"
+        type: object
+        fields:
+          - { name: image, label: "Image", type: image }
+          - { name: pill, label: "Pill", type: string }
+          - { name: title, label: "Title", type: string }
+          - { name: text, label: "Text", type: text }
+          - { name: link, label: "Link", type: string }
+      - name: pricing
+        label: "Pricing"
+        type: object
+        fields:
+          - { name: label, label: "Label", type: string }
+          - { name: title_a, label: "Title a", type: string }
+          - { name: title_b, label: "Title b", type: string }
+          - { name: image, label: "Image", type: image }
+          - { name: per, label: "Per", type: string }
+          - { name: note, label: "Note", type: text }
+          - name: plans
+            label: "Plans"
+            type: object
+            list: true
+            fields:
+              - { name: name, label: "Name", type: string }
+              - { name: sub, label: "Sub", type: string }
+              - { name: timeline, label: "Timeline", type: string }
+              - { name: badge, label: "Badge", type: string }
+              - { name: price, label: "Price", type: string }
+              - { name: button, label: "Button", type: string }
+              - { name: items, label: "Items", type: string, list: true }
+      - name: articles
+        label: "Articles"
+        type: object
+        fields:
+          - { name: label, label: "Label", type: string }
+          - { name: title, label: "Title", type: string }
+          - { name: text, label: "Text", type: text }
+          - { name: button, label: "Button", type: string }
+          - { name: image, label: "Image", type: image }
+      - name: faq
+        label: "Faq"
+        type: object
+        fields:
+          - { name: label, label: "Label", type: string }
+          - { name: title, label: "Title", type: string }
+          - { name: skip_title, label: "Skip title", type: string }
+          - { name: skip_text, label: "Skip text", type: string }
+          - { name: skip_button, label: "Skip button", type: string }
+          - name: items
+            label: "Items"
+            type: object
+            list: true
+            fields:
+              - { name: q, label: "Q", type: string }
+              - { name: a, label: "A", type: text }
+      - name: cta
+        label: "Cta"
+        type: object
+        fields:
+          - { name: label, label: "Label", type: string }
+          - { name: title, label: "Title", type: string }
+          - { name: text, label: "Text", type: text }
+          - { name: image, label: "Image", type: image }
+          - { name: you, label: "You", type: string }
+          - { name: button_a, label: "Button a", type: string }
+          - { name: button_b, label: "Button b", type: string }
+      - name: contact
+        label: "Contact"
+        type: object
+        fields:
+          - { name: title, label: "Title", type: string }
+          - { name: looking_for, label: "Looking for", type: string, list: true }
+          - { name: budgets, label: "Budgets", type: string, list: true }
+          - { name: button, label: "Button", type: string }
+          - { name: footer_image, label: "Footer image", type: image }
+  - name: about
+    label: "About page"
+    type: file
+    path: content/about.json
+    format: json
+    fields:
+      - name: hero
+        label: "Hero"
+        type: object
+        fields:
+          - { name: title_a, label: "Title a", type: string }
+          - { name: title_hl, label: "Title hl", type: string }
+          - { name: title_b, label: "Title b", type: string }
+          - { name: stat_1, label: "Stat 1", type: string }
+          - { name: stat_1_label, label: "Stat 1 label", type: string }
+          - { name: stat_2, label: "Stat 2", type: string }
+          - { name: stat_2_label, label: "Stat 2 label", type: string }
+          - { name: text_a, label: "Text a", type: text }
+          - { name: text_b, label: "Text b", type: text }
+          - { name: side_a, label: "Side a", type: string }
+          - { name: side_b, label: "Side b", type: text }
+          - { name: link, label: "Link", type: string }
+          - { name: image, label: "Image", type: image }
+      - name: numbers
+        label: "Numbers"
+        type: object
+        list: true
+        fields:
+          - { name: value, label: "Value", type: string }
+          - { name: label, label: "Label", type: string }
+      - name: story
+        label: "Story"
+        type: object
+        fields:
+          - { name: white, label: "White", type: text }
+          - { name: muted, label: "Muted", type: text }
+          - { name: author, label: "Author", type: string }
+          - { name: role, label: "Role", type: string }
+      - { name: process, label: "Process", type: string, list: true }
+      - { name: stack_title, label: "Stack title", type: string }
+      - { name: stack, label: "Stack", type: string, list: true }
+      - name: record
+        label: "Record"
+        type: object
+        fields:
+          - { name: title, label: "Title", type: string }
+          - { name: text, label: "Text", type: text }
+          - name: rows
+            label: "Rows"
+            type: object
+            list: true
+            fields:
+              - { name: what, label: "What", type: string }
+              - { name: who, label: "Who", type: string }
+              - { name: years, label: "Years", type: string }
+          - { name: button, label: "Button", type: string }
+      - name: team
+        label: "Team"
+        type: object
+        fields:
+          - { name: title, label: "Title", type: string }
+          - { name: text, label: "Text", type: text }
+          - name: cards
+            label: "Cards"
+            type: object
+            list: true
+            fields:
+              - { name: name, label: "Name", type: string }
+              - { name: role, label: "Role", type: string }
+              - { name: sub, label: "Sub", type: string }
+              - { name: image, label: "Image", type: string }
+  - name: pages
+    label: "Other pages (Case studies, Blog, Contact, Sign up, 404, Menu)"
+    type: file
+    path: content/pages.json
+    format: json
+    fields:
+      - name: case_studies
+        label: "Case studies"
+        type: object
+        fields:
+          - { name: title, label: "Title", type: string }
+          - { name: text, label: "Text", type: string }
+          - { name: search, label: "Search", type: string }
+          - { name: filter_label, label: "Filter label", type: string }
+          - { name: all, label: "All", type: string }
+          - { name: meter_value, label: "Meter value", type: string }
+          - { name: meter_label, label: "Meter label", type: string }
+      - name: case_study
+        label: "Case study"
+        type: object
+        fields:
+          - { name: team_label, label: "Team label", type: string }
+          - { name: client, label: "Client", type: string }
+          - { name: year, label: "Year", type: string }
+          - { name: role, label: "Role", type: string }
+          - { name: work, label: "Work", type: string }
+          - { name: live, label: "Live", type: string }
+          - { name: problem_label, label: "Problem label", type: string }
+          - { name: problem_title, label: "Problem title", type: string }
+          - { name: results_label, label: "Results label", type: string }
+          - { name: more_title, label: "More title", type: string }
+          - { name: more_text, label: "More text", type: text }
+          - { name: all, label: "All", type: string }
+      - name: blog
+        label: "Blog"
+        type: object
+        fields:
+          - { name: title, label: "Title", type: string }
+          - { name: text, label: "Text", type: text }
+          - { name: social_word, label: "Social word", type: string }
+          - { name: read, label: "Read", type: string }
+      - name: post
+        label: "Post"
+        type: object
+        fields:
+          - { name: written_by, label: "Written by", type: string }
+          - { name: subject, label: "Subject", type: string }
+          - { name: date, label: "Date", type: string }
+          - { name: newsletter_title, label: "Newsletter title", type: string }
+          - { name: newsletter_text, label: "Newsletter text", type: text }
+          - { name: latest, label: "Latest", type: string }
+          - { name: latest_text, label: "Latest text", type: text }
+      - name: contact
+        label: "Contact"
+        type: object
+        fields:
+          - { name: label, label: "Label", type: string }
+          - { name: title, label: "Title", type: string }
+          - { name: text, label: "Text", type: string }
+          - { name: text_muted, label: "Text muted", type: string }
+          - { name: image, label: "Image", type: image }
+          - { name: timeline_label, label: "Timeline label", type: string }
+          - { name: timelines, label: "Timelines", type: string, list: true }
+          - { name: results_text, label: "Results text", type: text }
+      - name: signup
+        label: "Signup"
+        type: object
+        fields:
+          - { name: label, label: "Label", type: string }
+          - { name: title, label: "Title", type: string }
+          - { name: text, label: "Text", type: text }
+          - { name: button, label: "Button", type: string }
+          - { name: note_white, label: "Note white", type: string }
+          - { name: note_muted, label: "Note muted", type: text }
+          - { name: image, label: "Image", type: image }
+          - { name: reviews_a, label: "Reviews a", type: string }
+          - { name: reviews_hl, label: "Reviews hl", type: string }
+          - { name: reviews_b, label: "Reviews b", type: string }
+      - name: notfound
+        label: "Notfound"
+        type: object
+        fields:
+          - { name: kicker_a, label: "Kicker a", type: string }
+          - { name: kicker_b, label: "Kicker b", type: string }
+          - { name: text, label: "Text", type: string }
+          - { name: button, label: "Button", type: string }
+          - { name: image, label: "Image", type: image }
+      - name: legal
+        label: "Legal"
+        type: object
+        fields:
+          - { name: back, label: "Back", type: string }
+          - { name: updated, label: "Updated", type: string }
+      - name: menu
+        label: "Menu"
+        type: object
+        fields:
+          - name: links
+            label: "Links"
+            type: object
+            list: true
+            fields:
+              - { name: label, label: "Label", type: string }
+              - { name: url, label: "Url", type: string }
+  - name: privacy
+    label: "Privacy Policy"
+    type: file
+    path: content/legal/privacy-policy.md
+    format: yaml-frontmatter
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: body, label: Content, type: rich-text }
+  - name: terms
+    label: "Terms of Service"
+    type: file
+    path: content/legal/terms-of-service.md
+    format: yaml-frontmatter
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: body, label: Content, type: rich-text }

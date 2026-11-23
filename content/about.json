@@ -1,0 +1,53 @@
+{
+  "hero": {
+    "title_a": "A studio",
+    "title_hl": "built on",
+    "title_b": "shipped work.",
+    "stat_1": "47+",
+    "stat_1_label": "Projects delivered since 2020",
+    "stat_2": "5",
+    "stat_2_label": "Disciplines under one roof",
+    "text_a": "Started in 2020 as Elementa Graphics by Dave, a brand and product designer,",
+    "text_b": "Elementa Studio now designs brands, products and AI agents for early stage founders.",
+    "side_a": "We started Elementa after watching",
+    "side_b": "too many good products launch looking unfinished. Now we get founders launched looking ready.",
+    "link": "Contact us",
+    "image": "/assets/doorway.jpg"
+  },
+  "numbers": [
+    { "value": "6 years", "label": "of designing brands and products" },
+    { "value": "47+", "label": "projects delivered" },
+    { "value": "5", "label": "disciplines in one studio" },
+    { "value": "1", "label": "point of contact from start to finish" }
+  ],
+  "story": {
+    "white": "I started as Elementa Graphics, designing for anyone who would give me a chance. Over six years the work grew",
+    "muted": "from logos into full brands, products, launch videos and now AI agents. The studio is how all of that comes together for one client.",
+    "author": "Dave",
+    "role": "Founder"
+  },
+  "process": ["Discover", "Design", "Build", "Launch"],
+  "stack_title": "Core stack:",
+  "stack": ["Figma", "Framer", "React", "Vercel", "After Effects", "Botpress"],
+  "record": {
+    "title": "Track record.",
+    "text": "We build work that survives the handover. Clear scope, weekly check ins and files you own.",
+    "rows": [
+      { "what": "Brand identity", "who": "Leetlogic, Talkroots, Buqqit, Deyconnect", "years": "2025-2026" },
+      { "what": "Websites", "who": "Revorra, Classcue", "years": "2026" },
+      { "what": "Motion and launch videos", "who": "Zix Business Suite, Outrank", "years": "2026" },
+      { "what": "Product UI/UX", "who": "Taskure, Shift by Pantheon", "years": "2025-2026" }
+    ],
+    "button": "Book a call"
+  },
+  "team": {
+    "title": "Who you work with.",
+    "text": "You work with Dave directly. On bigger builds trusted specialists join in, and you always know who they are.",
+    "cards": [
+      { "name": "Dave", "role": "Founder", "sub": "Your point of contact", "image": "" },
+      { "name": "AI agents", "role": "Led by Dave", "sub": "Support and sales agents", "image": "/assets/svc-robot.jpg" },
+      { "name": "Product and web", "role": "Led by Dave", "sub": "UI/UX and websites", "image": "/assets/svc-knobs.jpg" },
+      { "name": "Brand and motion", "role": "Led by Dave", "sub": "Identity and launch videos", "image": "/assets/svc-phone.jpg" }
+    ]
+  }
+}

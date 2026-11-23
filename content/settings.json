@@ -1,0 +1,23 @@
+{
+  "studio_name": "Elementa Studio",
+  "wordmark": "elementa",
+  "tagline": "Design & AI studio",
+  "founder_name": "Dave",
+  "founder_role": "Founder, Elementa Studio",
+  "founder_initial": "D",
+  "email": "thedavelement@gmail.com",
+  "location": "Lagos, Nigeria · Working remote worldwide",
+  "timezone": "Africa/Lagos",
+  "since": "2020",
+  "booking_line": "Now booking for December · Est. 2020",
+  "slots_line": "2 build slots open",
+  "slots_sub": "Booking for December",
+  "socials": [
+    { "name": "X", "url": "https://x.com/thedavelement" },
+    { "name": "Portfolio", "url": "https://thedavelement.vercel.app" },
+    { "name": "Email", "url": "mailto:thedavelement@gmail.com" }
+  ],
+  "copyright": "© 2020 - 2026 Elementa Studio®.",
+  "footer_credit": "Founded by Dave",
+  "seo_description": "Elementa Studio designs brands, websites, products and AI agents for early stage founders. One studio from first logo to a launch that keeps working."
+}

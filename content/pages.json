@@ -1,0 +1,106 @@
+{
+  "case_studies": {
+    "title": "Case Studies.",
+    "text": "Real projects for real founders. Nothing here is a concept or a pitch.",
+    "search": "Search projects",
+    "filter_label": "Work done",
+    "all": "All",
+    "meter_value": "8",
+    "meter_label": "Projects shown here"
+  },
+  "case_study": {
+    "team_label": "Work done by",
+    "client": "Client",
+    "year": "Year",
+    "role": "Role",
+    "work": "Work done",
+    "live": "Live website",
+    "problem_label": "Before the project",
+    "problem_title": "The Problem",
+    "results_label": "Results",
+    "more_title": "More Projects.",
+    "more_text": "Other projects from the last two years. All real, all handed over to the founders who asked for them.",
+    "all": "All projects"
+  },
+  "blog": {
+    "title": "News & Insights.",
+    "text": "Notes from the studio, written by the person doing the work. Real launches, honest lessons and the things that actually hold up. New posts drop on X before they land here.",
+    "social_word": "X",
+    "read": "Read article"
+  },
+  "post": {
+    "written_by": "Written by",
+    "subject": "Subject",
+    "date": "Date",
+    "newsletter_title": "Newsletter",
+    "newsletter_text": "One short email a month with what we learned building brands, products and agents.",
+    "latest": "Latest articles.",
+    "latest_text": "Practical notes on brands, launches and AI agents. Written by the person who builds them."
+  },
+  "contact": {
+    "label": "Start a project",
+    "title": "Get in touch.",
+    "text": "Tell us the task your team dreads,",
+    "text_muted": "or the launch you keep pushing back.",
+    "image": "/assets/couch-wide.jpg",
+    "timeline_label": "When do you want to start?",
+    "timelines": [
+      "As soon as possible",
+      "Within a month",
+      "In the next three months",
+      "Just exploring"
+    ],
+    "results_text": "Every one of them started with a message like the one you are about to send."
+  },
+  "signup": {
+    "label": "Newsletter",
+    "title": "Sign Up.",
+    "text": "Join founders getting one short email a month on brands, launches and AI agents that actually work.",
+    "button": "Sign up",
+    "note_white": "No spam, no daily emails.",
+    "note_muted": "Just the notes we would want to read ourselves. Unsubscribe in one click.",
+    "image": "/assets/post-meeting.jpg",
+    "reviews_a": "Results from founders",
+    "reviews_hl": "we launched",
+    "reviews_b": "with."
+  },
+  "notfound": {
+    "kicker_a": "This page",
+    "kicker_b": "does not exist",
+    "text": "Try something else, we have plenty of interesting stuff.",
+    "button": "Back to home",
+    "image": "/assets/404-game-over.jpg"
+  },
+  "legal": {
+    "back": "Back to home",
+    "updated": "Last updated November 2026"
+  },
+  "menu": {
+    "links": [
+      {
+        "label": "homepage",
+        "url": "/"
+      },
+      {
+        "label": "about",
+        "url": "/about"
+      },
+      {
+        "label": "case studies",
+        "url": "/case-studies"
+      },
+      {
+        "label": "contact",
+        "url": "/contact"
+      },
+      {
+        "label": "blogs",
+        "url": "/blog"
+      },
+      {
+        "label": "sign up",
+        "url": "/sign-up"
+      }
+    ]
+  }
+}
