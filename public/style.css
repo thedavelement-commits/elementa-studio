@@ -77,12 +77,22 @@ html.ready .tiles i{opacity:0}
 html:not(.js) .tiles{display:none}
 
 /* preloader */
-.pre{position:fixed;inset:0;z-index:100;background:#0b0b0b;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .2s linear}
+.pre{position:fixed;inset:0;z-index:100;background:#0b0b0b;display:flex;align-items:center;justify-content:center;transition:opacity .35s linear .15s}
 html.ready .pre{opacity:0;pointer-events:none}
-.pre-in{display:flex;align-items:center;gap:40px;width:150px;justify-content:space-between;font-family:var(--m);font-size:9px;text-transform:uppercase;letter-spacing:.06em}
-.pre-t{color:#fff}.pre-n{color:var(--mut2)}
-.pre-line{width:150px;height:1px;background:rgba(255,255,255,.08);margin-top:8px;position:relative}
-.pre-line i{position:absolute;left:0;top:0;height:1px;width:100%;background:var(--lime);transform-origin:0 50%;transform:scaleX(0);box-shadow:0 0 12px 1px rgba(199,255,151,.7)}
+.pre-c{width:min(320px,76vw);display:flex;flex-direction:column;align-items:center;transition:transform .6s var(--ease),opacity .4s}
+html.ready .pre-c{transform:translateY(-16px);opacity:0}
+.pre-brand{display:flex;align-items:center;gap:10px;animation:preIn .8s var(--ease) both}
+.pre-brand .mk{width:20px;height:20px;color:var(--lime)}
+.pre-brand b{font-size:46px;font-weight:500;letter-spacing:-.045em;line-height:1}
+.pre-brand sup{font-size:.4em;vertical-align:top;position:relative;top:.1em}
+.pre-t{margin-top:14px;font-family:var(--m);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);min-height:1.2em}
+.pre-line{width:100%;height:2px;background:rgba(255,255,255,.08);margin-top:34px;position:relative;border-radius:2px;overflow:visible}
+.pre-line i{position:absolute;left:0;top:0;height:2px;width:100%;background:var(--lime);transform-origin:0 50%;transform:scaleX(0);box-shadow:0 0 14px 1px rgba(199,255,151,.75);border-radius:2px}
+.pre-row{width:100%;display:flex;justify-content:space-between;margin-top:10px;font-family:var(--m);font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut2)}
+.pre-n{color:#fff;font-variant-numeric:tabular-nums}
+.pre-foot{position:absolute;left:0;right:0;bottom:34px;text-align:center;font-family:var(--m);font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut2)}
+@keyframes preIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.tiles i{transition:opacity .25s linear var(--d)}
 
 /* menu (dropdown like TBD) */
 .menu{position:fixed;inset:50px 0 0 0;z-index:55;pointer-events:none}

@@ -51,11 +51,12 @@
   const pre = $('.pre');
   const ready = () => { html.classList.add('ready'); setTimeout(startObs, pre ? 250 : 120); setTimeout(() => { pre && pre.remove(); const t = $('.tiles'); t && t.remove(); }, 1400); };
   if (pre && !reduce) {
-    const n = $('.js-pre-n'), l = $('.js-pre-l'), t = $('.js-pre-t'), t0 = performance.now(), D = 1500; let flipped = false;
+    const n = $('.js-pre-n'), l = $('.js-pre-l'), t = $('.js-pre-t'), t0 = performance.now(), D = 2100; let flipped = false;
+    const words = ['Design & AI studio', 'Brands · Websites · AI agents', 'Est. 2020'];
     scramble(t, 600);
-    const tick = now => { const k = Math.min(1, (now - t0) / D), v = 1 - Math.pow(1 - k, 2.2); n.textContent = String(Math.round(v * 100)).padStart(2, '0'); l.style.transform = `scaleX(${v})`;
-      if (k > .5 && !flipped) { flipped = true; t.textContent = 'Design & AI studio'; scramble(t, 500); }
-      if (k < 1) requestAnimationFrame(tick); else setTimeout(ready, 180); };
+    const tick = now => { const k = Math.min(1, (now - t0) / D), v = 1 - Math.pow(1 - k, 2.4); n.textContent = String(Math.round(v * 100)).padStart(3, '0'); l.style.transform = `scaleX(${v})`;
+      if (k > .45 && !flipped) { flipped = true; t.textContent = words[1]; scramble(t, 550); }
+      if (k < 1) requestAnimationFrame(tick); else setTimeout(ready, 250); };
     requestAnimationFrame(tick);
   } else requestAnimationFrame(() => requestAnimationFrame(ready));
 
