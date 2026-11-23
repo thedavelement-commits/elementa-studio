@@ -27,7 +27,7 @@
   const io = new IntersectionObserver(es => es.forEach(x => {
     if (!x.isIntersecting) return; const el = x.target; io.unobserve(el);
     el.classList.add('in');
-    if (el.classList.contains('js-scr')) scramble(el);
+    if (el.classList.contains('js-scr') && el.tagName !== 'H1') scramble(el, 0, true);
     if (el.classList.contains('js-roll')) roll(el);
   }), { rootMargin: '0px 0px -10% 0px' });
 
