@@ -62,7 +62,6 @@
   /* ---------- hero rotating word ---------- */
   const rot = $('.js-rot');
   if (rot && !reduce) { let words; try { words = JSON.parse(rot.dataset.words); } catch { words = []; } let i = 0;
-    if (words.length === 1) setInterval(() => { if (!document.hidden) scramble(rot, 650); }, 4200);
     if (words.length > 1) setInterval(() => { if (document.hidden) return; i = (i + 1) % words.length; rot.textContent = words[i]; scramble(rot, 650); }, 3200); }
 
   /* ---------- menu ---------- */
