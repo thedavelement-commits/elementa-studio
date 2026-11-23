@@ -4,39 +4,42 @@ media:
 
 content:
   - name: projects
-    label: Case studies
+    label: Projects (case studies)
     type: collection
     path: content/projects
     format: yaml-frontmatter
     filename: "{fields.title}.md"
     view:
-      fields: [title, year, order]
+      fields: [title, year, order, homepage]
+      sort: [order]
     fields:
-      - { name: title, label: "Title", type: string }
-      - { name: order, label: Order, type: number }
+      - { name: title, label: "Project name", type: string, required: true }
+      - { name: order, label: "Order (1 shows first)", type: number }
+      - { name: homepage, label: "Show on homepage (first 6 by order)", type: boolean }
       - { name: year, label: "Year", type: string }
-      - { name: cover, label: "Cover", type: image }
-      - { name: video, label: "Video", type: string }
-      - { name: meta, label: "Meta", type: string }
-      - { name: tags, label: "Tags", type: string, list: true }
-      - { name: summary, label: "Summary", type: string }
-      - { name: role, label: "Role", type: string }
-      - { name: work, label: "Work", type: string, list: true }
-      - { name: link, label: "Link", type: string }
-      - { name: intro_white, label: "Intro white", type: text }
-      - { name: intro_muted, label: "Intro muted", type: string }
-      - { name: problem, label: "Problem", type: text }
-      - { name: stat_1, label: "Stat 1", type: string }
-      - { name: stat_1_label, label: "Stat 1 label", type: string }
-      - { name: stat_2, label: "Stat 2", type: string }
-      - { name: stat_2_label, label: "Stat 2 label", type: string }
-      - { name: results_white, label: "Results white", type: string }
-      - { name: results_muted, label: "Results muted", type: text }
-      - { name: hero_image, label: "Hero image", type: image }
-      - { name: image_wide, label: "Image wide", type: image }
-      - { name: image_a, label: "Image a", type: image }
-      - { name: image_b, label: "Image b", type: image }
-      - { name: gallery, label: "Gallery", type: image, list: true }
+      - { name: cover, label: "Card image", type: image }
+      - { name: video, label: "Card video (optional, plays on the card)", type: file, options: { extensions: [mp4, webm, mov] } }
+      - { name: meta, label: "Card line under the title", type: string }
+      - { name: tags, label: "Tags (also used for filters)", type: string, list: true }
+      - { name: summary, label: "Short summary", type: text }
+      - { name: role, label: "Your role", type: string }
+      - { name: work, label: "Work done", type: string, list: true }
+      - { name: link, label: "Live website link (optional)", type: string }
+      - { name: hero_image, label: "Top image or video", type: file, options: { extensions: [jpg, jpeg, png, webp, gif, mp4, webm, mov] } }
+      - { name: intro_white, label: "Intro (white part)", type: text }
+      - { name: intro_muted, label: "Intro (grey part)", type: text }
+      - { name: image_wide, label: "Wide image or video", type: file, options: { extensions: [jpg, jpeg, png, webp, gif, mp4, webm, mov] } }
+      - { name: problem, label: "The problem", type: text }
+      - { name: image_a, label: "Side by side, left (image or video)", type: file, options: { extensions: [jpg, jpeg, png, webp, gif, mp4, webm, mov] } }
+      - { name: image_b, label: "Side by side, right (image or video)", type: file, options: { extensions: [jpg, jpeg, png, webp, gif, mp4, webm, mov] } }
+      - { name: stat_1, label: "Result number 1 (optional, e.g. 80x)", type: string }
+      - { name: stat_1_label, label: "Result number 1 label", type: string }
+      - { name: stat_2, label: "Result number 2 (optional)", type: string }
+      - { name: stat_2_label, label: "Result number 2 label", type: string }
+      - { name: results_white, label: "Results headline", type: string }
+      - { name: results_muted, label: "Results text", type: text }
+      - { name: gallery, label: "More images or videos (add as many as you like)", type: file, list: true, options: { extensions: [jpg, jpeg, png, webp, gif, mp4, webm, mov] } }
+      - { name: body, label: "Extra write up (optional)", type: rich-text }
   - name: blog
     label: Blog posts
     type: collection

@@ -38,6 +38,8 @@ const monoAv = (size = 28) => S.founder_photo ? `<span class="mono-av ph" style=
 const pills = (arr, cls = '') => `<div class="pills ${cls}">${(arr || []).map(t => `<span>${e(t)}</span>`).join('')}</div>`;
 const meter = (pct, n = 24) => `<span class="meter" style="--n:${n}">${Array.from({ length: n }, (_, i) => `<i class="${i < Math.round(n * pct / 100) ? 'on' : ''}"></i>`).join('')}</span>`;
 const img = (src, alt = '', cls = '', eager = false) => src ? `<img class="${cls}" src="${e(src)}" alt="${e(alt)}"${eager ? '' : ' loading="lazy"'} decoding="async">` : '';
+const isVid = s => /\.(mp4|webm|mov)$/i.test(String(s || ''));
+const media = (src, alt = '', eager = false) => !src ? '' : isVid(src) ? `<video class="js-vid" data-src="${e(src)}" muted loop playsinline preload="none"></video>` : img(src, alt, '', eager);
 const scr = (tag, html, cls = '') => `<${tag} class="${cls} js-scr">${html}</${tag}>`;
 const soc = (cls = 'socs') => `<div class="${cls}">${S.socials.map(s => `<a href="${e(s.url)}" target="_blank" rel="noopener" aria-label="${e(s.name)}">${SOC[s.name] || SOC.Portfolio}</a>`).join('')}</div>`;
 
@@ -149,7 +151,7 @@ function home() {
 <div class="ab-r"><div class="ab-stats"><div><b class="js-roll" data-to="${e(ab.stat_1)}">${e(ab.stat_1)}</b><span class="mono-s">${e(ab.stat_1_label)}</span></div><div><b><span class="js-roll" data-to="${e(ab.stat_2)}">${e(ab.stat_2)}</span> ${e(ab.stat_2_suffix)}</b><span class="mono-s">${e(ab.stat_2_label)}</span></div></div>
 <p class="ab-p">${e(ab.text_a)} <span>${e(ab.text_b)}</span></p>${mono(e(ab.link), '/about')}</div></section>
 
-<section class="sec cs-s"><div class="split"><div></div><div>${scr('h2', e(cs.title), 'h80')}<p class="muted">${e(cs.text_a)}<br>${e(cs.text_b)}</p></div></div>${caseGrid(projects.slice(0, 6))}</section>
+<section class="sec cs-s"><div class="split"><div></div><div>${scr('h2', e(cs.title), 'h80')}<p class="muted">${e(cs.text_a)}<br>${e(cs.text_b)}</p></div></div>${caseGrid((projects.filter(p => p.homepage !== false).length >= 2 ? projects.filter(p => p.homepage !== false) : projects).slice(0, 6))}</section>
 
 ${services()}
 
@@ -203,16 +205,16 @@ function caseStudies() {
 function caseStudy(p) {
   const c = P.case_study; const more = projects.filter(x => x.slug !== p.slug).slice(0, 2);
   const stats = [[p.stat_1, p.stat_1_label], [p.stat_2, p.stat_2_label]].filter(s => s[0]);
-  const body = `<section class="pd-hero"><div class="pd-bg js-par">${img(p.hero_image, p.title, '', true)}</div><div class="pd-shade"></div>
+  const body = `<section class="pd-hero"><div class="pd-bg js-par">${media(p.hero_image, p.title, true)}</div><div class="pd-shade"></div>
 <div class="pd-in"><div></div><div><h1 class="h90 js-scr">${e(p.title)}.</h1><p class="muted">${e(p.summary)}</p><span class="mono-s">${e(c.team_label)}</span><div class="pd-team"><div class="who">${monoAv(53)}<div><b>${e(S.founder_name)}</b><span>${e(p.role)}</span></div></div></div></div></div><span class="pd-logo">${MARK}${e(p.title)}</span></section>
 <section class="sec pd-info"><div class="split"><div></div><div><div class="pd-tbl"><div><span class="mono-s">${e(c.client)}</span><b>${e(p.title)}</b></div><div><span class="mono-s">${e(c.year)}</span><b>${e(p.year)}</b></div><div><span class="mono-s">${e(c.role)}</span><b>${e(p.role)}</b></div><div><span class="mono-s">${e(c.work)}</span>${pills(p.work, 'outline')}</div></div>
 <p class="p24">${e(p.intro_white)} <span>${e(p.intro_muted)}</span></p>${p.link ? btn(c.live, p.link) : btn('Start a similar project', '/contact')}</div></div></section>
-<section class="pd-wide"><div class="pdw js-par">${img(p.image_wide, p.title)}</div></section>
+<section class="pd-wide"><div class="pdw js-par">${media(p.image_wide, p.title)}</div></section>
 <section class="sec pd-prob"><div class="sec-l">${lbl(c.problem_label)}</div><div class="split"><div></div><div>${scr('h2', e(c.problem_title), 'h80')}<p class="muted">${e(p.problem)}</p></div></div>
-<div class="pd-two"><div>${img(p.image_a)}</div><div>${img(p.image_b)}</div></div></section>
+<div class="pd-two"><div>${media(p.image_a, p.title)}</div><div>${media(p.image_b, p.title)}</div></div></section>
 <section class="sec pd-res"><div class="sec-l">${lbl(c.results_label)}</div><div class="split"><div></div><div>${stats.length ? `<div class="ab-stats">${stats.map(s => `<div><b class="js-roll" data-to="${e(s[0])}">${e(s[0])}</b><span class="mono-s">${e(s[1])}</span></div>`).join('')}</div>` : ''}
 <p class="p28">${e(p.results_white)}</p><p class="muted">${e(p.results_muted)}</p></div></div></section>
-${(p.gallery || []).map(g => `<section class="pd-wide"><div class="pdw js-par">${img(g, p.title)}</div></section>`).join('')}
+${(p.gallery || []).filter(Boolean).map(g => `<section class="pd-wide"><div class="pdw js-par">${media(g, p.title)}</div></section>`).join('')}${p.body && p.body.trim() ? `<section class="sec post-b"><div class="split"><div></div><div class="md">${marked.parse(p.body)}</div></div></section>` : ''}
 <section class="sec pd-more"><div class="split"><div></div><div>${scr('h2', e(c.more_title), 'h80')}<p class="muted">${e(c.more_text)}</p>${mono(e(c.all), '/case-studies')}</div></div>${caseGrid(more)}</section>
 ${faq()}${cta()}${contactSec()}`;
   return page({ title: `${p.title} | ${S.studio_name}`, desc: p.summary, body });

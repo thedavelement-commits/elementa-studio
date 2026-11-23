@@ -575,7 +575,7 @@ html.ready .pre-c{transform:translateY(-16px);opacity:0}
   .vline{height:50px}
 }
 @media (prefers-reduced-motion:reduce){
-  .rv{opacity:1;transform:none}.im{clip-path:none}.mq-t,.grain.anim{animation:none}.tiles,.pre{display:none}
+  .rv{opacity:1;transform:none}.im{clip-path:none}.mq-t,.grain.anim{animation:none}
 }
 .nm-logos{width:100%;min-width:0;justify-self:stretch}
 .nm-row>*,.sv>*,.split>*,.about-s>*,.rs-g>*,.ft-g>*,.cp-in>*,.bl>*{min-width:0}
@@ -631,3 +631,6 @@ html{overflow-x:clip}
 @media (max-width:809px){.sg-track span{width:180px}.sg-track{animation-duration:18s}}
 
 @media (max-width:809px){.tm-low{grid-template-columns:1fr}.tm-low .tm-b{display:none}.tm-low b{font-size:16px}}
+
+.pd-bg video,.pdw video,.pd-two video{width:100%;height:100%;object-fit:cover}
+.pdw video{position:absolute;inset:-60px 0;height:calc(100% + 120px)}

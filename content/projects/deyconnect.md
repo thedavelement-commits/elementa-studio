@@ -33,4 +33,6 @@ gallery:
 - /assets/detail-3.jpg
 - /assets/detail-4.jpg
 - /assets/detail-5.jpg
+homepage: true
+body: ""
 ---

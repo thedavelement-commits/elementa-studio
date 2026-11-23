@@ -50,7 +50,7 @@
   /* ---------- preloader + page reveal ---------- */
   const pre = $('.pre');
   const ready = () => { html.classList.add('ready'); setTimeout(startObs, pre ? 250 : 120); setTimeout(() => { pre && pre.remove(); const t = $('.tiles'); t && t.remove(); }, 1400); };
-  if (pre && !reduce) {
+  if (pre) {
     const n = $('.js-pre-n'), l = $('.js-pre-l'), t = $('.js-pre-t'), t0 = performance.now(), D = 2100; let flipped = false;
     const words = ['Design & AI studio', 'Brands · Websites · AI agents', 'Est. 2020'];
     scramble(t, 600);
