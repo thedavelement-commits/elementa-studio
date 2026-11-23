@@ -2,6 +2,7 @@
   "studio_name": "Elementa Studio",
   "wordmark": "elementa",
   "tagline": "Design & AI studio",
+  "font": "Geist",
   "founder_name": "Dave",
   "founder_role": "Founder, Elementa Studio",
   "founder_initial": "D",
@@ -13,9 +14,18 @@
   "slots_line": "2 build slots open",
   "slots_sub": "Booking for December",
   "socials": [
-    { "name": "X", "url": "https://x.com/thedavelement" },
-    { "name": "Portfolio", "url": "https://thedavelement.vercel.app" },
-    { "name": "Email", "url": "mailto:thedavelement@gmail.com" }
+    {
+      "name": "X",
+      "url": "https://x.com/thedavelement"
+    },
+    {
+      "name": "Portfolio",
+      "url": "https://thedavelement.vercel.app"
+    },
+    {
+      "name": "Email",
+      "url": "mailto:thedavelement@gmail.com"
+    }
   ],
   "copyright": "© 2020 - 2026 Elementa Studio®.",
   "footer_credit": "Founded by Dave",

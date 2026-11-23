@@ -3,10 +3,10 @@ import path from 'path';
 import matter from 'gray-matter';
 import { marked } from 'marked';
 
-const OUT = 'dist';
+const OUT = process.env.OUT || 'dist';
 const C = 'content';
 const J = f => JSON.parse(fs.readFileSync(path.join(C, f), 'utf8'));
-const S = J('settings.json'), H = J('home.json'), A = J('about.json'), P = J('pages.json');
+const S = { ...J('settings.json'), ...(process.env.FONT ? { font: process.env.FONT } : {}) }, H = J('home.json'), A = J('about.json'), P = J('pages.json');
 const md = dir => fs.readdirSync(path.join(C, dir)).filter(f => f.endsWith('.md')).map(f => { const m = matter(fs.readFileSync(path.join(C, dir, f), 'utf8')); return { ...m.data, slug: f.replace(/\.md$/, ''), body: m.content }; });
 const projects = md('projects').sort((a, b) => (a.order || 99) - (b.order || 99));
 const posts = md('blog').sort((a, b) => String(b.date).localeCompare(String(a.date)));
@@ -43,11 +43,11 @@ const soc = (cls = 'socs') => `<div class="${cls}">${S.socials.map(s => `<a href
 
 const navItems = [['Home', '/'], ['About', '/about'], ['Case Studies', '/case-studies'], ['Blogs', '/blog'], ['404', '/404']];
 
-function page({ title, desc = S.seo_description, body, preload = false, cls = '' }) {
+function page({ title, desc = S.seo_description, body, preload = true, cls = '' }) {
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>${e(title)}</title><meta name="description" content="${e(desc)}"><meta property="og:title" content="${e(title)}"><meta property="og:description" content="${e(desc)}"><meta property="og:image" content="/assets/og.jpg"><meta name="theme-color" content="#050505">
 <link rel="icon" href="/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=${S.font === 'Satoshi' ? '' : 'Geist:wght@300;400;500;600&family='}Geist+Mono:wght@400;500&display=swap" rel="stylesheet">${S.font === 'Satoshi' ? '<link rel="stylesheet" href="/fonts/satoshi.css"><style>:root{--f:"Satoshi",system-ui,sans-serif}</style>' : ''}
 <link rel="stylesheet" href="/style.css"><script>document.documentElement.classList.add('js')</script></head>
 <body class="${cls}">
 ${preload ? `<div class="pre" aria-hidden="true"><div class="pre-in"><span class="pre-t js-pre-t">${e(S.wordmark)}®</span><span class="pre-n js-pre-n">00</span></div><div class="pre-line"><i class="js-pre-l"></i></div></div>` : ''}
@@ -62,16 +62,17 @@ ${menu()}
 
 function menu() {
   return `<div class="menu" aria-hidden="true"><div class="m-scrim js-close"></div><aside class="m-panel">
-<div class="m-top"><span>Menu · 2026</span><span class="js-clock" data-tz="${e(S.timezone)}" data-fmt="long"></span><button class="m-x js-close" aria-label="Close menu"><i></i><i></i></button></div>
+<div class="m-card m-main"><div class="m-top"><span>Menu · 2026</span><span class="js-clock" data-tz="${e(S.timezone)}"></span></div>
 <nav class="m-nav">${P.menu.links.map((l, i) => `<a href="${e(l.url)}" style="--i:${i}"><span>${e(l.label)}</span></a>`).join('')}</nav>
-<div class="m-low"><div class="m-legal"><a href="/legal/privacy-policy">Privacy Policy</a><a href="/legal/terms-of-service">Terms of Service</a></div>
-<div class="m-contact"><a class="m-mail" href="mailto:${e(S.email)}">${e(S.email)}</a><span>${e(S.location)}</span>${soc()}</div>
-<div class="m-slots"><div><b><i class="dot"></i>${e(S.slots_line)}</b><span>${e(S.slots_sub)}</span></div>${mono('Book <b>a call</b>', '/contact')}</div></div></aside></div>`;
+<div class="m-legal"><a href="/legal/privacy-policy">Privacy Policy</a><a href="/legal/terms-of-service">Terms of Service</a></div></div>
+<div class="m-row"><div class="m-card m-contact"><span class="m-loc">${e(S.location)}</span><a class="m-mail" href="mailto:${e(S.email)}">${e(S.email)}</a>${soc()}</div>
+<div class="m-card m-slots"><div class="m-sl"><span class="m-bars"><i></i><i></i></span><div><b>${e(S.slots_line)}</b><span>${e(S.slots_sub)}</span></div></div>${mono('Book <b>a call</b>', '/contact')}</div></div>
+<div class="m-copy">${e(S.copyright)}</div></aside></div>`;
 }
 
 /* shared blocks */
 const caseCard = (p, i) => `<a class="case" href="/case-studies/${p.slug}"><div class="c-media">${img(p.cover, p.title)}${p.video ? `<video class="js-vid" data-src="${e(p.video)}" muted loop playsinline preload="none" poster="${e(p.cover)}"></video>` : ''}</div>
-<span class="c-logo">${MARK}${e(p.title)}</span><div class="c-low"><div><h3>${e(p.title)}.</h3><span class="c-meta">${e(p.year)} · ${e(p.meta)}</span></div>${pills(p.tags, 'outline')}</div></a>`;
+<span class="c-logo">${MARK}${e(p.title)}</span><div class="c-low"><div><h3 class="js-hscr">${e(p.title)}.</h3><span class="c-meta">${e(p.year)} · ${e(p.meta)}</span></div>${pills(p.tags, 'outline')}</div></a>`;
 const caseGrid = list => `<div class="cases">${list.map(caseCard).join('')}</div>`;
 
 const faq = () => { const f = H.faq; return `<section class="sec faq"><div class="sec-l">${lbl(f.label)}</div><div class="center">${scr('h2', e(f.title), 'h78')}</div>
@@ -252,14 +253,6 @@ ${results(false)}${faq()}${cta()}${contactSec()}`;
   return page({ title: `Contact | ${S.studio_name}`, body });
 }
 
-function signup() {
-  const s = P.signup;
-  const body = `<section class="cp-hero su"><div class="pd-bg">${img(s.image, '', '', true)}</div><div class="pd-shade"></div><div class="cp-in"><div class="cp-l">${lbl(s.label)}<h1 class="h80 js-scr">${e(s.title)}</h1><p>${e(s.text)}</p><p class="su-note">${e(s.note_white)} <span>${e(s.note_muted)}</span></p><div class="who">${monoAv(28)}<div><b>${e(S.founder_name)}</b><span>${e(S.founder_role)}</span></div></div></div>
-<form class="su-form js-form" data-subject="Newsletter signup" action="https://formsubmit.co/ajax/${e(S.email)}"><label class="fld"><span>${ARW}Name</span><input name="name" placeholder="Jane Smith"></label><label class="fld"><span>${ARW}Email</span><input type="email" name="email" placeholder="example@email.com" required></label><button class="btn wide" type="submit"><span class="b-t"><span class="rl"><span data-t="${e(s.button)}">${e(s.button)}</span></span></span></button><span class="f-ok">You are on the list.</span></form></div></section>
-<section class="sec results-h"><div class="split"><div></div><div>${scr('h2', `${e(s.reviews_a)} ${hl(s.reviews_hl)} ${e(s.reviews_b)}`, 'h80')}</div></div></section>${results(false)}${faq()}${cta()}${contactSec()}`;
-  return page({ title: `Sign up | ${S.studio_name}`, body });
-}
-
 function notFound() {
   const n = P.notfound;
   const body = `<section class="nf"><div class="nf-card"><div class="nf-bg">${img(n.image, '', '', true)}</div><div class="grain"></div><div class="nf-box"><span class="mono-s">${e(n.kicker_a)}<br>${e(n.kicker_b)}</span><b class="js-scr">404</b><p>${e(n.text)}</p>${btn(n.button, '/')}</div></div></section>${faq()}${cta()}${contactSec()}`;
@@ -282,7 +275,6 @@ projects.forEach(p => w(`case-studies/${p.slug}.html`, caseStudy(p)));
 w('blog/index.html', blog());
 posts.forEach(p => w(`blog/${p.slug}.html`, post(p)));
 w('contact.html', contact());
-w('sign-up.html', signup());
 w('404.html', notFound());
 legal.forEach(l => w(`legal/${l.slug}.html`, legalPage(l)));
 console.log(`Built ${projects.length} projects, ${posts.length} posts.`);

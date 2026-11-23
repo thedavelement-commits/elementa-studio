@@ -65,9 +65,14 @@
     if (words.length > 1) setInterval(() => { if (document.hidden) return; i = (i + 1) % words.length; rot.textContent = words[i]; scramble(rot, 650); }, 3200); }
 
   /* ---------- menu ---------- */
-  $$('.js-menu').forEach(b => b.addEventListener('click', () => document.body.classList.add('menu-open')));
-  $$('.js-close').forEach(b => b.addEventListener('click', () => document.body.classList.remove('menu-open')));
+  const setMenu = on => { document.body.classList.toggle('menu-open', on); const mn = $('.menu'); mn && mn.setAttribute('aria-hidden', on ? 'false' : 'true'); };
+  $$('.js-menu').forEach(b => b.addEventListener('click', () => { const on = !document.body.classList.contains('menu-open'); setMenu(on); if (on) $$('.m-nav a span, .m-top span').forEach(s => s.closest('.m-top') && scramble(s, 500)); }));
+  $$('.m-nav a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  $$('.js-close').forEach(b => b.addEventListener('click', () => setMenu(false)));
   addEventListener('keydown', ev => { if (ev.key === 'Escape') document.body.classList.remove('menu-open'); });
+
+  /* ---------- hover scramble on case titles ---------- */
+  if (matchMedia('(hover:hover)').matches && !reduce) $$('.case').forEach(c => { const h = c.querySelector('.js-hscr'); let busy = false; c.addEventListener('mouseenter', () => { if (busy || !h) return; busy = true; scramble(h, 450); setTimeout(() => busy = false, 500); }); });
 
   /* ---------- clocks ---------- */
   const clocks = $$('.js-clock'); const tickC = () => clocks.forEach(c => { try { const d = new Date(); const s = d.toLocaleString('en-US', { timeZone: c.dataset.tz, month: 'long', day: 'numeric' }) + ', ' + d.toLocaleString('en-GB', { timeZone: c.dataset.tz, hour: '2-digit', minute: '2-digit' }); c.textContent = s.toUpperCase(); } catch { } });

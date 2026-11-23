@@ -52,18 +52,6 @@
     ],
     "results_text": "Every one of them started with a message like the one you are about to send."
   },
-  "signup": {
-    "label": "Newsletter",
-    "title": "Sign Up.",
-    "text": "Join founders getting one short email a month on brands, launches and AI agents that actually work.",
-    "button": "Sign up",
-    "note_white": "No spam, no daily emails.",
-    "note_muted": "Just the notes we would want to read ourselves. Unsubscribe in one click.",
-    "image": "/assets/post-meeting.jpg",
-    "reviews_a": "Results from founders",
-    "reviews_hl": "we launched",
-    "reviews_b": "with."
-  },
   "notfound": {
     "kicker_a": "This page",
     "kicker_b": "does not exist",
@@ -96,10 +84,6 @@
       {
         "label": "blogs",
         "url": "/blog"
-      },
-      {
-        "label": "sign up",
-        "url": "/sign-up"
       }
     ]
   }
