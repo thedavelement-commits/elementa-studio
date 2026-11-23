@@ -53,9 +53,8 @@
   const ready = () => { html.classList.add('ready'); setTimeout(startObs, pre ? 250 : 120); setTimeout(() => { pre && pre.remove(); const t = $('.tiles'); t && t.remove(); }, 1400); };
   if (pre) {
     const n = $('.js-pre-n'), l = $('.js-pre-l'), t = $('.js-pre-t'), t0 = performance.now(), D = 2000; let flipped = false;
-    scramble(t, 500);
     const tick = now => { const k = Math.min(1, (now - t0) / D), v = 1 - Math.pow(1 - k, 2); n.textContent = String(Math.round(v * 100)).padStart(3, '0') + '%'; l.style.transform = `scaleX(${v})`;
-      if (k > .35 && !flipped) { flipped = true; t.textContent = 'Design & AI Studio.'; scramble(t, 750); }
+      if (now - t0 > 650 && !flipped) { flipped = true; t.textContent = 'Design & AI Studio.'; scramble(t, 750); }
       if (k < 1) requestAnimationFrame(tick); else { pre.classList.add('done'); setTimeout(ready, 350); } };
     requestAnimationFrame(tick);
   } else requestAnimationFrame(() => requestAnimationFrame(ready));
