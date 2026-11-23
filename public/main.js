@@ -24,6 +24,35 @@
     requestAnimationFrame(tick);
   }
 
+
+  /* heading scramble with locked letter widths so lines never shift */
+  function scrambleFixed(el, dur, hold) {
+    const orig = el.innerHTML; const chars = [];
+    const walk = node => [...node.childNodes].forEach(n => {
+      if (n.nodeType === 3) {
+        const f = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(part => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { f.append(document.createTextNode(part)); return; }
+          const w = document.createElement('span'); w.style.whiteSpace = 'nowrap';
+          [...part].forEach(ch => { const c = document.createElement('span'); c.textContent = ch; c.style.display = 'inline-block'; c.style.textAlign = 'center'; w.append(c); chars.push([c, ch]); });
+          f.append(w);
+        });
+        n.replaceWith(f);
+      } else if (n.nodeType === 1 && n.tagName !== 'BR') walk(n);
+    });
+    walk(el);
+    chars.forEach(([c]) => { c.style.width = c.getBoundingClientRect().width + 'px'; });
+    const total = chars.length, t0 = performance.now(); let last = 0;
+    chars.forEach(([c]) => { c.textContent = rndL(); });
+    const tick = t => {
+      const p = Math.min(1, (t - t0) / dur);
+      if (t - last > 50 || p === 1) { last = t; chars.forEach(([c, ch], k) => { c.textContent = k / total < (p - hold) / (1 - hold) ? ch : rndL(); }); }
+      if (p < 1) requestAnimationFrame(tick); else el.innerHTML = orig;
+    };
+    requestAnimationFrame(tick);
+  }
+
   /* ---------- reveal observer ---------- */
   const io = new IntersectionObserver(es => es.forEach(x => {
     if (!x.isIntersecting) return; const el = x.target; io.unobserve(el);
@@ -46,7 +75,7 @@
   // stagger siblings
   const g = new Map(); $$('.rv').forEach(el => { const p = el.parentElement; const n = g.get(p) || 0; g.set(p, n + 1); el.style.transitionDelay = Math.min(n, 6) * 70 + 'ms'; });
   $$('.case,.sv-img,.fc-img,.arts-img,.ab-photo,.pdw,.pd-two>div,.dm-card,.sg-card,.ft-img,.cta-card').forEach(el => el.classList.add('im'));
-  const hio = new IntersectionObserver(es => es.forEach(x => { if (!x.isIntersecting) return; hio.unobserve(x.target); { const n = x.target.textContent.length; scramble(x.target, Math.min(820, Math.max(520, 380 + n * 14)), true, .2, true); } }), { rootMargin: '0px 0px 10% 0px' });
+  const hio = new IntersectionObserver(es => es.forEach(x => { if (!x.isIntersecting) return; hio.unobserve(x.target); { const n = x.target.textContent.length; scrambleFixed(x.target, Math.min(820, Math.max(520, 380 + n * 14)), .2); } }), { rootMargin: '0px 0px 10% 0px' });
   const startObs = () => { $$('.rv,.im,.js-scr,.js-roll').forEach(el => io.observe(el)); $$('.js-scr').forEach(el => { if (el.tagName !== 'H1') hio.observe(el); }); };
 
   /* ---------- preloader + page reveal ---------- */

@@ -571,7 +571,7 @@ html.ready .pre-c{opacity:0;transform:translateY(-8px)}
   .vline{height:50px}
 }
 @media (prefers-reduced-motion:reduce){
-  .rv{opacity:1;transform:none}.im{clip-path:none}.mq-t,.grain.anim{animation:none}
+  .rv{opacity:1;transform:none}.im{clip-path:none}.grain.anim{animation:none}
 }
 .nm-logos{width:100%;min-width:0;justify-self:stretch}
 .nm-row>*,.sv>*,.split>*,.about-s>*,.rs-g>*,.ft-g>*,.cp-in>*,.bl>*{min-width:0}
