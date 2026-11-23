@@ -92,10 +92,12 @@
     vh = innerHeight; docH = Math.max(1, document.documentElement.scrollHeight - vh);
     if (stages) { const r = stages.querySelector('.sg-card').getBoundingClientRect(); geo.st = { top: r.top + scrollY, h: r.height }; }
     const hdr = ($('.top') || {}).offsetHeight || 50; const T = hdr + (innerWidth < 810 ? 12 : 30);
-    svs.forEach(s => { s.style.transform = ''; });
-    geo.sv = svs.map((s, i) => { const h3 = s.querySelector('.sv-b h3'); const band = h3 ? Math.round(h3.getBoundingClientRect().bottom - s.getBoundingClientRect().top + 6) : 70; return { s, band }; });
-    geo.sv.forEach((o, i) => { const top = i === 0 ? T : T + geo.sv[i - 1].band; o.top = top; o.s.style.setProperty('--st', top + 'px'); });
-    geo.sv.forEach(o => { let el = o.s, y = 0; while (el) { y += el.offsetTop; el = el.offsetParent; } o.doc = y; });
+    if (svs.length) {
+      const list = svs[0].parentElement; let ly = 0, el = list; while (el) { ly += el.offsetTop; el = el.offsetParent; }
+      let acc = 0;
+      geo.sv = svs.map(s => { const h3 = s.querySelector('.sv-b h3'); const band = h3 ? Math.round(h3.getBoundingClientRect().bottom - s.getBoundingClientRect().top + 6) : 70; const o = { s, band, doc: ly + acc }; acc += s.offsetHeight; return o; });
+      geo.sv.forEach((o, i) => { o.top = i === 0 ? T : T + geo.sv[i - 1].band; o.s.style.setProperty('--st', o.top + 'px'); });
+    }
     geo.pars = pars.map(el => { const r = el.parentElement.getBoundingClientRect(); return { el, top: r.top + scrollY, h: r.height }; });
   };
   let ticking = false;
