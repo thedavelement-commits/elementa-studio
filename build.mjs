@@ -131,7 +131,7 @@ function home() {
 <div class="h-frame"><div class="rail">${BARS(30)}<span class="vt">${e(h.status)}</span><span class="vt js-clock" data-tz="${e(S.timezone)}"></span></div>
 <span class="h-dots"><i></i><i></i><i></i></span>
 <div class="h-in"><span class="mono-s h-eye">${e(h.eyebrow)}</span>
-<h1 class="h90">${e(h.title_before)} <span class="hl rot js-rot" data-words="${e(JSON.stringify(h.rotating_words))}">${e(h.rotating_words[0])}</span> ${e(h.title_after)}</h1>
+<h1 class="h90">${h.title_highlight ? `${hl(h.title_highlight)} ` : ''}${e(h.title_before)} <span class="hl rot js-rot" data-words="${e(JSON.stringify(h.rotating_words))}">${e(h.rotating_words[0])}</span> ${e(h.title_after)}</h1>
 <p class="h-p">${e(h.text)}</p><div class="h-cta">${btn(h.button, '/contact')}${mono(`${e(h.demo_lead)} <b>${e(h.demo_strong)}</b>`, '#pricing')}</div></div>
 <i class="h-grid" aria-hidden="true"></i>
 <div class="h-card"><div class="hc-l"><div class="hc-top">${brand('sm')}</div><div class="hc-b"><span class="vt">//2026</span><div><p>${e(h.card_text)}</p><span>${e(h.card_name)}</span></div></div></div><div class="hc-img">${monoAv(84)}</div></div></div></section>

@@ -3,8 +3,10 @@
     "video": "/assets/hero-eye.mp4",
     "poster": "/assets/hero-eye-poster.jpg",
     "eyebrow": "Now booking for December · Est. 2020",
-    "title_before": "Design and",
-    "rotating_words": ["AI agents", "websites", "brands", "launch videos"],
+    "title_before": "and",
+    "rotating_words": [
+      "AI agents"
+    ],
     "title_after": "that keep winning customers while your team does the real work.",
     "text": "We design the brand, build the website or product and set up the AI agents that answer, qualify and follow up for you. You launch looking ready, and the busywork stays off your plate.",
     "button": "Book a call",
@@ -12,7 +14,8 @@
     "demo_strong": "packages",
     "card_text": "A design and AI studio that plugs in early and ships working brands, products and agents, not slide decks.",
     "card_name": "Dave, founder",
-    "status": "Status: Online"
+    "status": "Status: Online",
+    "title_highlight": "Design"
   },
   "numbers": {
     "label": "By the numbers",
@@ -20,7 +23,17 @@
     "value": "47+",
     "value_label": "Projects delivered",
     "meter": 92,
-    "clients": ["Revorra", "Leetlogic", "Zix", "Deyconnect", "Talkroots", "Taskure", "Buqqit", "Classcue", "Shift"]
+    "clients": [
+      "Revorra",
+      "Leetlogic",
+      "Zix",
+      "Deyconnect",
+      "Talkroots",
+      "Taskure",
+      "Buqqit",
+      "Classcue",
+      "Shift"
+    ]
   },
   "statement": {
     "title": "4 stages / weekly check ins / 1 point of contact.",
@@ -28,7 +41,13 @@
   },
   "stages": {
     "image": "/assets/stages-couch.jpg",
-    "labels": ["Discover", "Design", "Build", "Launch", "Support"],
+    "labels": [
+      "Discover",
+      "Design",
+      "Build",
+      "Launch",
+      "Support"
+    ],
     "text": "Since 2020 we have delivered more than 47 projects, from brand identities and launch videos to websites, app screens and AI agents. Everything we hand over lives in your own accounts and stays yours."
   },
   "about": {
@@ -54,11 +73,60 @@
     "text": "Five services, one studio. You brief once and we carry it through to launch.",
     "button": "Book a call",
     "items": [
-      { "title": "AI agents.", "text": "Agents that answer customers, qualify leads and book calls on your website or WhatsApp. They handle the repeat work, you keep the oversight.", "image": "/assets/svc-robot.jpg", "tags": ["Support agents", "Lead capture", "Human handoff", "24/7 running"] },
-      { "title": "Websites.", "text": "Fast websites that explain your offer clearly and turn visitors into leads, with a CMS so you can edit them yourself.", "image": "/assets/svc-laptop.jpg", "tags": ["Landing pages", "CMS", "SEO basics"] },
-      { "title": "Product UI/UX.", "text": "App and product screens people understand on first use. We map the flows, design every screen and hand over a clickable prototype.", "image": "/assets/svc-knobs.jpg", "tags": ["App screens", "UX flows", "Prototypes", "Design systems"] },
-      { "title": "Brand identity.", "text": "How your brand looks, speaks and is remembered. Logo suite, typography, colour and guidelines built to earn trust from day one.", "image": "/assets/svc-data.jpg", "tags": ["Logo suite", "Guidelines", "Social kit", "Rebrands"] },
-      { "title": "Motion and launch videos.", "text": "Explainers, animated logos and launch videos that stop the scroll and make your product easy to understand.", "image": "/assets/svc-phone.jpg", "tags": ["Launch videos", "Explainers", "Logo animation", "Ads"] }
+      {
+        "title": "AI agents.",
+        "text": "Agents that answer customers, qualify leads and book calls on your website or WhatsApp. They handle the repeat work, you keep the oversight.",
+        "image": "/assets/svc-robot.jpg",
+        "tags": [
+          "Support agents",
+          "Lead capture",
+          "Human handoff",
+          "24/7 running"
+        ]
+      },
+      {
+        "title": "Websites.",
+        "text": "Fast websites that explain your offer clearly and turn visitors into leads, with a CMS so you can edit them yourself.",
+        "image": "/assets/svc-laptop.jpg",
+        "tags": [
+          "Landing pages",
+          "CMS",
+          "SEO basics"
+        ]
+      },
+      {
+        "title": "Product UI/UX.",
+        "text": "App and product screens people understand on first use. We map the flows, design every screen and hand over a clickable prototype.",
+        "image": "/assets/svc-knobs.jpg",
+        "tags": [
+          "App screens",
+          "UX flows",
+          "Prototypes",
+          "Design systems"
+        ]
+      },
+      {
+        "title": "Brand identity.",
+        "text": "How your brand looks, speaks and is remembered. Logo suite, typography, colour and guidelines built to earn trust from day one.",
+        "image": "/assets/svc-data.jpg",
+        "tags": [
+          "Logo suite",
+          "Guidelines",
+          "Social kit",
+          "Rebrands"
+        ]
+      },
+      {
+        "title": "Motion and launch videos.",
+        "text": "Explainers, animated logos and launch videos that stop the scroll and make your product easy to understand.",
+        "image": "/assets/svc-phone.jpg",
+        "tags": [
+          "Launch videos",
+          "Explainers",
+          "Logo animation",
+          "Ads"
+        ]
+      }
     ]
   },
   "how": {
@@ -67,10 +135,22 @@
     "title_b": "an idea into",
     "title_hl": "a launch",
     "steps": [
-      { "title": "Understand The Business.", "text": "We learn who you sell to, what is slowing you down and what a good launch looks like for you." },
-      { "title": "Design The System.", "text": "We agree exactly what we will make, what an agent will handle and where a human stays in the loop." },
-      { "title": "Build And Test.", "text": "We build in small pieces you can see each week and test everything on real content, not a demo." },
-      { "title": "Handover And Own It.", "text": "You get the files, the accounts and a walkthrough. You own all of it, with no lock in." }
+      {
+        "title": "Understand The Business.",
+        "text": "We learn who you sell to, what is slowing you down and what a good launch looks like for you."
+      },
+      {
+        "title": "Design The System.",
+        "text": "We agree exactly what we will make, what an agent will handle and where a human stays in the loop."
+      },
+      {
+        "title": "Build And Test.",
+        "text": "We build in small pieces you can see each week and test everything on real content, not a demo."
+      },
+      {
+        "title": "Handover And Own It.",
+        "text": "You get the files, the accounts and a walkthrough. You own all of it, with no lock in."
+      }
     ]
   },
   "feature": {
@@ -84,7 +164,12 @@
     "status_text": "revorra · still running",
     "stack_title": "What it runs on",
     "stack_text": "Built to load fast on cheap phones and easy for the client to update.",
-    "stack": ["Figma", "React", "Vercel", "CMS"],
+    "stack": [
+      "Figma",
+      "React",
+      "Vercel",
+      "CMS"
+    ],
     "brief_white": "The brief: no theatrics.",
     "brief_muted": "Explain the offer clearly and get people signing up.",
     "brief_by": "Revorra",
@@ -101,10 +186,34 @@
     "stat_2_label": "Raised by Shift by Pantheon.",
     "image": "/assets/review-portrait.jpg",
     "items": [
-      { "name": "Revorra", "year": "2026", "text_white": "We designed and built the Revorra website.", "text_muted": "The platform grew from 100 users to over 8,000 after launch, on a site the team can update themselves.", "role": "Web design & development" },
-      { "name": "Shift by Pantheon", "year": "2025", "text_white": "We shaped the brand and designed the MVP for Shift by Pantheon.", "text_muted": "The team took that product to investors and went on to raise $13k.", "role": "Brand & UI/UX for an MVP" },
-      { "name": "Zix Business Suite", "year": "2026", "text_white": "We produced the explainer video for the new Zix Business Suite app.", "text_muted": "It introduced the launch and carried across their website and social channels.", "role": "Motion design · Launch video" },
-      { "name": "Leetlogic", "year": "2026", "text_white": "We built the Leetlogic brand and designed the screens for site and app.", "text_muted": "One identity for a platform connecting farmers to buyers of quality produce.", "role": "Brand identity & UI/UX" }
+      {
+        "name": "Revorra",
+        "year": "2026",
+        "text_white": "We designed and built the Revorra website.",
+        "text_muted": "The platform grew from 100 users to over 8,000 after launch, on a site the team can update themselves.",
+        "role": "Web design & development"
+      },
+      {
+        "name": "Shift by Pantheon",
+        "year": "2025",
+        "text_white": "We shaped the brand and designed the MVP for Shift by Pantheon.",
+        "text_muted": "The team took that product to investors and went on to raise $13k.",
+        "role": "Brand & UI/UX for an MVP"
+      },
+      {
+        "name": "Zix Business Suite",
+        "year": "2026",
+        "text_white": "We produced the explainer video for the new Zix Business Suite app.",
+        "text_muted": "It introduced the launch and carried across their website and social channels.",
+        "role": "Motion design · Launch video"
+      },
+      {
+        "name": "Leetlogic",
+        "year": "2026",
+        "text_white": "We built the Leetlogic brand and designed the screens for site and app.",
+        "text_muted": "One identity for a platform connecting farmers to buyers of quality produce.",
+        "role": "Brand identity & UI/UX"
+      }
     ]
   },
   "demo": {
@@ -122,9 +231,50 @@
     "per": "/project",
     "note": "Every project starts with a fixed scope and a fixed price. You approve the plan before any work begins.",
     "plans": [
-      { "name": "Starter Pack.", "sub": "Look ready from day one.", "timeline": "2 to 3 weeks", "badge": "", "price": "1,500", "button": "Start a Starter", "items": ["Brand identity and logo suite", "Animated logo", "Launch video", "Social media kit", "2 revision rounds"] },
-      { "name": "Pro Pack.", "sub": "Launch with a real product.", "timeline": "4 to 6 weeks", "badge": "Popular", "price": "3,500", "button": "Plan a Pro build", "items": ["Everything in Starter", "App UI up to 15 screens", "Website up to 5 pages, built and live", "CMS so you edit it yourself"] },
-      { "name": "Founder Pack.", "sub": "Handled end to end.", "timeline": "6 to 8 weeks", "badge": "", "price": "6,000", "button": "Talk to us", "items": ["Everything in Pro", "AI agent for support or sales", "Pitch deck design", "Launch campaign visuals", "30 days post launch support"] }
+      {
+        "name": "Starter Pack.",
+        "sub": "Look ready from day one.",
+        "timeline": "2 to 3 weeks",
+        "badge": "",
+        "price": "1,500",
+        "button": "Start a Starter",
+        "items": [
+          "Brand identity and logo suite",
+          "Animated logo",
+          "Launch video",
+          "Social media kit",
+          "2 revision rounds"
+        ]
+      },
+      {
+        "name": "Pro Pack.",
+        "sub": "Launch with a real product.",
+        "timeline": "4 to 6 weeks",
+        "badge": "Popular",
+        "price": "3,500",
+        "button": "Plan a Pro build",
+        "items": [
+          "Everything in Starter",
+          "App UI up to 15 screens",
+          "Website up to 5 pages, built and live",
+          "CMS so you edit it yourself"
+        ]
+      },
+      {
+        "name": "Founder Pack.",
+        "sub": "Handled end to end.",
+        "timeline": "6 to 8 weeks",
+        "badge": "",
+        "price": "6,000",
+        "button": "Talk to us",
+        "items": [
+          "Everything in Pro",
+          "AI agent for support or sales",
+          "Pitch deck design",
+          "Launch campaign visuals",
+          "30 days post launch support"
+        ]
+      }
     ]
   },
   "articles": {
@@ -141,12 +291,30 @@
     "skip_text": "Talk to the founder directly.",
     "skip_button": "Ask a question",
     "items": [
-      { "q": "Do I need a brand before you build my website?", "a": "No. If you have nothing yet, the Starter or Pro pack covers the brand first and the website is built on top of it. If you already have a brand, we work with what you have." },
-      { "q": "How fast can we launch something?", "a": "A brand and launch video usually takes two to three weeks. A website or app design takes four to six. You see real progress every week, not only at the end." },
-      { "q": "Will an AI agent replace people on my team?", "a": "No. Agents take the repeat questions and the follow ups, and hand anything unusual to a person. Your team gets time back for the work that needs them." },
-      { "q": "What happens to my data?", "a": "Everything runs in your own accounts. We only use the access we need for the build and you can remove it the moment we hand over." },
-      { "q": "Do I own everything after the project?", "a": "Yes. Source files, accounts, logins and the agent setup all belong to you. There is no lock in and no monthly fee to us unless you choose ongoing support." },
-      { "q": "What if something breaks after launch?", "a": "Every project includes a support window after launch. The Founder Pack includes thirty days, and you can extend it with a simple monthly plan." }
+      {
+        "q": "Do I need a brand before you build my website?",
+        "a": "No. If you have nothing yet, the Starter or Pro pack covers the brand first and the website is built on top of it. If you already have a brand, we work with what you have."
+      },
+      {
+        "q": "How fast can we launch something?",
+        "a": "A brand and launch video usually takes two to three weeks. A website or app design takes four to six. You see real progress every week, not only at the end."
+      },
+      {
+        "q": "Will an AI agent replace people on my team?",
+        "a": "No. Agents take the repeat questions and the follow ups, and hand anything unusual to a person. Your team gets time back for the work that needs them."
+      },
+      {
+        "q": "What happens to my data?",
+        "a": "Everything runs in your own accounts. We only use the access we need for the build and you can remove it the moment we hand over."
+      },
+      {
+        "q": "Do I own everything after the project?",
+        "a": "Yes. Source files, accounts, logins and the agent setup all belong to you. There is no lock in and no monthly fee to us unless you choose ongoing support."
+      },
+      {
+        "q": "What if something breaks after launch?",
+        "a": "Every project includes a support window after launch. The Founder Pack includes thirty days, and you can extend it with a simple monthly plan."
+      }
     ]
   },
   "cta": {
@@ -160,8 +328,22 @@
   },
   "contact": {
     "title": "Start a project.",
-    "looking_for": ["Brand identity", "Website", "App UI/UX", "Launch video", "AI agent", "A full launch package", "Not sure yet"],
-    "budgets": ["Under $1,500", "$1,500 to $3,500", "$3,500 to $6,000", "$6,000 and up", "Not sure yet"],
+    "looking_for": [
+      "Brand identity",
+      "Website",
+      "App UI/UX",
+      "Launch video",
+      "AI agent",
+      "A full launch package",
+      "Not sure yet"
+    ],
+    "budgets": [
+      "Under $1,500",
+      "$1,500 to $3,500",
+      "$3,500 to $6,000",
+      "$6,000 and up",
+      "Not sure yet"
+    ],
     "button": "Send request",
     "footer_image": "/assets/footer-eye.png"
   }

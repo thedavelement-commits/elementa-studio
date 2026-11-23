@@ -588,7 +588,7 @@ html{overflow-x:clip}
   .c-low h3{position:absolute;left:0;top:0;font-size:24px}
   .c-meta{position:absolute;left:0;bottom:0;margin:0}
   .c-low .pills{position:absolute;right:0;bottom:0;flex-direction:column;align-items:flex-end}
-  .sv{position:relative;top:auto;padding:24px 0 50px}
+  .sv{padding:24px 0 50px}
   .steps{display:flex;flex-direction:column;gap:40px}
   .tile{display:flex;width:100%;height:230px;border-radius:16px}
   .tile svg{width:34px}
@@ -603,3 +603,7 @@ html{overflow-x:clip}
 }
 .m-mail{word-break:normal;overflow-wrap:anywhere;font-size:15px}
 @media (max-width:809px){.m-row{grid-template-columns:1fr}.m-mail{font-size:18px}}
+
+/* services stacking (TBD style, all sizes) */
+.sv{position:sticky;top:var(--st,60px);will-change:transform;z-index:1}
+.sv-list{padding-bottom:40px}

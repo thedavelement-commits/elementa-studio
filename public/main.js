@@ -62,6 +62,7 @@
   /* ---------- hero rotating word ---------- */
   const rot = $('.js-rot');
   if (rot && !reduce) { let words; try { words = JSON.parse(rot.dataset.words); } catch { words = []; } let i = 0;
+    if (words.length === 1) setInterval(() => { if (!document.hidden) scramble(rot, 650); }, 4200);
     if (words.length > 1) setInterval(() => { if (document.hidden) return; i = (i + 1) % words.length; rot.textContent = words[i]; scramble(rot, 650); }, 3200); }
 
   /* ---------- menu ---------- */
@@ -85,11 +86,16 @@
   $$('.js-vid').forEach(v => vio.observe(v));
 
   /* ---------- scroll driven (one rAF, cached geometry) ---------- */
-  const prog = $('.js-prog'), stages = $('.js-stages'), band = $('.js-band'), pars = $$('.js-par');
+  const prog = $('.js-prog'), stages = $('.js-stages'), band = $('.js-band'), pars = $$('.js-par'), svs = $$('.sv');
   let geo = {}, vh = innerHeight, docH = 1;
   const measure = () => {
     vh = innerHeight; docH = Math.max(1, document.documentElement.scrollHeight - vh);
     if (stages) { const r = stages.querySelector('.sg-card').getBoundingClientRect(); geo.st = { top: r.top + scrollY, h: r.height }; }
+    const hdr = ($('.top') || {}).offsetHeight || 50; const T = hdr + (innerWidth < 810 ? 12 : 30);
+    svs.forEach(s => { s.style.transform = ''; });
+    geo.sv = svs.map((s, i) => { const h3 = s.querySelector('.sv-b h3'); const band = h3 ? Math.round(h3.getBoundingClientRect().bottom - s.getBoundingClientRect().top + 6) : 70; return { s, band }; });
+    geo.sv.forEach((o, i) => { const top = i === 0 ? T : T + geo.sv[i - 1].band; o.top = top; o.s.style.setProperty('--st', top + 'px'); });
+    geo.sv.forEach(o => { let el = o.s, y = 0; while (el) { y += el.offsetTop; el = el.offsetParent; } o.doc = y; });
     geo.pars = pars.map(el => { const r = el.parentElement.getBoundingClientRect(); return { el, top: r.top + scrollY, h: r.height }; });
   };
   let ticking = false;
@@ -97,6 +103,8 @@
     ticking = false; const y = scrollY;
     if (prog) prog.style.transform = `scaleX(${(y / docH).toFixed(4)})`;
     if (geo.st && band) { const { top, h } = geo.st; const p = Math.min(1, Math.max(0, (y + vh - top) / (vh + h))); band.style.setProperty('--by', ((1 - p) * (h - 30)).toFixed(1) + 'px'); }
+    if (geo.sv && geo.sv.length) geo.sv.forEach((o, i) => { const nx = geo.sv[i + 1]; if (!nx || i === 0) { if (i === 0 && nx) { /* first row: hidden under row 2 as row 3 arrives */ } return; }
+      const vtop = nx.doc - y; const sh = geo.sv[i - 1].band; const p = Math.min(1, Math.max(0, (nx.top + sh - vtop) / sh)); o.s.style.transform = p ? `translate3d(0,${(-sh * p).toFixed(1)}px,0)` : ''; });
     if (!reduce) geo.pars.forEach(o => { if (o.top + o.h < y - 100 || o.top > y + vh + 100) return; const off = ((o.top + o.h / 2) - (y + vh / 2)) * -0.08; o.el.style.transform = `translate3d(0,${off.toFixed(1)}px,0)`; });
   };
   const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
