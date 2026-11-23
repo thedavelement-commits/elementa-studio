@@ -15,10 +15,22 @@
     "image": "/assets/doorway.jpg"
   },
   "numbers": [
-    { "value": "6 years", "label": "of designing brands and products" },
-    { "value": "47+", "label": "projects delivered" },
-    { "value": "5", "label": "disciplines in one studio" },
-    { "value": "1", "label": "point of contact from start to finish" }
+    {
+      "value": "6 years",
+      "label": "of designing brands and products"
+    },
+    {
+      "value": "47+",
+      "label": "projects delivered"
+    },
+    {
+      "value": "5",
+      "label": "disciplines in one studio"
+    },
+    {
+      "value": "1",
+      "label": "point of contact from start to finish"
+    }
   ],
   "story": {
     "white": "I started as Elementa Graphics, designing for anyone who would give me a chance. Over six years the work grew",
@@ -26,17 +38,45 @@
     "author": "Dave",
     "role": "Founder"
   },
-  "process": ["Discover", "Design", "Build", "Launch"],
+  "process": [
+    "Discover",
+    "Design",
+    "Build",
+    "Launch"
+  ],
   "stack_title": "Core stack:",
-  "stack": ["Figma", "Framer", "React", "Vercel", "After Effects", "Botpress"],
+  "stack": [
+    "Figma",
+    "Framer",
+    "React",
+    "Vercel",
+    "After Effects",
+    "Botpress"
+  ],
   "record": {
     "title": "Track record.",
     "text": "We build work that survives the handover. Clear scope, weekly check ins and files you own.",
     "rows": [
-      { "what": "Brand identity", "who": "Leetlogic, Talkroots, Buqqit, Deyconnect", "years": "2025-2026" },
-      { "what": "Websites", "who": "Revorra, Classcue", "years": "2026" },
-      { "what": "Motion and launch videos", "who": "Zix Business Suite, Outrank", "years": "2026" },
-      { "what": "Product UI/UX", "who": "Taskure, Shift by Pantheon", "years": "2025-2026" }
+      {
+        "what": "Brand identity",
+        "who": "Leetlogic, Talkroots, Buqqit, Deyconnect",
+        "years": "2025-2026"
+      },
+      {
+        "what": "Websites",
+        "who": "Revorra, Classcue",
+        "years": "2026"
+      },
+      {
+        "what": "Motion and launch videos",
+        "who": "Zix Business Suite, Outrank",
+        "years": "2026"
+      },
+      {
+        "what": "Product UI/UX",
+        "who": "Taskure, Shift by Pantheon",
+        "years": "2025-2026"
+      }
     ],
     "button": "Book a call"
   },
@@ -44,10 +84,30 @@
     "title": "Who you work with.",
     "text": "You work with Dave directly. On bigger builds trusted specialists join in, and you always know who they are.",
     "cards": [
-      { "name": "Dave", "role": "Founder", "sub": "Your point of contact", "image": "" },
-      { "name": "AI agents", "role": "Led by Dave", "sub": "Support and sales agents", "image": "/assets/svc-robot.jpg" },
-      { "name": "Product and web", "role": "Led by Dave", "sub": "UI/UX and websites", "image": "/assets/svc-knobs.jpg" },
-      { "name": "Brand and motion", "role": "Led by Dave", "sub": "Identity and launch videos", "image": "/assets/svc-phone.jpg" }
+      {
+        "name": "Dave",
+        "role": "Founder",
+        "sub": "Your point of contact",
+        "image": "/assets/dave.jpg"
+      },
+      {
+        "name": "AI agents",
+        "role": "Led by Dave",
+        "sub": "Support and sales agents",
+        "image": "/assets/svc-robot.jpg"
+      },
+      {
+        "name": "Product and web",
+        "role": "Led by Dave",
+        "sub": "UI/UX and websites",
+        "image": "/assets/svc-knobs.jpg"
+      },
+      {
+        "name": "Brand and motion",
+        "role": "Led by Dave",
+        "sub": "Identity and launch videos",
+        "image": "/assets/svc-phone.jpg"
+      }
     ]
   }
 }

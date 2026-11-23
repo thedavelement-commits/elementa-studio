@@ -66,9 +66,12 @@ content:
       - { name: studio_name, label: "Studio name", type: string }
       - { name: wordmark, label: "Wordmark", type: string }
       - { name: tagline, label: "Tagline", type: string }
+      - { name: font, label: "Font", type: string }
       - { name: founder_name, label: "Founder name", type: string }
       - { name: founder_role, label: "Founder role", type: string }
       - { name: founder_initial, label: "Founder initial", type: string }
+      - { name: founder_photo, label: "Founder photo", type: image }
+      - { name: founder_portrait, label: "Founder portrait", type: image }
       - { name: email, label: "Email", type: string }
       - { name: location, label: "Location", type: string }
       - { name: timezone, label: "Timezone", type: string }
@@ -109,6 +112,7 @@ content:
           - { name: card_text, label: "Card text", type: text }
           - { name: card_name, label: "Card name", type: string }
           - { name: status, label: "Status", type: string }
+          - { name: title_highlight, label: "Title highlight", type: string }
       - name: numbers
         label: "Numbers"
         type: object
@@ -373,7 +377,7 @@ content:
               - { name: name, label: "Name", type: string }
               - { name: role, label: "Role", type: string }
               - { name: sub, label: "Sub", type: string }
-              - { name: image, label: "Image", type: string }
+              - { name: image, label: "Image", type: image }
   - name: pages
     label: "Other pages (Case studies, Blog, Contact, Sign up, 404, Menu)"
     type: file
@@ -438,20 +442,6 @@ content:
           - { name: timeline_label, label: "Timeline label", type: string }
           - { name: timelines, label: "Timelines", type: string, list: true }
           - { name: results_text, label: "Results text", type: text }
-      - name: signup
-        label: "Signup"
-        type: object
-        fields:
-          - { name: label, label: "Label", type: string }
-          - { name: title, label: "Title", type: string }
-          - { name: text, label: "Text", type: text }
-          - { name: button, label: "Button", type: string }
-          - { name: note_white, label: "Note white", type: string }
-          - { name: note_muted, label: "Note muted", type: text }
-          - { name: image, label: "Image", type: image }
-          - { name: reviews_a, label: "Reviews a", type: string }
-          - { name: reviews_hl, label: "Reviews hl", type: string }
-          - { name: reviews_b, label: "Reviews b", type: string }
       - name: notfound
         label: "Notfound"
         type: object

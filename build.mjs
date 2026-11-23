@@ -34,7 +34,7 @@ const btn = (t, href, cls = '') => `<a class="btn ${cls}" href="${href}"><span c
 const mono = (t, href, cls = '') => `<a class="mlink ${cls}" href="${href}"><span>${t}</span><i>${ARW}</i></a>`;
 const hl = t => `<span class="hl">${e(t)}</span>`;
 const brand = (cls = '') => `<span class="brand ${cls}">${MARK}<b>${e(S.wordmark)}<sup>®</sup></b></span>`;
-const monoAv = (size = 28) => `<span class="mono-av" style="width:${size}px;height:${size}px;font-size:${Math.round(size * .45)}px">${e(S.founder_initial)}</span>`;
+const monoAv = (size = 28) => S.founder_photo ? `<span class="mono-av ph" style="width:${size}px;height:${size}px"><img src="${e(size > 60 ? (S.founder_portrait || S.founder_photo) : S.founder_photo)}" alt="${e(S.founder_name)}" loading="lazy"></span>` : `<span class="mono-av" style="width:${size}px;height:${size}px;font-size:${Math.round(size * .45)}px">${e(S.founder_initial)}</span>`;
 const pills = (arr, cls = '') => `<div class="pills ${cls}">${(arr || []).map(t => `<span>${e(t)}</span>`).join('')}</div>`;
 const meter = (pct, n = 24) => `<span class="meter" style="--n:${n}">${Array.from({ length: n }, (_, i) => `<i class="${i < Math.round(n * pct / 100) ? 'on' : ''}"></i>`).join('')}</span>`;
 const img = (src, alt = '', cls = '', eager = false) => src ? `<img class="${cls}" src="${e(src)}" alt="${e(alt)}"${eager ? '' : ' loading="lazy"'} decoding="async">` : '';
@@ -142,7 +142,7 @@ function home() {
 <section class="stmt"><h2 class="h78 js-scr">${e(st.title)}</h2><span class="vline"></span><p>${e(st.text)}</p></section>
 
 <section class="stages js-stages"><div class="sg-card"><div class="sg-img">${img(sg.image)}</div><div class="grain"></div>
-<div class="sg-band js-band">${sg.labels.map(l => `<span>${e(l)}</span>`).join('')}</div>
+<div class="sg-band js-band"><div class="sg-track">${[0, 1, 2, 3].map(() => sg.labels.map(l => `<span>${e(l)}</span>`).join('')).join('')}</div></div>
 <p class="sg-txt">${e(sg.text)}</p>${BARS(34)}<span class="sg-brand">${brand('sm')}</span></div></section>
 
 <section class="sec about-s"><div class="ab-l"><h2 class="h80 js-scr">${e(ab.title_a)} ${hl(ab.title_hl)}<br>${e(ab.title_b)}</h2></div>
@@ -181,8 +181,7 @@ function about() {
 <div class="ab-r"><div class="ab-stats"><div><b class="js-roll" data-to="${e(h.stat_1)}">${e(h.stat_1)}</b><span class="mono-s">${e(h.stat_1_label)}</span></div><div><b class="js-roll" data-to="${e(h.stat_2)}">${e(h.stat_2)}</b><span class="mono-s">${e(h.stat_2_label)}</span></div></div>
 <p class="ab-p">${e(h.text_a)} <span>${e(h.text_b)}</span></p>${mono(e(h.link), '/contact')}</div>
 <div class="ab-photo"><div class="ab-pimg js-par">${img(h.image)}</div><span class="sg-brand">${brand('sm')}</span></div></section>
-<section class="sec ab-nums"><div class="an-big"><div><b class="js-roll" data-to="${e(A.numbers[1].value)}">${e(A.numbers[1].value)}</b><span class="mono-s">${e(A.numbers[1].label)}</span></div><div><b>${e(A.numbers[0].value)}</b><span class="mono-s">${e(A.numbers[0].label)}</span></div></div>
-<div class="an-row">${A.numbers.map(x => `<div><b>${e(x.value)}</b><span class="mono-s">${e(x.label)}</span></div>`).join('')}</div></section>
+<section class="sec ab-nums"><div class="an-row">${A.numbers.map(x => `<div><b>${e(x.value)}</b><span class="mono-s">${e(x.label)}</span></div>`).join('')}</div></section>
 <section class="sec ab-story"><div class="split"><div></div><div><p class="p24">${e(st.white)} <span>${e(st.muted)}</span></p><div class="who">${monoAv(28)}<div><b>${e(st.author)}</b><span>${e(st.role)}</span></div></div>
 <div class="proc">${A.process.map(x => `<span>${e(x)}</span>`).join('')}</div><div class="stack"><h4>${e(A.stack_title)}</h4>${pills(A.stack, 'outline')}</div></div></div></section>
 <section class="sec record"><div class="split"><div></div><div>${scr('h2', e(r.title), 'h80')}<p class="muted">${e(r.text)}</p><div class="rec">${r.rows.map(x => `<div class="rr"><b>${e(x.what)}</b><span>${e(x.who)}</span><span>${e(x.years)}</span></div>`).join('')}</div>${btn(r.button, '/contact')}</div></div></section>

@@ -607,3 +607,17 @@ html{overflow-x:clip}
 /* services stacking (TBD style, all sizes) */
 .sv{position:sticky;top:var(--st,60px);will-change:transform;z-index:1}
 .sv-list{padding-bottom:40px}
+
+/* founder photo */
+.mono-av.ph{overflow:hidden;padding:0;background:#111}
+.mono-av.ph img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;filter:grayscale(1)}
+.hc-img .mono-av.ph{width:100%!important;height:100%!important;border:0;border-radius:0}
+.duo-me .mono-av.ph{border-radius:8px}
+.tm1 .tm-img img{object-position:50% 25%}
+/* moving stages band like TBD */
+.sg-band{display:block;overflow:hidden;justify-content:normal;padding:0}
+.sg-track{display:flex;width:max-content;height:100%;align-items:center;animation:mq 26s linear infinite}
+.sg-track span{display:block;width:290px;flex:none;text-align:center}
+@media (max-width:809px){.sg-track span{width:180px}.sg-track{animation-duration:18s}}
+
+@media (max-width:809px){.tm-low{grid-template-columns:1fr}.tm-low .tm-b{display:none}.tm-low b{font-size:16px}}
