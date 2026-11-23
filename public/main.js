@@ -45,7 +45,7 @@
   // stagger siblings
   const g = new Map(); $$('.rv').forEach(el => { const p = el.parentElement; const n = g.get(p) || 0; g.set(p, n + 1); el.style.transitionDelay = Math.min(n, 6) * 70 + 'ms'; });
   $$('.case,.sv-img,.fc-img,.arts-img,.ab-photo,.pdw,.pd-two>div,.dm-card,.sg-card,.ft-img,.cta-card').forEach(el => el.classList.add('im'));
-  const hio = new IntersectionObserver(es => es.forEach(x => { if (!x.isIntersecting) return; hio.unobserve(x.target); scramble(x.target, 480, true, .12); }), { rootMargin: '0px 0px 12% 0px' });
+  const hio = new IntersectionObserver(es => es.forEach(x => { if (!x.isIntersecting) return; hio.unobserve(x.target); scramble(x.target, 950, true, .25); }), { rootMargin: '0px 0px 10% 0px' });
   const startObs = () => { $$('.rv,.im,.js-scr,.js-roll').forEach(el => io.observe(el)); $$('.js-scr').forEach(el => { if (el.tagName !== 'H1') hio.observe(el); }); };
 
   /* ---------- preloader + page reveal ---------- */
