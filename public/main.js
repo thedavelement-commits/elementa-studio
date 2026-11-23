@@ -5,7 +5,7 @@
   const rnd = () => GLYPHS[(Math.random() * GLYPHS.length) | 0];
 
   /* ---------- scramble text ---------- */
-  function scramble(el, dur, force) {
+  function scramble(el, dur, force, hold = .3) {
     if (reduce && !force) return;
     const nodes = []; const walk = n => n.childNodes.forEach(c => { if (c.nodeType === 3 && c.textContent.trim()) nodes.push([c, c.textContent]); else if (c.nodeType === 1) walk(c); });
     walk(el); if (!nodes.length) return;
@@ -15,7 +15,7 @@
       const p = Math.min(1, (t - t0) / D);
       if (t - last > 45 || p === 1) {
         last = t; let k = 0;
-        nodes.forEach(([n, s]) => { let out = ''; for (let i = 0; i < s.length; i++, k++) { const ch = s[i]; out += (ch === ' ' || k / total < (p - .3) / .7) ? ch : rnd(); } n.textContent = out; });
+        nodes.forEach(([n, s]) => { let out = ''; for (let i = 0; i < s.length; i++, k++) { const ch = s[i]; out += (ch === ' ' || k / total < (p - hold) / (1 - hold)) ? ch : rnd(); } n.textContent = out; });
       }
       if (p < 1) requestAnimationFrame(tick); else nodes.forEach(([n, s]) => n.textContent = s);
     };
@@ -27,7 +27,6 @@
   const io = new IntersectionObserver(es => es.forEach(x => {
     if (!x.isIntersecting) return; const el = x.target; io.unobserve(el);
     el.classList.add('in');
-    if (el.classList.contains('js-scr') && el.tagName !== 'H1') scramble(el, 0, true);
     if (el.classList.contains('js-roll')) roll(el);
   }), { rootMargin: '0px 0px -10% 0px' });
 
@@ -46,7 +45,8 @@
   // stagger siblings
   const g = new Map(); $$('.rv').forEach(el => { const p = el.parentElement; const n = g.get(p) || 0; g.set(p, n + 1); el.style.transitionDelay = Math.min(n, 6) * 70 + 'ms'; });
   $$('.case,.sv-img,.fc-img,.arts-img,.ab-photo,.pdw,.pd-two>div,.dm-card,.sg-card,.ft-img,.cta-card').forEach(el => el.classList.add('im'));
-  const startObs = () => $$('.rv,.im,.js-scr,.js-roll').forEach(el => io.observe(el));
+  const hio = new IntersectionObserver(es => es.forEach(x => { if (!x.isIntersecting) return; hio.unobserve(x.target); scramble(x.target, 480, true, .12); }), { rootMargin: '0px 0px 12% 0px' });
+  const startObs = () => { $$('.rv,.im,.js-scr,.js-roll').forEach(el => io.observe(el)); $$('.js-scr').forEach(el => { if (el.tagName !== 'H1') hio.observe(el); }); };
 
   /* ---------- preloader + page reveal ---------- */
   const pre = $('.pre');
