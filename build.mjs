@@ -52,7 +52,7 @@ function page({ title, desc = S.seo_description, body, preload = true, cls = '' 
 <link href="https://fonts.googleapis.com/css2?family=${S.font === 'Satoshi' ? '' : 'Geist:wght@300;400;500;600&family='}Geist+Mono:wght@400;500&display=swap" rel="stylesheet">${S.font === 'Satoshi' ? '<link rel="stylesheet" href="/fonts/satoshi.css"><style>:root{--f:"Satoshi",system-ui,sans-serif}</style>' : ''}
 <link rel="stylesheet" href="/style.css"><script>document.documentElement.classList.add('js')</script></head>
 <body class="${cls}">
-${preload ? `<div class="pre" aria-hidden="true"><div class="pre-c"><span class="pre-brand">${MARK}<b>${e(S.wordmark)}<sup>®</sup></b></span><span class="pre-t js-pre-t">${e(S.tagline)}</span><div class="pre-line"><i class="js-pre-l"></i></div><div class="pre-row"><span>Loading</span><span class="pre-n js-pre-n">000</span></div></div><span class="pre-foot">${e(S.booking_line)}</span></div>` : ''}
+${preload ? `<div class="pre" aria-hidden="true"><div class="pre-c"><div class="pre-row"><span class="pre-t js-pre-t">${e(S.wordmark)}®</span><span class="pre-n js-pre-n">000%</span></div><div class="pre-line"><i class="js-pre-l"></i></div></div></div>` : ''}
 <div class="tiles" aria-hidden="true">${Array.from({ length: 24 }, (_, i) => `<i style="--d:${((i * 7) % 24) * 22}ms"></i>`).join('')}</div>
 <header class="top"><a class="logo" href="/">${brand()}</a><span class="tag">${e(S.tagline)}</span>
 <nav>${navItems.map(([l, h]) => `<a href="${h}"><span class="rl"><span data-t="${e(l)}">${e(l)}</span></span></a>`).join('')}<a class="pill" href="/contact"><span class="rl"><span data-t="Contact us">Contact us</span></span></a></nav>

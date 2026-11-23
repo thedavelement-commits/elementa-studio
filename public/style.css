@@ -76,22 +76,18 @@ a:hover .rl>span,button:hover .rl>span{transform:translateY(-100%)}
 html.ready .tiles i{opacity:0}
 html:not(.js) .tiles{display:none}
 
-/* preloader */
-.pre{position:fixed;inset:0;z-index:100;background:#0b0b0b;display:flex;align-items:center;justify-content:center;transition:opacity .35s linear .15s}
+/* preloader (discreet, like TBD) */
+.pre{position:fixed;inset:0;z-index:100;background:#111;display:flex;align-items:center;justify-content:center;transition:opacity .3s linear .2s}
+.pre::before{content:"";position:absolute;left:62%;top:46%;width:300px;height:300px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(199,255,151,.05),rgba(255,255,255,.02) 40%,transparent 70%);pointer-events:none}
 html.ready .pre{opacity:0;pointer-events:none}
-.pre-c{width:min(320px,76vw);display:flex;flex-direction:column;align-items:center;transition:transform .6s var(--ease),opacity .4s}
-html.ready .pre-c{transform:translateY(-16px);opacity:0}
-.pre-brand{display:flex;align-items:center;gap:10px;animation:preIn .8s var(--ease) both}
-.pre-brand .mk{width:20px;height:20px;color:var(--lime)}
-.pre-brand b{font-size:46px;font-weight:500;letter-spacing:-.045em;line-height:1}
-.pre-brand sup{font-size:.4em;vertical-align:top;position:relative;top:.1em}
-.pre-t{margin-top:14px;font-family:var(--m);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);min-height:1.2em}
-.pre-line{width:100%;height:2px;background:rgba(255,255,255,.08);margin-top:34px;position:relative;border-radius:2px;overflow:visible}
-.pre-line i{position:absolute;left:0;top:0;height:2px;width:100%;background:var(--lime);transform-origin:0 50%;transform:scaleX(0);box-shadow:0 0 14px 1px rgba(199,255,151,.75);border-radius:2px}
-.pre-row{width:100%;display:flex;justify-content:space-between;margin-top:10px;font-family:var(--m);font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut2)}
-.pre-n{color:#fff;font-variant-numeric:tabular-nums}
-.pre-foot{position:absolute;left:0;right:0;bottom:34px;text-align:center;font-family:var(--m);font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut2)}
-@keyframes preIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.pre-c{position:relative;width:215px;margin-top:-4vh;transition:opacity .35s,transform .5s var(--ease)}
+.pre-row{display:flex;align-items:flex-end;justify-content:space-between}
+.pre-t{font-size:15px;font-weight:500;letter-spacing:-.02em;color:#fff;transition:color .4s;white-space:nowrap}
+.pre-n{font-size:8.5px;color:var(--mut2);font-variant-numeric:tabular-nums;letter-spacing:.02em;margin-bottom:1px}
+.pre-line{height:2px;margin-top:16px;border-radius:2px;background:rgba(255,255,255,.06);position:relative}
+.pre-line i{position:absolute;left:0;top:0;height:2px;width:100%;border-radius:2px;background:var(--lime);transform-origin:0 50%;transform:scaleX(0);box-shadow:0 0 10px rgba(199,255,151,.85),0 0 2px rgba(199,255,151,1);transition:background .4s,box-shadow .4s}
+.pre.done .pre-t{color:rgba(255,255,255,.7)}.pre.done .pre-line i{background:#9bbf73;box-shadow:none}
+html.ready .pre-c{opacity:0;transform:translateY(-8px)}
 .tiles i{transition:opacity .25s linear var(--d)}
 
 /* menu (dropdown like TBD) */
