@@ -1,12 +1,12 @@
 (() => {
   const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
-  const html = document.documentElement, reduce = false; // always animate: the brand motion is part of the design
+  const html = document.documentElement, reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789#%&*+=?/<>[]{}アイウエオカキクケコサシスセソタチツテトナニヌネ';
   const rnd = () => GLYPHS[(Math.random() * GLYPHS.length) | 0];
 
   /* ---------- scramble text ---------- */
-  function scramble(el, dur) {
-    if (reduce) return;
+  function scramble(el, dur, force) {
+    if (reduce && !force) return;
     const nodes = []; const walk = n => n.childNodes.forEach(c => { if (c.nodeType === 3 && c.textContent.trim()) nodes.push([c, c.textContent]); else if (c.nodeType === 1) walk(c); });
     walk(el); if (!nodes.length) return;
     const total = nodes.reduce((a, [, t]) => a + t.length, 0); const D = dur || Math.min(1100, 450 + total * 9); const t0 = performance.now();
@@ -54,7 +54,7 @@
   if (pre) {
     const n = $('.js-pre-n'), l = $('.js-pre-l'), t = $('.js-pre-t'), t0 = performance.now(), D = 2000; let flipped = false;
     const tick = now => { const k = Math.min(1, (now - t0) / D), v = 1 - Math.pow(1 - k, 2); n.textContent = String(Math.round(v * 100)).padStart(3, '0') + '%'; l.style.transform = `scaleX(${v})`;
-      if (now - t0 > 650 && !flipped) { flipped = true; t.textContent = 'Design & AI Studio.'; scramble(t, 750); }
+      if (now - t0 > 650 && !flipped) { flipped = true; t.textContent = 'Design & AI Studio.'; scramble(t, 750, true); }
       if (k < 1) requestAnimationFrame(tick); else { pre.classList.add('done'); setTimeout(ready, 350); } };
     requestAnimationFrame(tick);
   } else requestAnimationFrame(() => requestAnimationFrame(ready));
