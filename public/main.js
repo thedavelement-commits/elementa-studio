@@ -1,6 +1,6 @@
 (() => {
   const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
-  const html = document.documentElement, reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const html = document.documentElement, reduce = false; // always animate: the brand motion is part of the design
   const GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789#%&*+=?/<>[]{}アイウエオカキクケコサシスセソタチツテトナニヌネ';
   const rnd = () => GLYPHS[(Math.random() * GLYPHS.length) | 0];
 
@@ -15,10 +15,11 @@
       const p = Math.min(1, (t - t0) / D);
       if (t - last > 45 || p === 1) {
         last = t; let k = 0;
-        nodes.forEach(([n, s]) => { let out = ''; for (let i = 0; i < s.length; i++, k++) { const ch = s[i]; out += (ch === ' ' || k / total < p * 1.15 - .15) ? ch : rnd(); } n.textContent = out; });
+        nodes.forEach(([n, s]) => { let out = ''; for (let i = 0; i < s.length; i++, k++) { const ch = s[i]; out += (ch === ' ' || k / total < (p - .3) / .7) ? ch : rnd(); } n.textContent = out; });
       }
       if (p < 1) requestAnimationFrame(tick); else nodes.forEach(([n, s]) => n.textContent = s);
     };
+    nodes.forEach(([n, s]) => { n.textContent = [...s].map(ch => ch === ' ' ? ch : rnd()).join(''); });
     requestAnimationFrame(tick);
   }
 
@@ -54,7 +55,7 @@
     const n = $('.js-pre-n'), l = $('.js-pre-l'), t = $('.js-pre-t'), t0 = performance.now(), D = 2000; let flipped = false;
     scramble(t, 500);
     const tick = now => { const k = Math.min(1, (now - t0) / D), v = 1 - Math.pow(1 - k, 2); n.textContent = String(Math.round(v * 100)).padStart(3, '0') + '%'; l.style.transform = `scaleX(${v})`;
-      if (k > .35 && !flipped) { flipped = true; t.textContent = 'Design & AI Studio.'; scramble(t, 600); }
+      if (k > .35 && !flipped) { flipped = true; t.textContent = 'Design & AI Studio.'; scramble(t, 750); }
       if (k < 1) requestAnimationFrame(tick); else { pre.classList.add('done'); setTimeout(ready, 350); } };
     requestAnimationFrame(tick);
   } else requestAnimationFrame(() => requestAnimationFrame(ready));
