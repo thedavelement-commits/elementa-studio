@@ -58,7 +58,7 @@
     if (!x.isIntersecting) return; const el = x.target; io.unobserve(el);
     el.classList.add('in');
     if (el.classList.contains('js-roll')) roll(el);
-  }), { rootMargin: '0px 0px -10% 0px' });
+  }), { rootMargin: '0px 0px -3% 0px' });
 
   /* rolling digits */
   function prepRoll(el) {
@@ -139,6 +139,8 @@
       const vtop = nx.doc - y; const sh = geo.sv[i - 1].band; const p = Math.min(1, Math.max(0, (nx.top + sh - vtop) / sh)); o.s.style.transform = p ? `translate3d(0,${(-sh * p).toFixed(1)}px,0)` : ''; });
     if (!reduce) geo.pars.forEach(o => { if (o.top + o.h < y - 100 || o.top > y + vh + 100) return; const off = ((o.top + o.h / 2) - (y + vh / 2)) * -0.08; o.el.style.transform = `translate3d(0,${off.toFixed(1)}px,0)`; });
   };
+  const atEnd = () => { if (innerHeight + scrollY >= document.documentElement.scrollHeight - 40) $$('.rv:not(.in),.im:not(.in)').forEach(el => { if (el.getBoundingClientRect().top < innerHeight) { el.classList.add('in'); io.unobserve(el); } }); };
+  addEventListener('scroll', atEnd, { passive: true });
   const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
   measure(); frame();
   addEventListener('scroll', onScroll, { passive: true });
