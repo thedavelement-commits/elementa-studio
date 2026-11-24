@@ -170,7 +170,7 @@ html.ready .pre-c{opacity:0;transform:translateY(-8px)}
 
 /* statement */
 .stmt{text-align:center;padding:120px var(--pad) 70px}
-.stmt h2{max-width:1100px;margin:0 auto}
+.stmt h2{max-width:1100px;margin:0 auto;line-height:1.08}
 .stmt p{max-width:500px;margin:0 auto;font-size:11px;color:var(--mut);line-height:1.4}
 
 /* stages */
