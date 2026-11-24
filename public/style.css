@@ -653,5 +653,5 @@ html{overflow-x:clip}
 @media (max-width:809px){.tm-g.one{grid-template-columns:1fr;margin-top:40px}.tm-g.one .tm{grid-column:1}.tm-g.one .tm-low .tm-b{display:block}.tm-g.one .tm-low{grid-template-columns:1fr auto}}
 
 html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}.lenis.lenis-stopped{overflow:clip}.lenis.lenis-smooth iframe{pointer-events:none}
-.lg-i img{max-width:70%;max-height:34px;width:auto;height:auto;display:block;opacity:.8}
-.c-logo-i img{height:28px;width:auto;display:block}
+.lg-i img{display:block;opacity:.8}.c-logo-i img{display:block}
+@media (max-width:809px){.lg-i img{transform:scale(.78)}.c-logo-i img{transform:scale(.8)}}

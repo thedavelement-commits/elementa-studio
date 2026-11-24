@@ -39,8 +39,13 @@ const brand = (cls = '') => `<span class="brand ${cls}">${LOGO}</span>`;
 const monoAv = (size = 28) => S.founder_photo ? `<span class="mono-av ph" style="width:${size}px;height:${size}px"><img src="${e(size > 60 ? (S.founder_portrait || S.founder_photo) : S.founder_photo)}" alt="${e(S.founder_name)}" loading="lazy"></span>` : `<span class="mono-av" style="width:${size}px;height:${size}px;font-size:${Math.round(size * .45)}px">${e(S.founder_initial)}</span>`;
 const pills = (arr, cls = '') => `<div class="pills ${cls}">${(arr || []).map(t => `<span>${e(t)}</span>`).join('')}</div>`;
 const meter = (pct, n = 24) => `<span class="meter" style="--n:${n}">${Array.from({ length: n }, (_, i) => `<i class="${i < Math.round(n * pct / 100) ? 'on' : ''}"></i>`).join('')}</span>`;
-const LOGOS = new Set(['beevia','buqqit','deyconnect','leetlogic','talkroots','taskure']);
-const logoOf = n => { const k = String(n || '').toLowerCase().replace(/[^a-z]/g, ''); return LOGOS.has(k) ? `/brand/clients/${k}.svg` : ''; };
+const LOGO_DIR = 'public/brand/clients';
+const LOGO_AR = Object.fromEntries(fs.readdirSync(LOGO_DIR).filter(f => f.endsWith('.svg')).map(f => { const v = fs.readFileSync(path.join(LOGO_DIR, f), 'utf8').match(/viewBox="([\d.\s-]+)"/)[1].trim().split(/\s+/).map(Number); return [f.slice(0, -4), v[2] / v[3]]; }));
+const LOGO_ALIAS = { zixbusinesssuite: 'zix', shiftbypantheon: 'shift' };
+const logoKey = n => { const k = String(n || '').toLowerCase().replace(/[^a-z]/g, ''); const a = LOGO_ALIAS[k] || k; return LOGO_AR[a] ? a : ''; };
+const logoOf = n => { const k = logoKey(n); return k ? `/brand/clients/${k}.svg` : ''; };
+/* optical sizing: every logo gets about the same area, capped by height and width */
+const logoTag = (n, area, maxH, maxW) => { const k = logoKey(n); const ar = LOGO_AR[k]; let h = Math.sqrt(area / ar); h = Math.min(h, maxH, maxW / ar); return `<img src="/brand/clients/${k}.svg" alt="${e(n)}" style="height:${h.toFixed(1)}px;width:${(h * ar).toFixed(1)}px" loading="lazy" decoding="async">`; };
 const img = (src, alt = '', cls = '', eager = false) => src ? `<img class="${cls}" src="${e(src)}" alt="${e(alt)}"${eager ? '' : ' loading="lazy"'} decoding="async">` : '';
 const isVid = s => /\.(mp4|webm|mov)$/i.test(String(s || ''));
 const media = (src, alt = '', eager = false) => !src ? '' : isVid(src) ? `<video class="js-vid" data-src="${e(src)}" muted loop playsinline preload="none"></video>` : img(src, alt, '', eager);
@@ -78,7 +83,7 @@ function menu() {
 
 /* shared blocks */
 const caseCard = (p, i) => `<a class="case" href="/case-studies/${p.slug}" data-cats="${e((p.categories || []).join('|'))}"><div class="c-media">${img(p.cover, p.title)}${p.video ? `<video class="js-vid" data-src="${e(p.video)}" muted loop playsinline preload="none" poster="${e(p.cover)}"></video>` : ''}</div>
-${logoOf(p.title) ? `<span class="c-logo c-logo-i"><img src="${logoOf(p.title)}" alt="${e(p.title)}" loading="lazy" decoding="async"></span>` : `<span class="c-logo">${MARK}${e(p.title)}</span>`}<div class="c-low"><div><h3 class="js-hscr">${e(p.title)}.</h3><span class="c-meta">${e(p.year)} · ${e(p.meta)}</span></div>${pills(p.tags, 'outline')}</div></a>`;
+${logoOf(p.title) ? `<span class="c-logo c-logo-i">${logoTag(p.title, 4200, 48, 200)}</span>` : `<span class="c-logo">${MARK}${e(p.title)}</span>`}<div class="c-low"><div><h3 class="js-hscr">${e(p.title)}.</h3><span class="c-meta">${e(p.year)} · ${e(p.meta)}</span></div>${pills(p.tags, 'outline')}</div></a>`;
 const caseGrid = list => `<div class="cases">${list.map(caseCard).join('')}</div>`;
 
 const faq = () => { const f = H.faq; return `<section class="sec faq"><div class="sec-l">${lbl(f.label)}</div><div class="center">${scr('h2', e(f.title), 'h78')}</div>
@@ -143,7 +148,7 @@ function home() {
 <div class="h-card"><div class="hc-l"><div class="hc-top">${brand('sm')}</div><div class="hc-b"><span class="vt">//2026</span><div><p>${e(h.card_text)}</p><span>${e(h.card_name)}</span></div></div></div><div class="hc-img">${monoAv(84)}</div></div></div></section>
 
 <section class="nums">${lbl(n.label)}<div class="nm-row"><h3>${e(n.title)}</h3><div class="nm-v">${meter(n.meter, 22)}<div><b class="js-roll" data-to="${e(n.value)}">${e(n.value)}</b><span class="mono-s">${e(n.value_label)}</span></div></div>
-<div class="nm-logos"><div class="mq"><div class="mq-t">${[...n.clients, ...n.clients].map(c => logoOf(c) ? `<span class="lg lg-i"><img src="${logoOf(c)}" alt="${e(c)}" loading="lazy" decoding="async"></span>` : `<span class="lg">${e(c)}</span>`).join('')}</div></div></div></div></section>
+<div class="nm-logos"><div class="mq"><div class="mq-t">${[...n.clients, ...n.clients].map(c => logoOf(c) ? `<span class="lg lg-i">${logoTag(c, 1500, 30, 96)}</span>` : `<span class="lg">${e(c)}</span>`).join('')}</div></div></div></div></section>
 
 <section class="stmt"><h2 class="h78 js-scr">${e(st.title)}</h2><span class="vline"></span><p>${e(st.text)}</p></section>
 
@@ -210,7 +215,7 @@ function caseStudy(p) {
   const c = P.case_study; const more = projects.filter(x => x.slug !== p.slug).slice(0, 2);
   const stats = [[p.stat_1, p.stat_1_label], [p.stat_2, p.stat_2_label]].filter(s => s[0]);
   const body = `<section class="pd-hero"><div class="pd-bg js-par">${media(p.hero_image, p.title, true)}</div><div class="pd-shade"></div>
-<div class="pd-in"><div></div><div><h1 class="h90 js-scr">${e(p.title)}.</h1><p class="muted">${e(p.summary)}</p><span class="mono-s">${e(c.team_label)}</span><div class="pd-team"><div class="who">${monoAv(53)}<div><b>${e(S.founder_name)}</b><span>${e(p.role)}</span></div></div></div></div></div><span class="pd-logo">${MARK}${e(p.title)}</span></section>
+<div class="pd-in"><div></div><div><h1 class="h90 js-scr">${e(p.title)}.</h1><p class="muted">${e(p.summary)}</p><span class="mono-s">${e(c.team_label)}</span><div class="pd-team"><div class="who">${monoAv(53)}<div><b>${e(S.founder_name)}</b><span>${e(p.role)}</span></div></div></div></div></div>${logoOf(p.title) ? `<span class="pd-logo c-logo-i">${logoTag(p.title, 3000, 40, 170)}</span>` : `<span class="pd-logo">${MARK}${e(p.title)}</span>`}</section>
 <section class="sec pd-info"><div class="split"><div></div><div><div class="pd-tbl"><div><span class="mono-s">${e(c.client)}</span><b>${e(p.title)}</b></div><div><span class="mono-s">${e(c.year)}</span><b>${e(p.year)}</b></div><div><span class="mono-s">${e(c.role)}</span><b>${e(p.role)}</b></div><div><span class="mono-s">${e(c.work)}</span>${pills(p.work, 'outline')}</div></div>
 <p class="p24">${e(p.intro_white)} <span>${e(p.intro_muted)}</span></p>${p.link ? btn(c.live, p.link) : btn('Start a similar project', '/contact')}</div></div></section>
 <section class="pd-wide"><div class="pdw js-par">${media(p.image_wide, p.title)}</div></section>
