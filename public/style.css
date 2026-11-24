@@ -60,7 +60,7 @@ button{cursor:pointer}
 .rl>span::after{content:attr(data-t);position:absolute;left:0;top:100%}
 a:hover .rl>span,button:hover .rl>span{transform:translateY(-100%)}
 /* header */
-.top{position:fixed;top:0;left:0;right:0;height:50px;z-index:60;display:flex;align-items:center;padding:0 var(--pad);background:rgba(11,11,11,.92);border-bottom:1px solid var(--line)}
+.top{position:fixed;top:0;left:0;right:0;height:50px;z-index:60;display:flex;align-items:center;padding:0 var(--pad);background:#0b0b0b;border-bottom:1px solid var(--line)}
 .top .logo{display:flex;align-items:center}
 .top .tag{margin-left:20px;padding-left:20px;border-left:1px solid var(--line2);font-size:9px;color:var(--mut);height:14px;display:flex;align-items:center}
 .top nav{margin-left:auto;display:flex;align-items:center;gap:40px;font-size:11px;letter-spacing:.06em}
@@ -78,7 +78,9 @@ html:not(.js) .tiles{display:none}
 
 /* preloader (discreet, like TBD) */
 .pre{position:fixed;inset:0;z-index:100;background:#111;display:flex;align-items:center;justify-content:center;transition:opacity .3s linear .2s}
-.pre::before{content:"";position:absolute;left:62%;top:46%;width:300px;height:300px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(199,255,151,.05),rgba(255,255,255,.02) 40%,transparent 70%);pointer-events:none}
+.pre-glow{position:absolute;top:50%;left:0;width:280px;height:280px;margin:-140px 0 0 -140px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(199,255,151,.16) 0,rgba(199,255,151,.06) 22%,rgba(255,255,255,.025) 42%,transparent 66%);will-change:transform}
+.pre-glow::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:6px;margin:-3px 0 0 -10px;border-radius:50%;background:rgba(220,255,190,.9);filter:blur(3px)}
+.pre.done .pre-glow{opacity:0;transition:opacity .4s}
 html.ready .pre{opacity:0;pointer-events:none}
 .pre-c{position:relative;width:215px;margin-top:-4vh;transition:opacity .35s,transform .5s var(--ease)}
 .pre-row{display:flex;align-items:flex-end;justify-content:space-between}
@@ -630,3 +632,11 @@ html{overflow-x:clip}
 
 .pd-bg video,.pdw video,.pd-two video{width:100%;height:100%;object-fit:cover}
 .pdw video{position:absolute;inset:-60px 0;height:calc(100% + 120px)}
+
+/* rolling numbers: real text holds the layout, digits roll on top of it */
+.js-roll{position:relative;display:inline-block;line-height:1.1}
+.rl-ghost{visibility:hidden}
+.rl-over{position:absolute;left:0;top:0;height:1.1em;display:flex;white-space:nowrap}
+.rl-over .dg{display:block;height:1.1em;line-height:1.1;overflow:hidden;margin:0;vertical-align:top}
+.rl-over .dc>span{height:1.1em;line-height:1.1}
+.rl-over .dgs{display:block;line-height:1.1}

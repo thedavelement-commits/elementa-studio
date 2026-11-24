@@ -64,7 +64,8 @@
   function prepRoll(el) {
     const raw = el.dataset.to || el.textContent; let k = 0;
     el.setAttribute('aria-label', raw);
-    el.innerHTML = [...raw].map(ch => /[0-9]/.test(ch) ? `<span class="dg"><span class="dc" style="--dd:${(k++ * .06).toFixed(2)}s">${Array.from({ length: 20 }, (_, i) => `<span>${i % 10}</span>`).join('')}</span></span>` : `<span>${ch === ' ' ? '&nbsp;' : ch}</span>`).join('');
+    const cols = [...raw].map(ch => /[0-9]/.test(ch) ? `<span class="dg"><span class="dc" style="--dd:${(k++ * .06).toFixed(2)}s">${Array.from({ length: 20 }, (_, i) => `<span>${i % 10}</span>`).join('')}</span></span>` : `<span class="dgs">${ch === ' ' ? '&nbsp;' : ch}</span>`).join('');
+    el.innerHTML = `<span class="rl-ghost">${raw}</span><span class="rl-over" aria-hidden="true">${cols}</span>`;
   }
   function roll(el) { const raw = el.dataset.to || ''; const ds = [...raw].filter(c => /[0-9]/.test(c)); const cols = el.querySelectorAll('.dc'); cols.forEach((c, i) => { c.style.transform = `translateY(-${(10 + +ds[i]) * 5}%)`; }); setTimeout(() => { el.textContent = raw; }, 1700 + cols.length * 60 + 150); }
   if (!reduce) $$('.js-roll').forEach(prepRoll);
@@ -82,8 +83,8 @@
   const pre = $('.pre');
   const ready = () => { html.classList.add('ready'); setTimeout(startObs, pre ? 250 : 120); setTimeout(() => { pre && pre.remove(); const t = $('.tiles'); t && t.remove(); }, 1400); };
   if (pre) {
-    const n = $('.js-pre-n'), l = $('.js-pre-l'), t = $('.js-pre-t'), t0 = performance.now(), D = 2000; let flipped = false;
-    const tick = now => { const k = Math.min(1, (now - t0) / D), v = 1 - Math.pow(1 - k, 2); n.textContent = String(Math.round(v * 100)).padStart(3, '0') + '%'; l.style.transform = `scaleX(${v})`;
+    const n = $('.js-pre-n'), l = $('.js-pre-l'), gl = $('.js-pre-g'), lw = (l.parentElement || {}).offsetWidth || 215, t = $('.js-pre-t'), t0 = performance.now(), D = 2000; let flipped = false;
+    const tick = now => { const k = Math.min(1, (now - t0) / D), v = 1 - Math.pow(1 - k, 2); n.textContent = String(Math.round(v * 100)).padStart(3, '0') + '%'; l.style.transform = `scaleX(${v})`; if (gl) gl.style.transform = `translate3d(${(v * lw).toFixed(1)}px,0,0)`;
       if (now - t0 > 650 && !flipped) { flipped = true; t.textContent = 'Design & AI Studio.'; scramble(t, 750, true); }
       if (k < 1) requestAnimationFrame(tick); else { pre.classList.add('done'); setTimeout(ready, 350); } };
     requestAnimationFrame(tick);
