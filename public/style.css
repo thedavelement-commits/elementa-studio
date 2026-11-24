@@ -78,7 +78,7 @@ html:not(.js) .tiles{display:none}
 /* preloader (discreet, like TBD) */
 .pre{position:fixed;inset:0;z-index:100;background:#111;display:flex;align-items:center;justify-content:center;transition:opacity .3s linear .2s}
 .pre-glow{position:absolute;top:50%;left:0;width:280px;height:280px;margin:-140px 0 0 -140px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(215,38,43,.16) 0,rgba(215,38,43,.06) 22%,rgba(255,255,255,.025) 42%,transparent 66%);will-change:transform}
-.pre-glow::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:6px;margin:-3px 0 0 -10px;border-radius:50%;background:rgba(255,255,255,.9);filter:blur(3px)}
+.pre-glow::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:6px;margin:-3px 0 0 -10px;border-radius:50%;background:rgba(255,92,96,.95);filter:blur(3px)}
 .pre.done .pre-glow{opacity:0;transition:opacity .4s}
 html.ready .pre{opacity:0;pointer-events:none}
 .pre-c{position:relative;width:215px;margin-top:-4vh;transition:opacity .35s,transform .5s var(--ease)}
