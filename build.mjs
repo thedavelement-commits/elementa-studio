@@ -122,7 +122,7 @@ const articles = (list, title = H.articles.title, text = H.articles.text) => `<s
 
 const results = (head = true) => { const r = H.results; return `<section class="sec results">${head ? `<div class="sec-l">${lbl(r.label)}</div><div class="split"><div></div><div>${scr('h2', `${e(r.title_a)} ${hl(r.title_hl)}.`, 'h80')}<p class="muted">${e(r.text)}</p></div></div>` : ''}
 <div class="rs-g"><div class="rs-stats"><div class="st st1"><b class="js-roll" data-to="${e(r.stat_1)}">${e(r.stat_1)}</b><span>${e(r.stat_1_label)}</span></div><div class="st st2"><b class="js-roll" data-to="${e(r.stat_2)}">${e(r.stat_2)}</b><span>${e(r.stat_2_label)}</span></div></div>
-<div class="rs-card js-car"><div class="rs-img">${img(r.image)}<div class="rs-top"><span class="rs-logo js-car-logo">${MARK}${e(r.items[0].name)}</span><span class="mono-s js-car-year">${e(r.items[0].year)}</span></div><div class="rs-who"><span class="js-car-role">${e(r.items[0].role)}</span></div></div>
+<div class="rs-card js-car"><div class="rs-img">${img(r.image)}<div class="rs-top"><span class="rs-logo js-car-logo">${MARK}${e(r.items[0].name)}</span><span class="mono-s js-car-year">${e(r.items[0].year)}</span></div><div class="rs-who"><span class="rs-av">${img(r.image)}</span><span class="js-car-role">${e(r.items[0].role)}</span></div></div>
 <div class="rs-txt">${r.items.map((x, i) => `<div class="rs-q${i ? '' : ' on'}" data-name="${e(x.name)}" data-year="${e(x.year)}" data-role="${e(x.role)}"><p>${e(x.text_white)} <span>${e(x.text_muted)}</span></p></div>`).join('')}
 <div class="rs-nav"><div class="rs-dots">${r.items.map((_, i) => `<i class="${i ? '' : 'on'}"></i>`).join('')}</div><div class="rs-arr"><button class="js-prev" aria-label="Previous">${CHEV}</button><button class="js-next" aria-label="Next">${CHEV}</button></div></div></div></div></div></section>`; };
 
@@ -251,8 +251,8 @@ function contact() {
 <label class="fld sel"><span>${ARW}What are you looking for?</span><select name="looking_for">${H.contact.looking_for.map(o => `<option>${e(o)}</option>`).join('')}</select>${CHEV}</label><label class="fld sel"><span>${ARW}What’s your budget?</span><select name="budget">${H.contact.budgets.map(o => `<option>${e(o)}</option>`).join('')}</select>${CHEV}</label>
 <label class="fld sel full"><span>${ARW}${e(c.timeline_label)}</span><select name="timeline">${c.timelines.map(o => `<option>${e(o)}</option>`).join('')}</select>${CHEV}</label><label class="fld full"><span>${ARW}Tell us more</span><textarea name="message" rows="3" placeholder="Got anything else to add?"></textarea></label>
 <div class="f-low"><button class="btn" type="submit"><span class="b-t"><span class="rl"><span data-t="Send request">Send request</span></span></span><span class="b-a">${ARW}</span></button><small>By submitting, you agree to our <a href="/legal/terms-of-service">Terms</a> and <a href="/legal/privacy-policy">Privacy Policy</a>.</small><span class="f-ok">Thanks. We will reply within a day.</span></div></form></div></section>
-<section class="sec cp-note"><div class="split"><div></div><p class="muted">${e(c.results_text)}</p></div></section>
-${results(false)}${faq()}${cta()}${contactSec()}`;
+<section class="sec cp-note"><div class="sec-l">${lbl(c.reviews_label)}</div><div class="split"><div></div><div>${scr('h2', `${e(c.reviews_title)} ${hl(c.reviews_hl)}.`, 'h80')}<p class="muted">${e(c.results_text)}</p></div></div></section>
+${results(false)}${faq()}${cta()}`;
   return page({ title: `Contact | ${S.studio_name}`, body });
 }
 

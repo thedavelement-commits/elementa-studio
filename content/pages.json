@@ -50,7 +50,10 @@
       "In the next three months",
       "Just exploring"
     ],
-    "results_text": "Every one of them started with a message like the one you are about to send."
+    "results_text": "Every one of them started with a message like the one you are about to send.",
+    "reviews_label": "What clients say",
+    "reviews_title": "Reviews from founders we",
+    "reviews_hl": "launched"
   },
   "notfound": {
     "kicker_a": "This page",
