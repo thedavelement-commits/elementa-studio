@@ -47,14 +47,14 @@ const soc = (cls = 'socs') => `<div class="${cls}">${S.socials.map(s => `<a href
 
 const navItems = [['Home', '/'], ['About', '/about'], ['Case Studies', '/case-studies'], ['Blogs', '/blog'], ['404', '/404']];
 
-function page({ title, desc = S.seo_description, body, preload = true, cls = '' }) {
+function page({ title, desc = S.seo_description, body, preload = false, cls = '' }) {
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>${e(title)}</title><meta name="description" content="${e(desc)}"><meta property="og:title" content="${e(title)}"><meta property="og:description" content="${e(desc)}"><meta property="og:image" content="/assets/og.jpg"><meta name="theme-color" content="#050505">
 <link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=${S.font === 'Satoshi' ? '' : 'Geist:wght@300;400;500;600&family='}Geist+Mono:wght@400;500&display=swap" rel="stylesheet">${S.font === 'Satoshi' ? '<link rel="preload" href="/fonts/satoshi-500.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/fonts/satoshi.css">' : ''}
 <link rel="stylesheet" href="/style.css">${S.font === 'Satoshi' ? '<style>html:root{--f:"Satoshi",system-ui,sans-serif}</style>' : ''}<script>document.documentElement.classList.add('js')</script></head>
 <body class="${cls}">
-${preload ? `<div class="pre" aria-hidden="true"><div class="pre-c"><div class="pre-row"><span class="pre-t js-pre-t">${e(S.wordmark)}®</span><span class="pre-n js-pre-n">000%</span></div><div class="pre-line"><i class="js-pre-l"></i><span class="pre-glow js-pre-g"></span></div></div></div>` : ''}
+${preload ? `<div class="pre" aria-hidden="true"><div class="pre-c"><div class="pre-row"><span class="pre-t js-pre-t">${e(S.wordmark)}®</span><span class="pre-n js-pre-n">000%</span></div><div class="pre-line"><i class="js-pre-l"></i><span class="pre-glow js-pre-g"></span></div></div></div><script>(function(){try{var n=performance.getEntriesByType('navigation')[0],r=n&&n.type==='reload';if(!r&&sessionStorage.getItem('el_intro')){var p=document.querySelector('.pre');p&&p.remove()}else sessionStorage.setItem('el_intro','1')}catch(e){}})()</script>` : ''}
 <div class="tiles" aria-hidden="true">${Array.from({ length: 24 }, (_, i) => `<i style="--d:${((i * 7) % 24) * 22}ms"></i>`).join('')}</div>
 <header class="top"><a class="logo" href="/">${brand()}</a><span class="tag">${e(S.tagline)}</span>
 <nav>${navItems.map(([l, h]) => `<a href="${h}"><span class="rl"><span data-t="${e(l)}">${e(l)}</span></span></a>`).join('')}<a class="pill" href="/contact"><span class="rl"><span data-t="Contact us">Contact us</span></span></a></nav>
