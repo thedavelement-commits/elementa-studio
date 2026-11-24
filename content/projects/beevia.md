@@ -5,6 +5,8 @@ year: '2026'
 cover: /assets/detail-5.jpg
 video: ''
 meta: Brand identity
+categories:
+- Branding
 tags:
 - Brand identity
 - Guidelines

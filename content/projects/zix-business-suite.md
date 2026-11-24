@@ -5,6 +5,8 @@ year: '2026'
 cover: /assets/case-spring.jpg
 video: ''
 meta: Motion · Launch video
+categories:
+- Motion
 tags:
 - Motion
 - Launch video

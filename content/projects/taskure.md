@@ -5,6 +5,8 @@ year: '2025'
 cover: /assets/case-terraces.jpg
 video: ''
 meta: Product UI/UX
+categories:
+- UI/UX
 tags:
 - UI/UX
 - App screens

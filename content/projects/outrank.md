@@ -5,6 +5,8 @@ year: '2026'
 cover: /assets/detail-3.jpg
 video: ''
 meta: Motion · Explainer
+categories:
+- Motion
 tags:
 - Motion
 - Explainer

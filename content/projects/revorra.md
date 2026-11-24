@@ -5,6 +5,8 @@ year: '2026'
 cover: /assets/case-street.jpg
 video: /assets/case-street.mp4
 meta: Web design · Live
+categories:
+- Websites
 tags:
 - Web design
 - Development

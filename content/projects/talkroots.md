@@ -5,6 +5,9 @@ year: '2025'
 cover: /assets/case-blossom.jpg
 video: ''
 meta: Brand identity · Motion
+categories:
+- Branding
+- Motion
 tags:
 - Brand identity
 - Motion

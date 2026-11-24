@@ -5,6 +5,8 @@ year: '2026'
 cover: /assets/case-red.jpg
 video: ''
 meta: Brand identity
+categories:
+- Branding
 tags:
 - Brand identity
 - Guidelines

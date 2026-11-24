@@ -66,7 +66,7 @@
     el.setAttribute('aria-label', raw);
     el.innerHTML = [...raw].map(ch => /[0-9]/.test(ch) ? `<span class="dg"><span class="dc" style="--dd:${(k++ * .06).toFixed(2)}s">${Array.from({ length: 20 }, (_, i) => `<span>${i % 10}</span>`).join('')}</span></span>` : `<span>${ch === ' ' ? '&nbsp;' : ch}</span>`).join('');
   }
-  function roll(el) { const ds = [...(el.dataset.to || '')].filter(c => /[0-9]/.test(c)); el.querySelectorAll('.dc').forEach((c, i) => { c.style.transform = `translateY(-${(10 + +ds[i]) * 5}%)`; }); }
+  function roll(el) { const raw = el.dataset.to || ''; const ds = [...raw].filter(c => /[0-9]/.test(c)); const cols = el.querySelectorAll('.dc'); cols.forEach((c, i) => { c.style.transform = `translateY(-${(10 + +ds[i]) * 5}%)`; }); setTimeout(() => { el.textContent = raw; }, 1700 + cols.length * 60 + 150); }
   if (!reduce) $$('.js-roll').forEach(prepRoll);
 
   /* auto reveal targets */
@@ -124,7 +124,7 @@
     if (svs.length) {
       const list = svs[0].parentElement; let ly = 0, el = list; while (el) { ly += el.offsetTop; el = el.offsetParent; }
       let acc = 0;
-      geo.sv = svs.map(s => { const h3 = s.querySelector('.sv-b h3'); const band = h3 ? Math.round(h3.getBoundingClientRect().bottom - s.getBoundingClientRect().top + 6) : 70; const o = { s, band, doc: ly + acc }; acc += s.offsetHeight; return o; });
+      geo.sv = svs.map(s => { const h3 = s.querySelector('.sv-b h3'); const svb = s.querySelector('.sv-b'); let ty = 0; try { ty = new DOMMatrix(getComputedStyle(svb).transform).m42 || 0; } catch { } const band = h3 ? Math.round(h3.getBoundingClientRect().bottom - ty - s.getBoundingClientRect().top + 8) : 70; const o = { s, band, doc: ly + acc }; acc += s.offsetHeight; return o; });
       geo.sv.forEach((o, i) => { o.top = i === 0 ? T : T + geo.sv[i - 1].band; o.s.style.setProperty('--st', o.top + 'px'); });
     }
     geo.pars = pars.map(el => { const r = el.parentElement.getBoundingClientRect(); return { el, top: r.top + scrollY, h: r.height }; });
@@ -160,7 +160,7 @@
     const qs = $$('.rs-q', car), dots = $$('.rs-dots i', car); let k = 0, timer;
     const logo = $('.js-car-logo', car), yr = $('.js-car-year', car), role = $('.js-car-role', car);
     const go = n => { k = (n + qs.length) % qs.length; qs.forEach((q, i) => q.classList.toggle('on', i === k)); dots.forEach((d, i) => d.classList.toggle('on', i === k));
-      const q = qs[k]; logo.lastChild.textContent = q.dataset.name; yr.textContent = q.dataset.year; role.textContent = q.dataset.role; if (!reduce) { scramble(logo, 450); scramble(role, 450); } };
+      const q = qs[k]; logo.lastChild.textContent = q.dataset.name; yr.textContent = q.dataset.year; role.textContent = q.dataset.role; if (!reduce) { scramble(logo, 450, false, .3, true); scramble(role, 450, false, .3, true); } };
     const auto = () => { clearInterval(timer); timer = setInterval(() => { if (!document.hidden) go(k + 1); }, 5500); };
     $('.js-next', car).addEventListener('click', () => { go(k + 1); auto(); }); $('.js-prev', car).addEventListener('click', () => { go(k - 1); auto(); });
     auto();
@@ -178,7 +178,7 @@
     let tag = '';
     const cards = $$('.cs-list .case'); const count = $('.js-count-shown');
     const apply = () => { const q = (srch.value || '').toLowerCase().trim(); let n = 0;
-      cards.forEach(c => { const tags = [...c.querySelectorAll('.pills span')].map(s => s.textContent); const ok = (!tag || tags.includes(tag)) && (!q || c.textContent.toLowerCase().includes(q)); c.classList.toggle('hide', !ok); if (ok) n++; });
+      cards.forEach(c => { const tags = (c.dataset.cats || '').split('|'); const ok = (!tag || tags.includes(tag)) && (!q || c.textContent.toLowerCase().includes(q)); c.classList.toggle('hide', !ok); if (ok) n++; });
       if (count) { count.dataset.to = String(n); count.textContent = n; } };
     $$('button', filt).forEach(b => b.addEventListener('click', () => { tag = b.dataset.t; $$('button', filt).forEach(x => x.classList.toggle('on', x === b)); apply(); }));
     srch.addEventListener('input', apply);

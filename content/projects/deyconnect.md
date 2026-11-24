@@ -5,6 +5,10 @@ year: '2026'
 cover: /assets/case-pattern.jpg
 video: ''
 meta: Brand · UI/UX · Web
+categories:
+- Branding
+- UI/UX
+- Websites
 tags:
 - Brand identity
 - UI/UX

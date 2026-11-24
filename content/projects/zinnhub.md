@@ -5,6 +5,8 @@ year: '2026'
 cover: /assets/detail-4.jpg
 video: ''
 meta: Motion · Launch
+categories:
+- Motion
 tags:
 - Motion
 - Launch video

@@ -5,6 +5,8 @@ year: '2026'
 cover: /assets/case-runners.jpg
 video: ''
 meta: Web design · MVP
+categories:
+- Websites
 tags:
 - Web design
 - MVP

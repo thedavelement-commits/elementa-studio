@@ -5,6 +5,9 @@ year: '2025'
 cover: /assets/detail-2.jpg
 video: ''
 meta: Brand · UI/UX · MVP
+categories:
+- Branding
+- UI/UX
 tags:
 - Brand identity
 - UI/UX

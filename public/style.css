@@ -514,7 +514,7 @@ html.ready .pre-c{opacity:0;transform:translateY(-8px)}
   .nums{padding:50px var(--pad);text-align:center}.nums .lbl{justify-content:center}
   .nm-row{grid-template-columns:1fr;gap:30px;margin-top:30px;justify-items:center}
   .nm-row h3{font-size:22px;max-width:260px}
-  .nm-v{flex-direction:column-reverse;align-items:center}
+  .nums .nm-v{flex-direction:column-reverse;align-items:center}
   .lg{width:110px;height:110px;font-size:14px}
   .stmt{padding:90px var(--pad) 40px}
   .stages{padding:0 8px}.sg-card{height:520px}

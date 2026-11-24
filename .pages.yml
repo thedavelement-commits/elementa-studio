@@ -20,7 +20,8 @@ content:
       - { name: cover, label: "Card image", type: image }
       - { name: video, label: "Card video (optional, plays on the card)", type: file, options: { extensions: [mp4, webm, mov] } }
       - { name: meta, label: "Card line under the title", type: string }
-      - { name: tags, label: "Tags (also used for filters)", type: string, list: true }
+      - { name: categories, label: "Categories (filters: Branding, UI/UX, Websites, Motion, AI agents)", type: select, list: true, options: { values: [Branding, UI/UX, Websites, Motion, AI agents] } }
+      - { name: tags, label: "Tags shown on the card", type: string, list: true }
       - { name: summary, label: "Short summary", type: text }
       - { name: role, label: "Your role", type: string }
       - { name: work, label: "Work done", type: string, list: true }

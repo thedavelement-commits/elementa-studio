@@ -5,6 +5,9 @@ year: '2026'
 cover: /assets/case-flowers-ring.jpg
 video: ''
 meta: Brand identity · UI/UX
+categories:
+- Branding
+- UI/UX
 tags:
 - Brand identity
 - UI/UX
