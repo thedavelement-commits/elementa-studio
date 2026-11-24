@@ -27,7 +27,7 @@ stat_2: ''
 stat_2_label: ''
 results_white: A brand and MVP ready for investors.
 results_muted: The team took the product to investors and raised $13k.
-homepage: false
+homepage: true
 hero_image: /assets/detail-2.jpg
 image_wide: /assets/detail-1.jpg
 image_a: /assets/case-street.jpg
