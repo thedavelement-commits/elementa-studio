@@ -115,6 +115,11 @@
     else if (!v.paused) v.pause(); }), { rootMargin: '100px' });
   $$('.js-vid').forEach(v => vio.observe(v));
 
+  /* ---------- smooth scroll on desktop (like the Framer sample) ---------- */
+  if (!reduce && window.Lenis && matchMedia('(hover:hover) and (pointer:fine)').matches) {
+    const lenis = new window.Lenis({ lerp: .1, wheelMultiplier: 1, anchors: true }); window.__lenis = lenis;
+    const raf = t => { lenis.raf(t); requestAnimationFrame(raf); }; requestAnimationFrame(raf);
+  }
   /* ---------- scroll driven (one rAF, cached geometry) ---------- */
   const prog = $('.js-prog'), stages = $('.js-stages'), band = $('.js-band'), pars = $$('.js-par'), svs = $$('.sv');
   let geo = {}, vh = innerHeight, docH = 1;
@@ -139,9 +144,8 @@
       const vtop = nx.doc - y; const sh = geo.sv[i - 1].band; const p = Math.min(1, Math.max(0, (nx.top + sh - vtop) / sh)); o.s.style.transform = p ? `translate3d(0,${(-sh * p).toFixed(1)}px,0)` : ''; });
     if (!reduce) geo.pars.forEach(o => { if (o.top + o.h < y - 100 || o.top > y + vh + 100) return; const off = ((o.top + o.h / 2) - (y + vh / 2)) * -0.08; o.el.style.transform = `translate3d(0,${off.toFixed(1)}px,0)`; });
   };
-  const atEnd = () => { if (innerHeight + scrollY >= document.documentElement.scrollHeight - 40) $$('.rv:not(.in),.im:not(.in)').forEach(el => { if (el.getBoundingClientRect().top < innerHeight) { el.classList.add('in'); io.unobserve(el); } }); };
-  addEventListener('scroll', atEnd, { passive: true });
-  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
+  const atEnd = () => { $$('.rv:not(.in),.im:not(.in)').forEach(el => { if (el.getBoundingClientRect().top < innerHeight) { el.classList.add('in'); io.unobserve(el); } }); };
+  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { frame(); if (vh + scrollY >= docH + vh - 40) atEnd(); }); } };
   measure(); frame();
   addEventListener('scroll', onScroll, { passive: true });
   addEventListener('resize', () => { measure(); onScroll(); });

@@ -39,6 +39,8 @@ const brand = (cls = '') => `<span class="brand ${cls}">${LOGO}</span>`;
 const monoAv = (size = 28) => S.founder_photo ? `<span class="mono-av ph" style="width:${size}px;height:${size}px"><img src="${e(size > 60 ? (S.founder_portrait || S.founder_photo) : S.founder_photo)}" alt="${e(S.founder_name)}" loading="lazy"></span>` : `<span class="mono-av" style="width:${size}px;height:${size}px;font-size:${Math.round(size * .45)}px">${e(S.founder_initial)}</span>`;
 const pills = (arr, cls = '') => `<div class="pills ${cls}">${(arr || []).map(t => `<span>${e(t)}</span>`).join('')}</div>`;
 const meter = (pct, n = 24) => `<span class="meter" style="--n:${n}">${Array.from({ length: n }, (_, i) => `<i class="${i < Math.round(n * pct / 100) ? 'on' : ''}"></i>`).join('')}</span>`;
+const LOGOS = new Set(['beevia','buqqit','deyconnect','leetlogic','talkroots','taskure']);
+const logoOf = n => { const k = String(n || '').toLowerCase().replace(/[^a-z]/g, ''); return LOGOS.has(k) ? `/brand/clients/${k}.svg` : ''; };
 const img = (src, alt = '', cls = '', eager = false) => src ? `<img class="${cls}" src="${e(src)}" alt="${e(alt)}"${eager ? '' : ' loading="lazy"'} decoding="async">` : '';
 const isVid = s => /\.(mp4|webm|mov)$/i.test(String(s || ''));
 const media = (src, alt = '', eager = false) => !src ? '' : isVid(src) ? `<video class="js-vid" data-src="${e(src)}" muted loop playsinline preload="none"></video>` : img(src, alt, '', eager);
@@ -61,11 +63,11 @@ ${preload ? `<div class="pre" aria-hidden="true"><div class="pre-c"><div class="
 <button class="mbtn js-menu" aria-label="Open menu"><span class="mb-ic">${MENU_IC}</span><span>Menu</span></button><span class="prog js-prog"></span></header>
 ${menu()}
 <main>${body}</main>
-<script src="/main.js" defer></script></body></html>`;
+<script src="/vendor/lenis.min.js" defer></script><script src="/main.js" defer></script></body></html>`;
 }
 
 function menu() {
-  return `<div class="menu" aria-hidden="true"><div class="m-scrim js-close"></div><aside class="m-panel">
+  return `<div class="menu" aria-hidden="true"><div class="m-scrim js-close"></div><aside class="m-panel" data-lenis-prevent>
 <div class="m-card m-main"><div class="m-top"><span>Menu · 2026</span><span class="js-clock" data-tz="${e(S.timezone)}"></span></div>
 <nav class="m-nav">${P.menu.links.map((l, i) => `<a href="${e(l.url)}" style="--i:${i}"><span>${e(l.label)}</span></a>`).join('')}</nav>
 <div class="m-legal"><a href="/legal/privacy-policy">Privacy Policy</a><a href="/legal/terms-of-service">Terms of Service</a></div></div>
@@ -76,7 +78,7 @@ function menu() {
 
 /* shared blocks */
 const caseCard = (p, i) => `<a class="case" href="/case-studies/${p.slug}" data-cats="${e((p.categories || []).join('|'))}"><div class="c-media">${img(p.cover, p.title)}${p.video ? `<video class="js-vid" data-src="${e(p.video)}" muted loop playsinline preload="none" poster="${e(p.cover)}"></video>` : ''}</div>
-<span class="c-logo">${MARK}${e(p.title)}</span><div class="c-low"><div><h3 class="js-hscr">${e(p.title)}.</h3><span class="c-meta">${e(p.year)} · ${e(p.meta)}</span></div>${pills(p.tags, 'outline')}</div></a>`;
+${logoOf(p.title) ? `<span class="c-logo c-logo-i"><img src="${logoOf(p.title)}" alt="${e(p.title)}" loading="lazy" decoding="async"></span>` : `<span class="c-logo">${MARK}${e(p.title)}</span>`}<div class="c-low"><div><h3 class="js-hscr">${e(p.title)}.</h3><span class="c-meta">${e(p.year)} · ${e(p.meta)}</span></div>${pills(p.tags, 'outline')}</div></a>`;
 const caseGrid = list => `<div class="cases">${list.map(caseCard).join('')}</div>`;
 
 const faq = () => { const f = H.faq; return `<section class="sec faq"><div class="sec-l">${lbl(f.label)}</div><div class="center">${scr('h2', e(f.title), 'h78')}</div>
@@ -141,7 +143,7 @@ function home() {
 <div class="h-card"><div class="hc-l"><div class="hc-top">${brand('sm')}</div><div class="hc-b"><span class="vt">//2026</span><div><p>${e(h.card_text)}</p><span>${e(h.card_name)}</span></div></div></div><div class="hc-img">${monoAv(84)}</div></div></div></section>
 
 <section class="nums">${lbl(n.label)}<div class="nm-row"><h3>${e(n.title)}</h3><div class="nm-v">${meter(n.meter, 22)}<div><b class="js-roll" data-to="${e(n.value)}">${e(n.value)}</b><span class="mono-s">${e(n.value_label)}</span></div></div>
-<div class="nm-logos"><div class="mq"><div class="mq-t">${[...n.clients, ...n.clients].map(c => `<span class="lg">${e(c)}</span>`).join('')}</div></div></div></div></section>
+<div class="nm-logos"><div class="mq"><div class="mq-t">${[...n.clients, ...n.clients].map(c => logoOf(c) ? `<span class="lg lg-i"><img src="${logoOf(c)}" alt="${e(c)}" loading="lazy" decoding="async"></span>` : `<span class="lg">${e(c)}</span>`).join('')}</div></div></div></div></section>
 
 <section class="stmt"><h2 class="h78 js-scr">${e(st.title)}</h2><span class="vline"></span><p>${e(st.text)}</p></section>
 
