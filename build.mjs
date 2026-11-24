@@ -190,7 +190,7 @@ function about() {
 <div class="proc">${A.process.map(x => `<span>${e(x)}</span>`).join('')}</div><div class="stack"><h4>${e(A.stack_title)}</h4>${pills(A.stack, 'outline')}</div></div></div></section>
 <section class="sec record"><div class="split"><div></div><div>${scr('h2', e(r.title), 'h80')}<p class="muted">${e(r.text)}</p><div class="rec">${r.rows.map(x => `<div class="rr"><b>${e(x.what)}</b><span>${e(x.who)}</span><span>${e(x.years)}</span></div>`).join('')}</div>${btn(r.button, '/contact')}</div></div></section>
 <section class="sec team"><div class="split"><div></div><div>${scr('h2', e(t.title), 'h80')}<p class="muted">${e(t.text)}</p></div></div>
-<div class="tm-g">${t.cards.map((c, i) => `<div class="tm tm${i + 1}"><div class="tm-img">${c.image ? img(c.image, c.name) : `<span class="tm-mono">${e(S.founder_initial)}</span>`}</div><div class="tm-low"><b>${e(c.name)}</b><span class="tm-b">${brand('sm')}</span><span class="mono-s">${e(c.role)}<br>${e(c.sub)}</span></div></div>`).join('')}</div></section>
+<div class="tm-g${t.cards.length === 1 ? ' one' : ''}">${t.cards.map((c, i) => `<div class="tm tm${i + 1}"><div class="tm-img">${c.image ? img(c.image, c.name) : `<span class="tm-mono">${e(S.founder_initial)}</span>`}</div><div class="tm-low"><b>${e(c.name)}</b><span class="tm-b">${brand('sm')}</span><span class="mono-s">${e(c.role)}<br>${e(c.sub)}</span></div></div>`).join('')}</div></section>
 ${services()}${pricing()}${faq()}${cta()}${contactSec()}`;
   return page({ title: `About | ${S.studio_name}`, body });
 }

@@ -81,32 +81,14 @@
     "button": "Book a call"
   },
   "team": {
-    "title": "Who you work with.",
-    "text": "You work with Dave directly. On bigger builds trusted specialists join in, and you always know who they are.",
+    "title": "Meet the founder.",
+    "text": "You work with Dave directly, from the first call to handover. On bigger builds trusted specialists join in, and you always know who they are.",
     "cards": [
       {
         "name": "Dave",
         "role": "Founder",
         "sub": "Your point of contact",
         "image": "/assets/dave.jpg"
-      },
-      {
-        "name": "AI agents",
-        "role": "Led by Dave",
-        "sub": "Support and sales agents",
-        "image": "/assets/svc-robot.jpg"
-      },
-      {
-        "name": "Product and web",
-        "role": "Led by Dave",
-        "sub": "UI/UX and websites",
-        "image": "/assets/svc-knobs.jpg"
-      },
-      {
-        "name": "Brand and motion",
-        "role": "Led by Dave",
-        "sub": "Identity and launch videos",
-        "image": "/assets/svc-phone.jpg"
       }
     ]
   }

@@ -648,3 +648,6 @@ html{overflow-x:clip}
 .rl-over .dc>span{height:1.1em;line-height:1.1}
 .rl-over .dgs{display:block;line-height:1.1}
 .sg-card .grain{mix-blend-mode:normal;background-image:url(/assets/grain-light.png)}
+
+.tm-g.one{grid-template-columns:1fr 1fr;gap:20px}.tm-g.one .tm{grid-column:2;max-width:460px;margin-top:0;padding:10px;border-radius:var(--r)}.tm-g.one .tm-low{padding:18px 10px 10px}.tm-g.one .tm-low b{font-size:24px}.tm-g.one .tm-low .mono-s{font-size:9px}
+@media (max-width:809px){.tm-g.one{grid-template-columns:1fr;margin-top:40px}.tm-g.one .tm{grid-column:1}.tm-g.one .tm-low .tm-b{display:block}.tm-g.one .tm-low{grid-template-columns:1fr auto}}
