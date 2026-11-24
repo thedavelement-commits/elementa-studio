@@ -643,3 +643,4 @@ html{overflow-x:clip}
 .rl-over .dc{width:0;align-self:start;white-space:nowrap}
 .rl-over .dc>span{height:1.1em;line-height:1.1}
 .rl-over .dgs{display:block;line-height:1.1}
+.sg-card .grain{mix-blend-mode:normal;background-image:url(/assets/grain-light.png)}
