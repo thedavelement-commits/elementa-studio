@@ -633,8 +633,13 @@ html{overflow-x:clip}
 
 /* rolling numbers: real text holds the layout, digits roll on top of it */
 .js-roll{position:relative;display:inline-block;line-height:1.1}
-.rl-ghost{visibility:hidden}
+.rl-ghost{opacity:0;transition:opacity .3s ease}
+.rl-over{transition:opacity .3s ease}
+.rl-done .rl-ghost{opacity:1}.rl-done .rl-over{opacity:0}
 .rl-over{position:absolute;left:0;top:0;height:1.1em;display:flex;white-space:nowrap}
-.rl-over .dg{display:block;height:1.1em;line-height:1.1;overflow:hidden;margin:0;vertical-align:top}
+.rl-over .dg{display:grid;height:1.1em;line-height:1.1;overflow:visible;clip-path:inset(0 -.6em);margin:0;vertical-align:top}
+.rl-over .dw,.rl-over .dc{grid-area:1/1}
+.rl-over .dw{visibility:hidden}
+.rl-over .dc{width:0;align-self:start;white-space:nowrap}
 .rl-over .dc>span{height:1.1em;line-height:1.1}
 .rl-over .dgs{display:block;line-height:1.1}

@@ -64,10 +64,10 @@
   function prepRoll(el) {
     const raw = el.dataset.to || el.textContent; let k = 0;
     el.setAttribute('aria-label', raw);
-    const cols = [...raw].map(ch => /[0-9]/.test(ch) ? `<span class="dg"><span class="dc" style="--dd:${(k++ * .06).toFixed(2)}s">${Array.from({ length: 20 }, (_, i) => `<span>${i % 10}</span>`).join('')}</span></span>` : `<span class="dgs">${ch === ' ' ? '&nbsp;' : ch}</span>`).join('');
+    const cols = [...raw].map(ch => /[0-9]/.test(ch) ? `<span class="dg"><span class="dw">${ch}</span><span class="dc" style="--dd:${(k++ * .06).toFixed(2)}s">${Array.from({ length: 20 }, (_, i) => `<span>${i % 10}</span>`).join('')}</span></span>` : `<span class="dgs">${ch === ' ' ? '&nbsp;' : ch}</span>`).join('');
     el.innerHTML = `<span class="rl-ghost">${raw}</span><span class="rl-over" aria-hidden="true">${cols}</span>`;
   }
-  function roll(el) { const raw = el.dataset.to || ''; const ds = [...raw].filter(c => /[0-9]/.test(c)); const cols = el.querySelectorAll('.dc'); cols.forEach((c, i) => { c.style.transform = `translateY(-${(10 + +ds[i]) * 5}%)`; }); setTimeout(() => { el.textContent = raw; }, 1700 + cols.length * 60 + 150); }
+  function roll(el) { const raw = el.dataset.to || ''; const ds = [...raw].filter(c => /[0-9]/.test(c)); const cols = el.querySelectorAll('.dc'); cols.forEach((c, i) => { c.style.transform = `translateY(-${(10 + +ds[i]) * 5}%)`; }); setTimeout(() => { el.classList.add('rl-done'); setTimeout(() => { el.textContent = raw; }, 350); }, 1650 + cols.length * 60); }
   if (!reduce) $$('.js-roll').forEach(prepRoll);
 
   /* auto reveal targets */
