@@ -29,6 +29,10 @@ stat_2: ''
 stat_2_label: ''
 results_white: A live platform with a clear identity.
 results_muted: Deyconnect is live at deyconnect.com with a brand, product and site designed as one system.
+hide_image_wide: true
+hide_image_a: true
+hide_image_b: true
+hide_gallery: true
 hero_image: /assets/cover-deyconnect.jpg
 image_wide: /assets/detail-1.jpg
 image_a: /assets/case-street.jpg

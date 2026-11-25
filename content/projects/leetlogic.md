@@ -28,6 +28,10 @@ stat_2: ''
 stat_2_label: ''
 results_white: One identity that carries from logo to app screen.
 results_muted: The brand, guidelines and product screens now give Leetlogic a consistent face across every touchpoint, ready for launch.
+hide_image_wide: true
+hide_image_a: true
+hide_image_b: true
+hide_gallery: true
 hero_image: /assets/cover-leetlogic.jpg
 image_wide: /assets/detail-1.jpg
 image_a: /assets/case-street.jpg

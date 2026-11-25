@@ -26,6 +26,13 @@ stat_2: ''
 stat_2_label: ''
 results_white: One video, used everywhere.
 results_muted: The explainer introduced the launch and was shared across the Zix website and social channels.
+hide_image_wide: true
+hide_image_a: true
+hide_image_b: true
+hide_gallery: true
+main_video: /assets/motion/zix-business-suite.mp4
+main_video_poster: /assets/cover-zix-business-suite.jpg
+video_only: true
 hero_image: /assets/cover-zix-business-suite.jpg
 image_wide: /assets/detail-1.jpg
 image_a: /assets/case-street.jpg

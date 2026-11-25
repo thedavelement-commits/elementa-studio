@@ -26,6 +26,10 @@ stat_2: ''
 stat_2_label: ''
 results_white: An MVP students actually open.
 results_muted: A fast, focused site that explains Classcue in seconds and gets students signed up.
+hide_image_wide: true
+hide_image_a: true
+hide_image_b: true
+hide_gallery: true
 hero_image: /assets/cover-classcue.jpg
 image_wide: /assets/detail-1.jpg
 image_a: /assets/case-street.jpg

@@ -27,6 +27,10 @@ stat_2: 8k+
 stat_2_label: users, up from 100
 results_white: 'We designed the site around one question: how do I start earning?'
 results_muted: The client grew from about 100 users to more than 8,000 after the new site went live, and the team updates it themselves through the CMS.
+hide_image_wide: true
+hide_image_a: true
+hide_image_b: true
+hide_gallery: true
 hero_image: /assets/cover-revorra.jpg
 image_wide: /assets/detail-1.jpg
 image_a: /assets/case-street.jpg

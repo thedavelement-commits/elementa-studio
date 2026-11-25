@@ -27,6 +27,13 @@ stat_2: ''
 stat_2_label: ''
 results_white: A brand with roots, built for motion.
 results_muted: The identity and animated assets give Talkroots a clear voice across app, socials and launch content.
+hide_image_wide: true
+hide_image_a: true
+hide_image_b: true
+hide_gallery: true
+main_video: /assets/motion/talkroots.mp4
+main_video_poster: /assets/cover-talkroots.jpg
+video_only: true
 hero_image: /assets/cover-talkroots.jpg
 image_wide: /assets/detail-1.jpg
 image_a: /assets/case-street.jpg

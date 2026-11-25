@@ -27,6 +27,13 @@ stat_2_label: ''
 results_white: A launch people understood.
 results_muted: Motion content that carried the Zinnhub launch.
 homepage: false
+hide_image_wide: true
+hide_image_a: true
+hide_image_b: true
+hide_gallery: true
+main_video: /assets/motion/zinnhub.mp4
+main_video_poster: /assets/cover-zinnhub.jpg
+video_only: true
 hero_image: /assets/cover-zinnhub.jpg
 image_wide: /assets/detail-1.jpg
 image_a: /assets/case-street.jpg
