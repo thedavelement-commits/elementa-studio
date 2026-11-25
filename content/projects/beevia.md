@@ -2,7 +2,7 @@
 title: Beevia
 order: 12
 year: '2026'
-cover: /assets/detail-5.jpg
+cover: /assets/cover-beevia.jpg
 video: ''
 meta: Brand identity
 categories:

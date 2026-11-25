@@ -2,7 +2,7 @@
 title: Talkroots
 order: 3
 year: '2025'
-cover: /assets/case-blossom.jpg
+cover: /assets/cover-talkroots.jpg
 video: ''
 meta: Brand identity · Motion
 categories:

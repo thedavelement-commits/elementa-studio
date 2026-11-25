@@ -2,8 +2,8 @@
 title: Revorra
 order: 1
 year: '2026'
-cover: /assets/case-street.jpg
-video: /assets/case-street.mp4
+cover: /assets/cover-revorra.jpg
+video: ''
 meta: Web design · Live
 categories:
 - Websites

@@ -2,7 +2,7 @@
 title: Zix Business Suite
 order: 4
 year: '2026'
-cover: /assets/case-spring.jpg
+cover: /assets/cover-zix-business-suite.jpg
 video: ''
 meta: Motion · Launch video
 categories:

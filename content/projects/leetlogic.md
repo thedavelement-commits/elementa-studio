@@ -2,7 +2,7 @@
 title: Leetlogic
 order: 2
 year: '2026'
-cover: /assets/case-flowers-ring.jpg
+cover: /assets/cover-leetlogic.jpg
 video: ''
 meta: Brand identity · UI/UX
 categories:

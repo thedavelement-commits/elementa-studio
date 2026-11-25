@@ -2,7 +2,7 @@
 title: Buqqit
 order: 6
 year: '2026'
-cover: /assets/case-red.jpg
+cover: /assets/cover-buqqit.jpg
 video: ''
 meta: Brand identity
 categories:

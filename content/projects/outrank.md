@@ -2,7 +2,7 @@
 title: Outrank
 order: 10
 year: '2026'
-cover: /assets/detail-3.jpg
+cover: /assets/cover-outrank.jpg
 video: ''
 meta: Motion · Explainer
 categories:

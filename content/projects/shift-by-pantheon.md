@@ -2,7 +2,7 @@
 title: Shift by Pantheon
 order: 9
 year: '2025'
-cover: /assets/detail-2.jpg
+cover: /assets/cover-shift-by-pantheon.jpg
 video: ''
 meta: Brand · UI/UX · MVP
 categories:

@@ -2,7 +2,7 @@
 title: Taskure
 order: 7
 year: '2025'
-cover: /assets/case-terraces.jpg
+cover: /assets/cover-taskure.jpg
 video: ''
 meta: Product UI/UX
 categories:

@@ -2,7 +2,7 @@
 title: Deyconnect
 order: 5
 year: '2026'
-cover: /assets/case-pattern.jpg
+cover: /assets/cover-deyconnect.jpg
 video: ''
 meta: Brand · UI/UX · Web
 categories:

@@ -2,7 +2,7 @@
 title: Zinnhub
 order: 11
 year: '2026'
-cover: /assets/detail-4.jpg
+cover: /assets/cover-zinnhub.jpg
 video: ''
 meta: Motion · Launch
 categories:
