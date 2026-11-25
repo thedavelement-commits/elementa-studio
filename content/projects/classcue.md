@@ -2,7 +2,7 @@
 title: Classcue
 order: 8
 year: '2026'
-cover: /assets/case-runners.jpg
+cover: /assets/cover-classcue.jpg
 video: ''
 meta: Web design · MVP
 categories:
