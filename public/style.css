@@ -161,7 +161,7 @@ html.ready .pre-c{opacity:0;transform:translateY(-8px)}
 .nm-v b{font-size:32px;font-weight:400;letter-spacing:-.04em;line-height:1}
 .nm-v .mono-s{font-size:8px;margin-top:6px}
 .meter{display:flex;gap:2.5px;height:30px;align-items:stretch;margin-top:2px}
-.meter i{width:1.5px;background:rgba(255,255,255,.18);transition:background-color .35s ease}.meter i.on{background:var(--lime)}
+.meter i{width:1.5px;background:rgba(215,38,43,.32);transition:background-color .35s ease}.meter i.on{background:var(--lime)}
 .nm-logos{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .mq{display:flex;overflow:hidden}
 .mq-t{display:flex;gap:6px;flex:none;animation:mq 40s linear infinite;will-change:transform}
@@ -637,11 +637,9 @@ html{overflow-x:clip}
 
 /* rolling numbers: real text holds the layout, digits roll on top of it */
 .js-roll{position:relative;display:inline-block;line-height:1.1}
-.rl-ghost{opacity:0;transition:opacity .3s ease}
-.rl-over{transition:opacity .3s ease}
-.rl-done .rl-ghost{opacity:1}.rl-done .rl-over{opacity:0}
+.rl-ghost{visibility:hidden}
 .rl-over{position:absolute;left:0;top:0;height:1.1em;display:flex;white-space:nowrap}
-.rl-over .dg{display:grid;height:1.1em;line-height:1.1;overflow:visible;clip-path:inset(0 -.6em);margin:0;vertical-align:top}
+.rl-over .dg{display:grid;height:1.1em;line-height:1.1;overflow:hidden;clip-path:none;padding:0 .18em;margin:0 -.18em;vertical-align:top}
 .rl-over .dw,.rl-over .dc{grid-area:1/1}
 .rl-over .dw{visibility:hidden}
 .rl-over .dc{width:0;align-self:start;white-space:nowrap}
