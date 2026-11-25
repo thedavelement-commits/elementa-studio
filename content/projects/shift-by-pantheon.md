@@ -28,7 +28,7 @@ stat_2_label: ''
 results_white: A brand and MVP ready for investors.
 results_muted: The team took the product to investors and raised $13k.
 homepage: true
-hero_image: /assets/detail-2.jpg
+hero_image: /assets/cover-shift-by-pantheon.jpg
 image_wide: /assets/detail-1.jpg
 image_a: /assets/case-street.jpg
 image_b: /assets/detail-2.jpg

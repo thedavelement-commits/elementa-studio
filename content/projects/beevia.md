@@ -26,7 +26,7 @@ stat_2_label: ''
 results_white: A brand with rules that hold.
 results_muted: The Beevia identity and guidelines give every touchpoint the same face.
 homepage: false
-hero_image: /assets/detail-5.jpg
+hero_image: /assets/cover-beevia.jpg
 image_wide: /assets/detail-1.jpg
 image_a: /assets/case-street.jpg
 image_b: /assets/detail-2.jpg

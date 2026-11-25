@@ -26,7 +26,7 @@ stat_2: ''
 stat_2_label: ''
 results_white: One video, used everywhere.
 results_muted: The explainer introduced the launch and was shared across the Zix website and social channels.
-hero_image: /assets/case-spring.jpg
+hero_image: /assets/cover-zix-business-suite.jpg
 image_wide: /assets/detail-1.jpg
 image_a: /assets/case-street.jpg
 image_b: /assets/detail-2.jpg

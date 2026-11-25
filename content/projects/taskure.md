@@ -26,7 +26,7 @@ stat_2: ''
 stat_2_label: ''
 results_white: Simple screens for a busy marketplace.
 results_muted: Clear flows for customers and providers, designed to work on everyday phones.
-hero_image: /assets/case-terraces.jpg
+hero_image: /assets/cover-taskure.jpg
 image_wide: /assets/detail-1.jpg
 image_a: /assets/case-street.jpg
 image_b: /assets/detail-2.jpg

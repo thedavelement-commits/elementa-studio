@@ -26,7 +26,7 @@ stat_2: ''
 stat_2_label: ''
 results_white: One brand, three apps.
 results_muted: The Buqqit guidelines give every app and every marketing piece the same recognisable face.
-hero_image: /assets/case-red.jpg
+hero_image: /assets/cover-buqqit.jpg
 image_wide: /assets/detail-1.jpg
 image_a: /assets/case-street.jpg
 image_b: /assets/detail-2.jpg

@@ -27,7 +27,7 @@ stat_2_label: ''
 results_white: A clear story in motion.
 results_muted: Motion assets that explain Outrank across its site and socials.
 homepage: false
-hero_image: /assets/detail-3.jpg
+hero_image: /assets/cover-outrank.jpg
 image_wide: /assets/detail-1.jpg
 image_a: /assets/case-street.jpg
 image_b: /assets/detail-2.jpg
