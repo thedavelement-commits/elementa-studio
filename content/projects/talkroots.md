@@ -3,7 +3,7 @@ title: Talkroots
 order: 3
 year: '2025'
 cover: /assets/case-blossom.jpg
-video: /assets/motion/talkroots-preview.mp4
+video: ''
 meta: Brand identity · Motion
 categories:
 - Branding
@@ -27,8 +27,6 @@ stat_2: ''
 stat_2_label: ''
 results_white: A brand with roots, built for motion.
 results_muted: The identity and animated assets give Talkroots a clear voice across app, socials and launch content.
-main_video: /assets/motion/talkroots.mp4
-main_video_poster: /assets/motion/talkroots-poster.jpg
 hero_image: /assets/case-blossom.jpg
 image_wide: /assets/detail-1.jpg
 image_a: /assets/case-street.jpg

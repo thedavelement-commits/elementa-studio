@@ -26,7 +26,8 @@ content:
       - { name: role, label: "Your role", type: string }
       - { name: work, label: "Work done", type: string, list: true }
       - { name: link, label: "Live website link (optional)", type: string }
-      - { name: main_video, label: "Main video (motion projects: the page shows only this video, no extra images)", type: file, options: { extensions: [mp4, webm, mov] } }
+      - { name: main_video, label: "Main video (plays with controls on the project page)", type: file, options: { extensions: [mp4, webm, mov] } }
+      - { name: video_only, label: "Video only page (hide the extra images, for motion projects)", type: boolean }
       - { name: main_video_poster, label: "Main video still (shown before play)", type: image }
       - { name: hero_image, label: "Top image or video", type: file, options: { extensions: [jpg, jpeg, png, webp, gif, mp4, webm, mov] } }
       - { name: intro_white, label: "Intro (white part)", type: text }

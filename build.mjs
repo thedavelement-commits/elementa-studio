@@ -213,7 +213,7 @@ function caseStudies() {
 
 function caseStudy(p) {
   const c = P.case_study; const more = projects.filter(x => x.slug !== p.slug).slice(0, 2);
-  const vidOnly = !!p.main_video && (p.categories || []).every(c => c === 'Motion');
+  const vidOnly = !!p.main_video && p.video_only === true;
   const stats = [[p.stat_1, p.stat_1_label], [p.stat_2, p.stat_2_label]].filter(s => s[0]);
   const body = `<section class="pd-hero"><div class="pd-bg js-par">${media(p.hero_image, p.title, true)}</div><div class="pd-shade"></div>
 <div class="pd-in"><div></div><div><h1 class="h90 js-scr">${e(p.title)}.</h1><p class="muted">${e(p.summary)}</p><span class="mono-s">${e(c.team_label)}</span><div class="pd-team"><div class="who">${monoAv(53)}<div><b>${e(S.founder_name)}</b><span>${e(p.role)}</span></div></div></div></div></div>${logoOf(p.title) ? `<span class="pd-logo c-logo-i">${logoTag(p.title, 3000, 40, 170)}</span>` : `<span class="pd-logo">${MARK}${e(p.title)}</span>`}</section>

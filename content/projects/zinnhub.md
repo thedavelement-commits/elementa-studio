@@ -3,7 +3,7 @@ title: Zinnhub
 order: 11
 year: '2026'
 cover: /assets/detail-4.jpg
-video: /assets/motion/zinnhub-preview.mp4
+video: ''
 meta: Motion · Launch
 categories:
 - Motion
@@ -27,8 +27,6 @@ stat_2_label: ''
 results_white: A launch people understood.
 results_muted: Motion content that carried the Zinnhub launch.
 homepage: false
-main_video: /assets/motion/zinnhub.mp4
-main_video_poster: /assets/motion/zinnhub-poster.jpg
 hero_image: /assets/detail-4.jpg
 image_wide: /assets/detail-1.jpg
 image_a: /assets/case-street.jpg
