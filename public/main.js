@@ -186,7 +186,7 @@
     const cards = $$('.cs-list .case'); const count = $('.js-count-shown');
     const apply = () => { const q = (srch.value || '').toLowerCase().trim(); let n = 0;
       cards.forEach(c => { const tags = (c.dataset.cats || '').split('|'); const ok = (!tag || tags.includes(tag)) && (!q || c.textContent.toLowerCase().includes(q)); c.classList.toggle('hide', !ok); if (ok) n++; });
-      if (count && count.dataset.to !== String(n)) { count.dataset.to = String(n); if (reduce) count.textContent = n; else { prepRoll(count); count.getBoundingClientRect(); requestAnimationFrame(() => roll(count)); } }
+      if (count) count.textContent = n;
       $$('.js-cs-meter i').forEach((b, i) => b.classList.toggle('on', i < n)); };
     $$('button', filt).forEach(b => b.addEventListener('click', () => { tag = b.dataset.t; $$('button', filt).forEach(x => x.classList.toggle('on', x === b)); apply(); }));
     srch.addEventListener('input', apply);

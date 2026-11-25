@@ -206,7 +206,7 @@ function caseStudies() {
   const c = P.case_studies; const ORDER = ['Branding', 'UI/UX', 'Websites', 'Motion', 'AI agents']; const used = [...new Set(projects.flatMap(p => p.categories || []))]; const tags = [...ORDER.filter(t => used.includes(t)), ...used.filter(t => !ORDER.includes(t))];
   const body = `<section class="sec cs-hero"><div class="csh-l"><h1 class="h80 js-scr">${e(c.title)}</h1><p class="muted">${e(c.text)}</p></div>
 <div class="csh-r"><input class="srch js-search" placeholder="${e(c.search)}"><span class="mono-s">${e(c.filter_label)}</span><div class="pills filt js-filt"><button class="on" data-t="">${e(c.all)}</button>${tags.map(t => `<button data-t="${e(t)}">${e(t)}</button>`).join('')}</div>
-<div class="nm-v">${meter(100, projects.length).replace('class="meter"', 'class="meter js-cs-meter"')}<div><b class="js-roll js-count-shown" data-to="${projects.length}">${projects.length}</b><span class="mono-s">${e(c.meter_label)}</span></div></div></div></section>
+<div class="nm-v">${meter(100, projects.length).replace('class="meter"', 'class="meter js-cs-meter"')}<div><b class="js-count-shown">${projects.length}</b><span class="mono-s">${e(c.meter_label)}</span></div></div></div></section>
 <section class="sec cs-list">${caseGrid(projects)}</section>${faq()}${cta()}${contactSec()}`;
   return page({ title: `Case Studies | ${S.studio_name}`, body });
 }
