@@ -26,6 +26,7 @@ const CHECK = `<svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke
 const SOC = {
   X: `<svg viewBox="0 0 16 16" fill="currentColor"><path d="M9.3 6.9 14.2 1.3h-1.2L8.8 6.1 5.5 1.3H1.6l5.1 7.4-5.1 5.9h1.2l4.4-5.1 3.6 5.1h3.9L9.3 6.9Zm-1.6 1.8-.5-.7-4.1-5.9h1.8l3.3 4.7.5.7 4.3 6.2H11.2L7.7 8.7Z"/></svg>`,
   Portfolio: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="8" cy="8" r="6.3"/><path d="M1.8 8h12.4M8 1.7c1.8 1.8 2.6 4 2.6 6.3S9.8 12.5 8 14.3C6.2 12.5 5.4 10.3 5.4 8S6.2 3.5 8 1.7Z"/></svg>`,
+  Instagram: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1.9" y="1.9" width="12.2" height="12.2" rx="3.4"/><circle cx="8" cy="8" r="2.9"/><circle cx="11.6" cy="4.4" r=".55" fill="currentColor" stroke="none"/></svg>`,
   Email: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1.8" y="3.3" width="12.4" height="9.4" rx="1.5"/><path d="m2.3 4 5.7 4.6L13.7 4"/></svg>`
 };
 const BARS = n => `<span class="barcode" aria-hidden="true">${Array.from({ length: n }, (_, i) => `<i style="width:${[1, 2, 1, 3, 1, 1, 2][i % 7]}px"></i>`).join('')}</span>`;
@@ -50,7 +51,7 @@ const img = (src, alt = '', cls = '', eager = false) => src ? `<img class="${cls
 const isVid = s => /\.(mp4|webm|mov)$/i.test(String(s || ''));
 const media = (src, alt = '', eager = false) => !src ? '' : isVid(src) ? `<video class="js-vid" data-src="${e(src)}" muted loop playsinline preload="none"></video>` : img(src, alt, '', eager);
 const scr = (tag, html, cls = '') => `<${tag} class="${cls} js-scr">${html}</${tag}>`;
-const soc = (cls = 'socs') => `<div class="${cls}">${S.socials.map(s => `<a href="${e(s.url)}" target="_blank" rel="noopener" aria-label="${e(s.name)}">${SOC[s.name] || SOC.Portfolio}</a>`).join('')}</div>`;
+const soc = (cls = 'socs') => `<div class="${cls}">${S.socials.map(s => `<a href="${e(s.url)}"${s.url && s.url !== '#' && !s.url.startsWith('mailto:') ? ' target="_blank" rel="noopener"' : ''} aria-label="${e(s.name)}">${SOC[s.name] || SOC.Portfolio}</a>`).join('')}</div>`;
 
 const navItems = [['About', '/about'], ['Case Studies', '/case-studies'], ['Blogs', '/blog']];
 
@@ -87,8 +88,7 @@ ${logoOf(p.title) ? `<span class="c-logo c-logo-i">${logoTag(p.title, 4200, 48, 
 const caseGrid = list => `<div class="cases">${list.map(caseCard).join('')}</div>`;
 
 const faq = () => { const f = H.faq; return `<section class="sec faq"><div class="sec-l">${lbl(f.label)}</div><div class="center">${scr('h2', e(f.title), 'h78')}</div>
-<div class="qa-list">${f.items.map((q, i) => `<details class="qa"${i ? '' : ' open'}><summary><span>${e(q.q)}</span><i>${CHEV}</i></summary><div class="ans"><p>${e(q.a)}</p></div></details>`).join('')}</div>
-<div class="skip"><h3 class="js-scr">${e(f.skip_title)}</h3><span class="vline"></span><p class="mono-s">${e(f.skip_text)}</p>${btn(f.skip_button, '/contact')}</div></section>`; };
+<div class="qa-list">${f.items.map((q, i) => `<details class="qa"${i ? '' : ' open'}><summary><span>${e(q.q)}</span><i>${CHEV}</i></summary><div class="ans"><p>${e(q.a)}</p></div></details>`).join('')}</div></section>`; };
 
 const cta = () => { const c = H.cta; return `<section class="ctas"><div class="cta-card"><div class="cta-bg">${img(c.image)}</div><div class="grain"></div>
 <div class="cta-in">${brand('sm')}<span class="mono-s">${e(c.label)}</span>${scr('h2', e(c.title), 'h78')}<p>${e(c.text)}</p>

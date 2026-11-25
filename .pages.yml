@@ -90,8 +90,8 @@ content:
         type: object
         list: true
         fields:
-          - { name: name, label: "Name", type: string }
-          - { name: url, label: "Url", type: string }
+          - { name: name, label: "Name (X, Instagram or Email)", type: select, options: { values: [X, Instagram, Email] } }
+          - { name: url, label: "Link (for Email write mailto:your@email.com)", type: string }
       - { name: copyright, label: "Copyright", type: string }
       - { name: footer_credit, label: "Footer credit", type: string }
       - { name: seo_description, label: "Seo description", type: text }
