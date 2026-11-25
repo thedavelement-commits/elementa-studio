@@ -3,7 +3,8 @@ title: The real cost of launching without a brand
 category: Brand notes
 date: '2026-11-03'
 read: 5
-cover: /assets/post-hair.jpg
+cover: /assets/post-frustrated.jpg
+cover_position: 30% 50%
 excerpt: Launching with a placeholder logo feels like saving money. It usually costs more later.
 lead: Founders often plan to sort the brand out after launch. Then the first customers, the first investors and the first press all meet the placeholder, and that is the version people remember.
 lead_muted: A brand is not decoration. It is the first proof that you take your own product seriously.

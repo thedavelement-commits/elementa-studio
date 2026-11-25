@@ -240,7 +240,7 @@ ${cta()}${contactSec()}`;
 
 function post(p) {
   const pp = P.post; const others = posts.filter(x => x.slug !== p.slug);
-  const body = `<section class="pd-hero post-h"><div class="pd-bg js-par">${img(p.cover, p.title, '', true)}</div><div class="pd-shade"></div>
+  const body = `<section class="pd-hero post-h"><div class="pd-bg js-par">${p.cover_position ? img(p.cover, p.title, '', true).replace('<img ', `<img style="object-position:${e(p.cover_position)}" `) : img(p.cover, p.title, '', true)}</div><div class="pd-shade"></div>
 <div class="pd-in"><span class="mono-s rd">${e(p.read)} mins read</span><div><h1 class="h90 js-scr">${e(p.title)}</h1><p class="muted">${e(p.excerpt)}</p><span class="mono-s">${e(pp.written_by)}</span><div class="pd-team"><div class="who">${monoAv(53)}<div><b>${e(S.founder_name)}</b><span>${e(S.founder_role)}</span></div></div></div></div></div></section>
 <section class="sec pd-info"><div class="split"><div></div><div><div class="pd-tbl two"><div><span class="mono-s">${e(pp.subject)}</span><b>${e(p.category)}</b></div><div><span class="mono-s">${e(pp.date)}</span><b>${date(p.date)}</b></div></div>
 <p class="p24">${e(p.lead)} <span>${e(p.lead_muted)}</span></p><p class="muted">${e(p.detail)}</p></div></div></section>
