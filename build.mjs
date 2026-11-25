@@ -119,7 +119,7 @@ const services = () => { const s = H.services; return `<section class="sec svcs"
 const pricing = () => { const p = H.pricing; return `<section class="sec pricing"><div class="sec-l">${lbl(p.label)}</div><div class="center">${scr('h2', `${e(p.title_a)}<br>${e(p.title_b)}`, 'h78')}</div>
 <div class="plans">${p.plans.map((x, i) => `<div class="plan${i === 2 ? ' dark' : ''}">${i === 2 ? `<div class="pl-bg">${img(p.image)}</div>` : ''}<div class="pl-top"><span class="pl-n">0${i + 1}<i>${'•'.repeat(i + 1)}</i></span><span class="pl-t">Timeline: <b>${e(x.timeline)}</b></span></div>
 <h3>${e(x.name)}${x.badge ? `<em>${e(x.badge)}</em>` : ''}<span>${e(x.sub)}</span></h3><ul>${x.items.map(t => `<li>${CHECK}${e(t)}</li>`).join('')}</ul>
-<div class="pl-low">${btn(x.button, '/contact')}<span class="pl-p">$<b class="js-roll" data-to="${e(x.price)}">${e(x.price)}</b><small>${e(p.per)}</small></span></div></div>`).join('')}</div>
+<div class="pl-low">${btn(x.button, '/contact')}<span class="pl-pw">${x.was ? `<s class="pl-was">$${e(x.was)}</s>` : ''}<span class="pl-p">$<b class="js-roll" data-to="${e(x.price)}">${e(x.price)}</b><small>${e(p.per)}</small></span></span></div></div>`).join('')}</div>
 <div class="pr-note">${BARS(30)}<p>${e(p.note)}</p></div></section>`; };
 
 const postRow = p => { const [m, d, y] = dparts(p.date); return `<a class="pr" href="/blog/${p.slug}"><div class="pr-b"><span class="mono-s">${e(p.category)}</span><h4>${e(p.title)}</h4><p>${e(p.excerpt)}</p><span class="mlink"><span>Read more</span><i>${ARW}</i></span></div><span class="dbadge"><small>${m}</small><b>${d}</b><small>${y}</small></span></a>`; };

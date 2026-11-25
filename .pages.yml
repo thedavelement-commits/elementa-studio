@@ -270,6 +270,7 @@ content:
               - { name: sub, label: "Sub", type: string }
               - { name: timeline, label: "Timeline", type: string }
               - { name: badge, label: "Badge", type: string }
+              - { name: was, label: "Old price shown crossed out (leave empty for none)", type: string }
               - { name: price, label: "Price", type: string }
               - { name: button, label: "Button", type: string }
               - { name: items, label: "Items", type: string, list: true }

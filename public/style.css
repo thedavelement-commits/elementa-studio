@@ -301,7 +301,7 @@ html.ready .pre-c{opacity:0;transform:translateY(-8px)}
 .pl-t{font-family:var(--m);font-size:8px;text-transform:uppercase;color:var(--mut)}.pl-t b{color:#fff;font-weight:500}
 .plan h3{font-size:34px;font-weight:400;letter-spacing:-.04em;line-height:1.05;margin-top:70px}
 .plan h3 span{display:block;color:var(--mut)}
-.plan h3 em{font-style:normal;font-family:var(--m);font-size:8px;text-transform:uppercase;background:#1f1f1f;padding:3px 7px;border-radius:20px;vertical-align:middle;margin-left:10px;position:relative;top:-6px}
+.plan h3 em{display:inline-flex;align-items:center;font-style:normal;font-family:var(--m);font-size:10px;line-height:1;letter-spacing:.06em;text-transform:uppercase;color:#f2f0eb;background:var(--lime);padding:6px 10px;border-radius:20px;margin-left:12px;vertical-align:middle;position:relative;top:-4px;white-space:nowrap}
 .plan ul{list-style:none;margin-top:90px;padding-left:20px;display:flex;flex-direction:column;gap:10px}
 .plan li{display:flex;gap:10px;font-size:12px;color:var(--mut)}.plan li svg{width:12px;height:12px;color:#fff;flex:none;margin-top:2px}
 .pl-low{margin-top:auto;display:flex;align-items:center;gap:16px;background:#141414;border-radius:12px;padding:14px}
@@ -660,3 +660,5 @@ html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth [data-lenis-prevent]{
 @media (max-width:809px){.pd-vid{padding:0 16px}}
 
 .pd-two.one{grid-template-columns:1fr}.pd-two.one div{aspect-ratio:16/9}
+
+.pl-pw{display:flex;flex-direction:column;align-items:flex-start;line-height:1}.pl-was{font-size:14px;color:var(--mut);letter-spacing:-.02em;margin-bottom:4px;text-decoration-color:var(--lime);text-decoration-thickness:1.5px}
