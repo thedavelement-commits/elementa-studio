@@ -33,9 +33,12 @@ content:
       - { name: intro_white, label: "Intro (white part)", type: text }
       - { name: intro_muted, label: "Intro (grey part)", type: text }
       - { name: image_wide, label: "Wide image or video", type: file, options: { extensions: [jpg, jpeg, png, webp, gif, mp4, webm, mov] } }
+      - { name: hide_image_wide, label: "Hide the wide image", type: boolean }
       - { name: problem, label: "The problem", type: text }
       - { name: image_a, label: "Side by side, left (image or video)", type: file, options: { extensions: [jpg, jpeg, png, webp, gif, mp4, webm, mov] } }
+      - { name: hide_image_a, label: "Hide the left side by side image", type: boolean }
       - { name: image_b, label: "Side by side, right (image or video)", type: file, options: { extensions: [jpg, jpeg, png, webp, gif, mp4, webm, mov] } }
+      - { name: hide_image_b, label: "Hide the right side by side image", type: boolean }
       - { name: stat_1, label: "Result number 1 (optional, e.g. 80x)", type: string }
       - { name: stat_1_label, label: "Result number 1 label", type: string }
       - { name: stat_2, label: "Result number 2 (optional)", type: string }
@@ -43,6 +46,7 @@ content:
       - { name: results_white, label: "Results headline", type: string }
       - { name: results_muted, label: "Results text", type: text }
       - { name: gallery, label: "More images or videos (add as many as you like)", type: file, list: true, options: { extensions: [jpg, jpeg, png, webp, gif, mp4, webm, mov] } }
+      - { name: hide_gallery, label: "Hide all the extra images at the bottom", type: boolean }
       - { name: body, label: "Extra write up (optional)", type: rich-text }
   - name: blog
     label: Blog posts
