@@ -84,7 +84,7 @@ function menu() {
 
 /* shared blocks */
 const caseCard = (p, i) => `<a class="case" href="/case-studies/${p.slug}" data-cats="${e((p.categories || []).join('|'))}"><div class="c-media">${img(p.cover, p.title)}${p.video ? `<video class="js-vid" data-src="${e(p.video)}" muted loop playsinline preload="none" poster="${e(p.cover)}"></video>` : ''}</div>
-${logoOf(p.title) ? `<span class="c-logo c-logo-i">${logoTag(p.title, 4200, 48, 200)}</span>` : `<span class="c-logo">${MARK}${e(p.title)}</span>`}<div class="c-low"><div><h3 class="js-hscr">${e(p.title)}.</h3><span class="c-meta">${e(p.year)} · ${e(p.meta)}</span></div>${pills(p.tags, 'outline')}</div></a>`;
+${logoOf(p.title) ? `<span class="c-logo c-logo-i">${logoTag(p.title, 4200, 58, 200)}</span>` : `<span class="c-logo">${MARK}${e(p.title)}</span>`}<div class="c-low"><div><h3 class="js-hscr">${e(p.title)}.</h3><span class="c-meta">${e(p.year)} · ${e(p.meta)}</span></div>${pills(p.tags, 'outline')}</div></a>`;
 const caseGrid = list => `<div class="cases">${list.map(caseCard).join('')}</div>`;
 
 const faq = () => { const f = H.faq; return `<section class="sec faq"><div class="sec-l">${lbl(f.label)}</div><div class="center">${scr('h2', e(f.title), 'h78')}</div>
@@ -148,7 +148,7 @@ function home() {
 <div class="h-card"><div class="hc-l"><div class="hc-top">${brand('sm')}</div><div class="hc-b"><span class="vt">//2026</span><div><p>${e(h.card_text)}</p><span>${e(h.card_name)}</span></div></div></div><div class="hc-img">${monoAv(84)}</div></div></div></section>
 
 <section class="nums">${lbl(n.label)}<div class="nm-row"><h3>${e(n.title)}</h3><div class="nm-v">${meter(n.meter, 22)}<div><b class="js-roll" data-to="${e(n.value)}">${e(n.value)}</b><span class="mono-s">${e(n.value_label)}</span></div></div>
-<div class="nm-logos"><div class="mq"><div class="mq-t">${[...n.clients, ...n.clients].map(c => logoOf(c) ? `<span class="lg lg-i">${logoTag(c, 1500, 30, 96)}</span>` : `<span class="lg">${e(c)}</span>`).join('')}</div></div></div></div></section>
+<div class="nm-logos"><div class="mq"><div class="mq-t">${[...n.clients, ...n.clients].map(c => logoOf(c) ? `<span class="lg lg-i">${logoTag(c, 1500, 36, 96)}</span>` : `<span class="lg">${e(c)}</span>`).join('')}</div></div></div></div></section>
 
 <section class="stmt"><h2 class="h78 js-scr">${e(st.title)}</h2><span class="vline"></span><p>${e(st.text)}</p></section>
 
@@ -216,7 +216,7 @@ function caseStudy(p) {
   const vidOnly = !!p.main_video && p.video_only === true;
   const stats = [[p.stat_1, p.stat_1_label], [p.stat_2, p.stat_2_label]].filter(s => s[0]);
   const body = `<section class="pd-hero"><div class="pd-bg js-par">${media(p.hero_image, p.title, true)}</div><div class="pd-shade"></div>
-<div class="pd-in"><div></div><div><h1 class="h90 js-scr">${e(p.title)}.</h1><p class="muted">${e(p.summary)}</p><span class="mono-s">${e(c.team_label)}</span><div class="pd-team"><div class="who">${monoAv(53)}<div><b>${e(S.founder_name)}</b><span>${e(p.role)}</span></div></div></div></div></div>${logoOf(p.title) ? `<span class="pd-logo c-logo-i">${logoTag(p.title, 3000, 40, 170)}</span>` : `<span class="pd-logo">${MARK}${e(p.title)}</span>`}</section>
+<div class="pd-in"><div></div><div><h1 class="h90 js-scr">${e(p.title)}.</h1><p class="muted">${e(p.summary)}</p><span class="mono-s">${e(c.team_label)}</span><div class="pd-team"><div class="who">${monoAv(53)}<div><b>${e(S.founder_name)}</b><span>${e(p.role)}</span></div></div></div></div></div>${logoOf(p.title) ? `<span class="pd-logo c-logo-i">${logoTag(p.title, 3000, 48, 170)}</span>` : `<span class="pd-logo">${MARK}${e(p.title)}</span>`}</section>
 <section class="sec pd-info"><div class="split"><div></div><div><div class="pd-tbl"><div><span class="mono-s">${e(c.client)}</span><b>${e(p.title)}</b></div><div><span class="mono-s">${e(c.year)}</span><b>${e(p.year)}</b></div><div><span class="mono-s">${e(c.role)}</span><b>${e(p.role)}</b></div><div><span class="mono-s">${e(c.work)}</span>${pills(p.work, 'outline')}</div></div>
 <p class="p24">${e(p.intro_white)} <span>${e(p.intro_muted)}</span></p>${p.link ? btn(c.live, p.link) : btn('Start a similar project', '/contact')}</div></div></section>
 ${p.main_video ? `<section class="pd-vid"><video controls playsinline preload="metadata" poster="${e(p.main_video_poster || p.cover)}" src="${e(p.main_video)}"></video></section>` : ''}${vidOnly || p.hide_image_wide || !p.image_wide ? '' : `<section class="pd-wide"><div class="pdw js-par">${media(p.image_wide, p.title)}</div></section>`}
