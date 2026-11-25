@@ -148,7 +148,10 @@
   const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { frame(); if (vh + scrollY >= docH + vh - 40) atEnd(); }); } };
   measure(); frame();
   addEventListener('scroll', onScroll, { passive: true });
-  addEventListener('resize', () => { measure(); onScroll(); });
+  /* case cards on phones: logo sits exactly halfway between the title and the tags */
+  const placeLogos = () => { const mob = innerWidth <= 809; $$('.case').forEach(c => { const l = c.querySelector('.c-logo'), t = c.querySelector('.c-low h3'), g = c.querySelector('.c-low .pills'); if (!l || !t || !g) return; if (!mob) { l.style.top = ''; return; } const off = el => { let y = 0; for (let n = el; n && n !== c; n = n.offsetParent) y += n.offsetTop; return y; }, tb = off(t) + t.offsetHeight, gt = off(g); l.style.top = ((tb + gt) / 2) + 'px'; }); };
+  placeLogos(); if (document.fonts) document.fonts.ready.then(placeLogos); addEventListener('load', placeLogos);
+  addEventListener('resize', () => { measure(); onScroll(); placeLogos(); });
   addEventListener('load', () => { measure(); onScroll(); });
   if ('ResizeObserver' in window) { let to; new ResizeObserver(() => { clearTimeout(to); to = setTimeout(() => { measure(); onScroll(); }, 150); }).observe(document.body); }
 

@@ -8,7 +8,7 @@ const C = 'content';
 const J = f => JSON.parse(fs.readFileSync(path.join(C, f), 'utf8'));
 const S = { ...J('settings.json'), ...(process.env.FONT ? { font: process.env.FONT } : {}) }, H = J('home.json'), A = J('about.json'), P = J('pages.json');
 const md = dir => fs.readdirSync(path.join(C, dir)).filter(f => f.endsWith('.md')).map(f => { const m = matter(fs.readFileSync(path.join(C, dir, f), 'utf8')); return { ...m.data, slug: f.replace(/\.md$/, ''), body: m.content }; });
-const projects = md('projects').sort((a, b) => (a.order || 99) - (b.order || 99));
+const projects = md('projects').sort((a, b) => String(a.title).localeCompare(String(b.title), 'en', { sensitivity: 'base' }));
 const posts = md('blog').sort((a, b) => String(b.date).localeCompare(String(a.date)));
 const legal = md('legal');
 

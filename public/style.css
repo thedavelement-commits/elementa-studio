@@ -651,7 +651,7 @@ html{overflow-x:clip}
 @media (max-width:809px){.tm-g.one{grid-template-columns:1fr;margin-top:40px}.tm-g.one .tm{grid-column:1}.tm-g.one .tm-low .tm-b{display:block}.tm-g.one .tm-low{grid-template-columns:1fr auto}}
 
 html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}.lenis.lenis-stopped{overflow:clip}.lenis.lenis-smooth iframe{pointer-events:none}
-.lg-i img{display:block;opacity:.8}.c-logo-i img{display:block;filter:drop-shadow(0 1px 10px rgba(0,0,0,.45)) drop-shadow(0 0 2px rgba(0,0,0,.25))}
+.lg-i img{display:block;opacity:.8}.c-logo-i img{display:block}
 @media (max-width:809px){.lg-i img{transform:scale(.78)}.c-logo-i img{transform:scale(.8)}}
 
 .pd-vid{padding:0 var(--pad,30px);margin:20px 0 40px}.pd-vid video{display:block;width:100%;max-height:88vh;background:#000;border-radius:var(--r);object-fit:contain}
