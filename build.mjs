@@ -78,7 +78,7 @@ function menu() {
 <nav class="m-nav">${P.menu.links.map((l, i) => `<a href="${e(l.url)}" style="--i:${i}"><span>${e(l.label)}</span></a>`).join('')}</nav>
 <div class="m-legal"><a href="/legal/privacy-policy">Privacy Policy</a><a href="/legal/terms-of-service">Terms of Service</a></div></div>
 <div class="m-row"><div class="m-card m-contact"><span class="m-loc">${e(S.location)}</span><a class="m-mail" href="mailto:${e(S.email)}">${e(S.email)}</a>${soc()}</div>
-<div class="m-card m-slots"><div class="m-sl"><span class="m-bars"><i></i><i></i></span><div><b>${e(S.slots_line)}</b><span>${e(S.slots_sub)}</span></div></div>${mono('Book <b>a call</b>', '/contact')}</div></div>
+<div class="m-card m-slots"><div class="m-sl">${(() => { const t = Number(S.slots_total) || 3, o = Math.min(t, Number(S.slots_open) || 2); return `<span class="meter">${Array.from({ length: t }, (_, i) => `<i class="${i < o ? 'on' : ''}"></i>`).join('')}</span>`; })()}<div><b>${e(S.slots_line)}</b><span>${e(S.slots_sub)}</span></div></div>${mono('Book <b>a call</b>', '/contact')}</div></div>
 <div class="m-copy">${e(S.copyright)}</div></aside></div>`;
 }
 
@@ -206,7 +206,7 @@ function caseStudies() {
   const c = P.case_studies; const ORDER = ['Branding', 'UI/UX', 'Websites', 'Motion', 'AI agents']; const used = [...new Set(projects.flatMap(p => p.categories || []))]; const tags = [...ORDER.filter(t => used.includes(t)), ...used.filter(t => !ORDER.includes(t))];
   const body = `<section class="sec cs-hero"><div class="csh-l"><h1 class="h80 js-scr">${e(c.title)}</h1><p class="muted">${e(c.text)}</p></div>
 <div class="csh-r"><input class="srch js-search" placeholder="${e(c.search)}"><span class="mono-s">${e(c.filter_label)}</span><div class="pills filt js-filt"><button class="on" data-t="">${e(c.all)}</button>${tags.map(t => `<button data-t="${e(t)}">${e(t)}</button>`).join('')}</div>
-<div class="nm-v">${meter(100, 22)}<div><b class="js-roll js-count-shown" data-to="${projects.length}">${projects.length}</b><span class="mono-s">${e(c.meter_label)}</span></div></div></div></section>
+<div class="nm-v">${meter(100, projects.length).replace('class="meter"', 'class="meter js-cs-meter"')}<div><b class="js-roll js-count-shown" data-to="${projects.length}">${projects.length}</b><span class="mono-s">${e(c.meter_label)}</span></div></div></div></section>
 <section class="sec cs-list">${caseGrid(projects)}</section>${faq()}${cta()}${contactSec()}`;
   return page({ title: `Case Studies | ${S.studio_name}`, body });
 }

@@ -161,7 +161,7 @@ html.ready .pre-c{opacity:0;transform:translateY(-8px)}
 .nm-v b{font-size:32px;font-weight:400;letter-spacing:-.04em;line-height:1}
 .nm-v .mono-s{font-size:8px;margin-top:6px}
 .meter{display:flex;gap:2.5px;height:30px;align-items:stretch;margin-top:2px}
-.meter i{width:1.5px;background:rgba(255,255,255,.18)}.meter i.on{background:var(--lime)}
+.meter i{width:1.5px;background:rgba(255,255,255,.18);transition:background-color .35s ease}.meter i.on{background:var(--lime)}
 .nm-logos{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .mq{display:flex;overflow:hidden}
 .mq-t{display:flex;gap:6px;flex:none;animation:mq 40s linear infinite;will-change:transform}

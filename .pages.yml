@@ -90,6 +90,8 @@ content:
       - { name: booking_line, label: "Booking line", type: string }
       - { name: slots_line, label: "Slots line", type: string }
       - { name: slots_sub, label: "Slots sub", type: string }
+      - { name: slots_total, label: "Build slots in total (one bar each)", type: number }
+      - { name: slots_open, label: "Build slots still open (lit bars; the rest show as taken)", type: number }
       - name: socials
         label: "Socials"
         type: object
