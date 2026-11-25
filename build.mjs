@@ -52,7 +52,7 @@ const media = (src, alt = '', eager = false) => !src ? '' : isVid(src) ? `<video
 const scr = (tag, html, cls = '') => `<${tag} class="${cls} js-scr">${html}</${tag}>`;
 const soc = (cls = 'socs') => `<div class="${cls}">${S.socials.map(s => `<a href="${e(s.url)}" target="_blank" rel="noopener" aria-label="${e(s.name)}">${SOC[s.name] || SOC.Portfolio}</a>`).join('')}</div>`;
 
-const navItems = [['Home', '/'], ['About', '/about'], ['Case Studies', '/case-studies'], ['Blogs', '/blog'], ['404', '/404']];
+const navItems = [['About', '/about'], ['Case Studies', '/case-studies'], ['Blogs', '/blog']];
 
 function page({ title, desc = S.seo_description, body, preload = false, cls = '' }) {
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -107,7 +107,7 @@ const contactSec = () => `<section class="contact"><div class="ct-card"><div cla
 
 const footer = () => `<footer class="ft"><div class="ft-img">${img(H.contact.footer_image)}<div class="ft-brand">${brand()}<span class="tag">${e(S.tagline)}</span></div></div>
 <div class="ft-r"><a class="ft-mail" href="mailto:${e(S.email)}">${e(S.email)}</a><span class="ft-loc">${e(S.location)}</span>
-<div class="pills outline ft-nav">${[['Home', '/'], ['About', '/about'], ['Case Studies', '/case-studies'], ['Blogs', '/blog'], ['Contact', '/contact']].map(([l, h]) => `<a href="${h}">${l}</a>`).join('')}</div>
+<div class="pills outline ft-nav">${[['About', '/about'], ['Case Studies', '/case-studies'], ['Blogs', '/blog'], ['Contact', '/contact']].map(([l, h]) => `<a href="${h}">${l}</a>`).join('')}</div>
 ${soc()}<div class="ft-low"><div class="ft-copy">${e(S.copyright)}<br>All rights reserved.</div>
 <div class="ft-links"><span class="ft-made">${MARK}Built by Elementa</span><a href="/legal/privacy-policy">Privacy Policy</a><a href="/legal/terms-of-service">Terms of Service</a></div>
 <div class="ft-cred">${monoAv(24)}<span>${e(S.footer_credit)}</span></div></div></div></footer>`;
@@ -213,17 +213,18 @@ function caseStudies() {
 
 function caseStudy(p) {
   const c = P.case_study; const more = projects.filter(x => x.slug !== p.slug).slice(0, 2);
+  const vidOnly = !!p.main_video && (p.categories || []).every(c => c === 'Motion');
   const stats = [[p.stat_1, p.stat_1_label], [p.stat_2, p.stat_2_label]].filter(s => s[0]);
   const body = `<section class="pd-hero"><div class="pd-bg js-par">${media(p.hero_image, p.title, true)}</div><div class="pd-shade"></div>
 <div class="pd-in"><div></div><div><h1 class="h90 js-scr">${e(p.title)}.</h1><p class="muted">${e(p.summary)}</p><span class="mono-s">${e(c.team_label)}</span><div class="pd-team"><div class="who">${monoAv(53)}<div><b>${e(S.founder_name)}</b><span>${e(p.role)}</span></div></div></div></div></div>${logoOf(p.title) ? `<span class="pd-logo c-logo-i">${logoTag(p.title, 3000, 40, 170)}</span>` : `<span class="pd-logo">${MARK}${e(p.title)}</span>`}</section>
 <section class="sec pd-info"><div class="split"><div></div><div><div class="pd-tbl"><div><span class="mono-s">${e(c.client)}</span><b>${e(p.title)}</b></div><div><span class="mono-s">${e(c.year)}</span><b>${e(p.year)}</b></div><div><span class="mono-s">${e(c.role)}</span><b>${e(p.role)}</b></div><div><span class="mono-s">${e(c.work)}</span>${pills(p.work, 'outline')}</div></div>
 <p class="p24">${e(p.intro_white)} <span>${e(p.intro_muted)}</span></p>${p.link ? btn(c.live, p.link) : btn('Start a similar project', '/contact')}</div></div></section>
-<section class="pd-wide"><div class="pdw js-par">${media(p.image_wide, p.title)}</div></section>
+${p.main_video ? `<section class="pd-vid"><video controls playsinline preload="metadata" poster="${e(p.main_video_poster || p.cover)}" src="${e(p.main_video)}"></video></section>` : ''}${vidOnly ? '' : `<section class="pd-wide"><div class="pdw js-par">${media(p.image_wide, p.title)}</div></section>`}
 <section class="sec pd-prob"><div class="sec-l">${lbl(c.problem_label)}</div><div class="split"><div></div><div>${scr('h2', e(c.problem_title), 'h80')}<p class="muted">${e(p.problem)}</p></div></div>
-<div class="pd-two"><div>${media(p.image_a, p.title)}</div><div>${media(p.image_b, p.title)}</div></div></section>
+${vidOnly ? '' : `<div class="pd-two"><div>${media(p.image_a, p.title)}</div><div>${media(p.image_b, p.title)}</div></div>`}</section>
 <section class="sec pd-res"><div class="sec-l">${lbl(c.results_label)}</div><div class="split"><div></div><div>${stats.length ? `<div class="ab-stats">${stats.map(s => `<div><b class="js-roll" data-to="${e(s[0])}">${e(s[0])}</b><span class="mono-s">${e(s[1])}</span></div>`).join('')}</div>` : ''}
 <p class="p28">${e(p.results_white)}</p><p class="muted">${e(p.results_muted)}</p></div></div></section>
-${(p.gallery || []).filter(Boolean).map(g => `<section class="pd-wide"><div class="pdw js-par">${media(g, p.title)}</div></section>`).join('')}${p.body && p.body.trim() ? `<section class="sec post-b"><div class="split"><div></div><div class="md">${marked.parse(p.body)}</div></div></section>` : ''}
+${(vidOnly ? [] : (p.gallery || [])).filter(Boolean).map(g => `<section class="pd-wide"><div class="pdw js-par">${media(g, p.title)}</div></section>`).join('')}${p.body && p.body.trim() ? `<section class="sec post-b"><div class="split"><div></div><div class="md">${marked.parse(p.body)}</div></div></section>` : ''}
 <section class="sec pd-more"><div class="split"><div></div><div>${scr('h2', e(c.more_title), 'h80')}<p class="muted">${e(c.more_text)}</p>${mono(e(c.all), '/case-studies')}</div></div>${caseGrid(more)}</section>
 ${faq()}${cta()}${contactSec()}`;
   return page({ title: `${p.title} | ${S.studio_name}`, desc: p.summary, body });

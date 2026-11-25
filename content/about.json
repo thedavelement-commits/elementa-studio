@@ -82,12 +82,12 @@
   },
   "team": {
     "title": "Meet the founder.",
-    "text": "You work with Dave directly, from the first call to handover. On bigger builds trusted specialists join in, and you always know who they are.",
+    "text": "The person behind Elementa Studio. Every project is shaped by the same eye for detail, from the first call to the launch.",
     "cards": [
       {
         "name": "Dave",
         "role": "Founder",
-        "sub": "Your point of contact",
+        "sub": "Elementa Studio",
         "image": "/assets/dave.jpg"
       }
     ]

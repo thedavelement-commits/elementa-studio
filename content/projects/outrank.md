@@ -3,7 +3,7 @@ title: Outrank
 order: 10
 year: '2026'
 cover: /assets/detail-3.jpg
-video: ''
+video: /assets/motion/outrank-preview.mp4
 meta: Motion · Explainer
 categories:
 - Motion
@@ -27,6 +27,8 @@ stat_2_label: ''
 results_white: A clear story in motion.
 results_muted: Motion assets that explain Outrank across its site and socials.
 homepage: false
+main_video: /assets/motion/outrank.mp4
+main_video_poster: /assets/motion/outrank-poster.jpg
 hero_image: /assets/detail-3.jpg
 image_wide: /assets/detail-1.jpg
 image_a: /assets/case-street.jpg

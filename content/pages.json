@@ -69,10 +69,6 @@
   "menu": {
     "links": [
       {
-        "label": "homepage",
-        "url": "/"
-      },
-      {
         "label": "about",
         "url": "/about"
       },

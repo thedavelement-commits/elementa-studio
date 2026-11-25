@@ -3,7 +3,7 @@ title: Zix Business Suite
 order: 4
 year: '2026'
 cover: /assets/case-spring.jpg
-video: ''
+video: /assets/motion/zix-business-suite-preview.mp4
 meta: Motion · Launch video
 categories:
 - Motion
@@ -26,6 +26,8 @@ stat_2: ''
 stat_2_label: ''
 results_white: One video, used everywhere.
 results_muted: The explainer introduced the launch and was shared across the Zix website and social channels.
+main_video: /assets/motion/zix-business-suite.mp4
+main_video_poster: /assets/motion/zix-business-suite-poster.jpg
 hero_image: /assets/case-spring.jpg
 image_wide: /assets/detail-1.jpg
 image_a: /assets/case-street.jpg
