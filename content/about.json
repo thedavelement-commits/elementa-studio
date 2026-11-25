@@ -3,7 +3,7 @@
     "title_a": "A studio",
     "title_hl": "built on",
     "title_b": "shipped work.",
-    "stat_1": "47+",
+    "stat_1": "147+",
     "stat_1_label": "Projects delivered since 2020",
     "stat_2": "5",
     "stat_2_label": "Disciplines under one roof",
@@ -20,7 +20,7 @@
       "label": "of designing brands and products"
     },
     {
-      "value": "47+",
+      "value": "147+",
       "label": "projects delivered"
     },
     {
@@ -48,9 +48,11 @@
   "stack": [
     "Figma",
     "Framer",
-    "React",
-    "Vercel",
+    "Photoshop",
+    "Illustrator",
     "After Effects",
+    "React",
+    "Node.js",
     "Botpress"
   ],
   "record": {

@@ -20,7 +20,7 @@
   "numbers": {
     "label": "By the numbers",
     "title": "Founders who trusted us with their launch.",
-    "value": "47+",
+    "value": "147+",
     "value_label": "Projects delivered",
     "meter": 92,
     "clients": [
@@ -48,13 +48,13 @@
       "Launch",
       "Support"
     ],
-    "text": "Since 2020 we have delivered more than 47 projects, from brand identities and launch videos to websites, app screens and AI agents. Everything we hand over lives in your own accounts and stays yours."
+    "text": "Since 2020 we have delivered more than 147 projects, from brand identities and launch videos to websites, app screens and AI agents. Everything we hand over lives in your own accounts and stays yours."
   },
   "about": {
     "title_a": "A studio",
     "title_hl": "built on",
     "title_b": "shipped work.",
-    "stat_1": "47+",
+    "stat_1": "147+",
     "stat_1_label": "Projects delivered.",
     "stat_2": "6",
     "stat_2_suffix": "years",
@@ -167,7 +167,7 @@
     "stack": [
       "Figma",
       "React",
-      "Vercel",
+      "Node.js",
       "CMS"
     ],
     "brief_white": "The brief: no theatrics.",
