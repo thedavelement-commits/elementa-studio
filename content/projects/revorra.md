@@ -17,7 +17,7 @@ work:
 - Website
 - Development
 - CMS
-link: ''
+link: https://revorra.org
 intro_white: Revorra lets users earn by completing simple tasks. The client wanted a site that explained the offer clearly and moved people straight to sign up.
 intro_muted: 'The one rule was no theatrics: every section had to earn its place.'
 problem: The old pages buried the offer under long text and generic graphics. Visitors arrived curious and left before they understood how earning worked, so sign ups stayed low.

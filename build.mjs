@@ -33,7 +33,7 @@ const BARS = n => `<span class="barcode" aria-hidden="true">${Array.from({ lengt
 
 /* atoms */
 const lbl = t => `<div class="lbl">${ARW}<span>${e(t)}</span></div>`;
-const btn = (t, href, cls = '') => `<a class="btn ${cls}" href="${href}"><span class="b-t"><span class="rl"><span data-t="${e(t)}">${e(t)}</span></span></span><span class="b-a">${ARW}</span></a>`;
+const btn = (t, href, cls = '') => `<a class="btn ${cls}" href="${href}"${/^https?:/.test(href) ? ' target="_blank" rel="noopener"' : ''}><span class="b-t"><span class="rl"><span data-t="${e(t)}">${e(t)}</span></span></span><span class="b-a">${ARW}</span></a>`;
 const mono = (t, href, cls = '') => `<a class="mlink ${cls}" href="${href}"><span>${t}</span><i>${ARW}</i></a>`;
 const hl = t => `<span class="hl">${e(t)}</span>`;
 const brand = (cls = '') => `<span class="brand ${cls}">${LOGO}</span>`;
